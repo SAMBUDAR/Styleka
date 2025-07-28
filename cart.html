@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+   <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
   <title>My Cart</title>
   <style>
     body {
@@ -179,6 +182,31 @@
   <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
+    <section id="header">
+        <!-- <a href="#"><img src="img/Untitled_design__1_-removebg-preview.png" class="logo" alt=""></a> -->
+
+        <!-- <h1>STYLÉKA</h1> -->
+
+        <span class="site-title">STYLÉKA</span>
+
+        <div>
+            <ul id="navbar">
+
+                <li><a  href="Index.html">Home</a></li>
+                <li><a  href="shop.html">Shop</a></li>
+                <li><a  href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+            </ul>
+        </div>
+
+        <div id="mobile">
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a> 
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
+    </section>
   <h1>My Cart</h1>
   <ul id="cart-list"></ul>
   <h3 id="total">Total: ₹0</h3>
