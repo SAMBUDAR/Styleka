@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Style Quiz - STYLÉKA</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="quiz.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <section id="header">
+      <span class="site-title">STYLÉKA</span>
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a class="active" href="style-quiz.html">Style Quiz</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li id="lg-bag">
+            <a href="cart.html"><i class="fa fa-shopping-cart"></i></a>
+          </li>
+          <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+      </div>
+    </section>
+
+    <!-- Quiz Hero Section -->
+    <section id="quiz-hero" class="section-p1">
+      <div class="quiz-hero-content">
+        <h1>Discover Your Perfect Style</h1>
+        <p>
+          Take our personalized quiz to get fashion recommendations tailored
+          just for you
+        </p>
+      </div>
+    </section>
+
+    <!-- Quiz Container -->
+    <section id="quiz-section" class="section-p1">
+      <div class="quiz-container">
+        <div class="quiz-header">
+          <h2>Style Personality Quiz</h2>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span class="progress-text" id="progressText">Question 1 of 5</span>
+          </div>
+        </div>
+
+        <div class="quiz-content">
+          <!-- Question 1 -->
+          <div class="question active" data-question="1">
+            <h3>What's your go-to style vibe?</h3>
+            <div class="options-grid">
+              <div class="option" data-value="casual">
+                <div class="option-icon">
+                  <i class="fas fa-tshirt"></i>
+                </div>
+                <h4>Casual & Comfy</h4>
+                <p>Relaxed, everyday wear that prioritizes comfort</p>
+              </div>
+              <div class="option" data-value="chic">
+                <div class="option-icon">
+                  <i class="fas fa-gem"></i>
+                </div>
+                <h4>Chic & Elegant</h4>
+                <p>Sophisticated and refined for any occasion</p>
+              </div>
+              <div class="option" data-value="trendy">
+                <div class="option-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <h4>Trendy & Bold</h4>
+                <p>Fashion-forward and statement-making</p>
+              </div>
+              <div class="option" data-value="classic">
+                <div class="option-icon">
+                  <i class="fas fa-crown"></i>
+                </div>
+                <h4>Classic & Timeless</h4>
+                <p>Traditional pieces that never go out of style</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="question" data-question="2">
+            <h3>Which color palette speaks to you?</h3>
+            <div class="options-grid">
+              <div class="option" data-value="neutral">
+                <div class="option-icon color-neutral">
+                  <i class="fas fa-circle"></i>
+                </div>
+                <h4>Neutral Tones</h4>
+                <p>Beige, cream, brown, white</p>
+              </div>
+              <div class="option" data-value="bold">
+                <div class="option-icon color-bold">
+                  <i class="fas fa-circle"></i>
+                </div>
+                <h4>Bold & Bright</h4>
+                <p>Red, yellow, electric blue</p>
+              </div>
+              <div class="option" data-value="pastel">
+                <div class="option-icon color-pastel">
+                  <i class="fas fa-circle"></i>
+                </div>
+                <h4>Soft Pastels</h4>
+                <p>Pink, lavender, mint green</p>
+              </div>
+              <div class="option" data-value="monochrome">
+                <div class="option-icon color-mono">
+                  <i class="fas fa-circle"></i>
+                </div>
+                <h4>Monochrome</h4>
+                <p>Black, white, gray</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="question" data-question="3">
+            <h3>What occasions do you dress for most?</h3>
+            <div class="options-grid">
+              <div class="option" data-value="work">
+                <div class="option-icon">
+                  <i class="fas fa-briefcase"></i>
+                </div>
+                <h4>Work & Professional</h4>
+                <p>Office meetings, presentations</p>
+              </div>
+              <div class="option" data-value="social">
+                <div class="option-icon">
+                  <i class="fas fa-users"></i>
+                </div>
+                <h4>Social Events</h4>
+                <p>Parties, dinners, gatherings</p>
+              </div>
+              <div class="option" data-value="casual">
+                <div class="option-icon">
+                  <i class="fas fa-home"></i>
+                </div>
+                <h4>Everyday Casual</h4>
+                <p>Daily activities, errands</p>
+              </div>
+              <div class="option" data-value="special">
+                <div class="option-icon">
+                  <i class="fas fa-glass-cheers"></i>
+                </div>
+                <h4>Special Occasions</h4>
+                <p>Weddings, galas, celebrations</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="question" data-question="4">
+            <h3>What's your ideal fit preference?</h3>
+            <div class="options-grid">
+              <div class="option" data-value="fitted">
+                <div class="option-icon">
+                  <i class="fas fa-user-tie"></i>
+                </div>
+                <h4>Fitted & Tailored</h4>
+                <p>Close to body, structured</p>
+              </div>
+              <div class="option" data-value="relaxed">
+                <div class="option-icon">
+                  <i class="fas fa-tshirt"></i>
+                </div>
+                <h4>Relaxed & Flowy</h4>
+                <p>Loose, comfortable fit</p>
+              </div>
+              <div class="option" data-value="balanced">
+                <div class="option-icon">
+                  <i class="fas fa-balance-scale"></i>
+                </div>
+                <h4>Balanced Fit</h4>
+                <p>Not too tight, not too loose</p>
+              </div>
+              <div class="option" data-value="oversized">
+                <div class="option-icon">
+                  <i class="fas fa-expand"></i>
+                </div>
+                <h4>Oversized & Cozy</h4>
+                <p>Roomy, relaxed silhouette</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="question" data-question="5">
+            <h3>What's your shopping budget range?</h3>
+            <div class="options-grid">
+              <div class="option" data-value="budget">
+                <div class="option-icon">
+                  <i class="fas fa-dollar-sign"></i>
+                </div>
+                <h4>Budget-Friendly</h4>
+                <p>Under $50 per item</p>
+              </div>
+              <div class="option" data-value="mid">
+                <div class="option-icon">
+                  <i class="fas fa-coins"></i>
+                </div>
+                <h4>Mid-Range</h4>
+                <p>$50 - $150 per item</p>
+              </div>
+              <div class="option" data-value="premium">
+                <div class="option-icon">
+                  <i class="fas fa-gem"></i>
+                </div>
+                <h4>Premium</h4>
+                <p>$150 - $300 per item</p>
+              </div>
+              <div class="option" data-value="luxury">
+                <div class="option-icon">
+                  <i class="fas fa-crown"></i>
+                </div>
+                <h4>Luxury</h4>
+                <p>$300+ per item</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="quiz-navigation">
+            <button class="btn-secondary" id="prevBtn" disabled>
+              <i class="fas fa-arrow-left"></i> Previous
+            </button>
+            <button class="btn-primary" id="nextBtn" disabled>
+              Next <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection">
+          <div class="results-header">
+            <h2>Your Style Profile</h2>
+            <div class="style-badge" id="styleBadge"></div>
+          </div>
+
+          <div class="style-description" id="styleDescription"></div>
+
+          <div class="recommendations">
+            <h3>Recommended for You</h3>
+            <div class="recommendations-grid" id="recommendationsGrid"></div>
+          </div>
+
+          <div class="quiz-actions">
+            <button
+              class="btn-primary"
+              onclick="window.location.href='shop.html'"
+            >
+              Shop Now <i class="fas fa-shopping-bag"></i>
+            </button>
+            <button class="btn-secondary" id="retakeBtn">
+              Retake Quiz <i class="fas fa-redo"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="quiz.js"></script>
+  </body>
+</html>
