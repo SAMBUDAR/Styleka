@@ -41,12 +41,10 @@ To run this project on your local machine, follow the steps below:
 git clone https://github.com/SAMBUDAR/Styleka.git
 cd Styleka
 
-2. **Install dependencies**
+2. **Run with live server**
+Right-click index.html and choose "Open with Live Server" (if using VS Code).
 
-npm install
-
-3. **Run the development server**
-npm run dev
+![alt text](image.png)
 
 
 ## 🤝 Contributing
@@ -58,7 +56,8 @@ Steps to Contribute:
 
 2. Create a branch (git checkout -b feature-xyz)
 
-3. Commit your changes (git commit -m "Add feature XYZ")
+3. Commit your changes (git add . 
+                        git commit -m "Add feature XYZ")
 
 4. Push the branch (git push origin feature-xyz)
 
