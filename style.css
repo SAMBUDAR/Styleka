@@ -97,6 +97,75 @@ body{
 .logo{
     height: 200px;
 }
+#reviews {
+  background: #fff;
+  padding: 2rem;
+  max-width: 700px;
+  margin: 4rem auto;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+#reviews h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+#review-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+#review-form input,
+#review-form textarea,
+#review-form select {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#review-form button {
+  background-color: #222;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#review-list {
+  margin-top: 2rem;
+}
+
+.review {
+  background-color: #f9f9f9;
+  border-left: 4px solid #222;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.review .name {
+  font-weight: bold;
+  color: #555;
+}
+
+.review .stars {
+  color: goldenrod;
+  margin-bottom: 0.5rem;
+}
+
+#average-rating {
+  font-weight: bold;
+  text-align: center;
+  color: goldenrod;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
 
 #navbar{
     display: flex;

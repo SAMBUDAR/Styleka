@@ -46,6 +46,31 @@
         <p>Where Luxury Meets Simplicity</p>
         
     </section>
+<section id="reviews">
+  <h2>User Reviews & Testimonials</h2>
+
+  <div id="review-list">
+    <!-- Reviews will appear here -->
+  </div>
+
+  <form id="review-form">
+    <input type="text" id="name" placeholder="Your Name (optional)" />
+
+    <label for="rating">Rating:</label>
+    <select id="rating" required>
+      <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
+      <option value="4">⭐️⭐️⭐️⭐️</option>
+      <option value="3">⭐️⭐️⭐️</option>
+      <option value="2">⭐️⭐️</option>
+      <option value="1">⭐️</option>
+    </select>
+
+    <textarea id="comment" placeholder="Your Feedback" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="average-rating"></div>
+</section>
 
    <section id="about-head" class="section-p1">
     <img src="img/About/a6.jpg" alt="">
