@@ -5,121 +5,758 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STYLÉKA</title>
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" /> -->
+    <title>About STYLÉKA | Luxury Fashion Redefined</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+ 
+</head>
+</head>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #000000;
+            --secondary: #ff6b6b;
+            --accent: #f8f8f8;
+            --text: #333333;
+            --light-text: #777777;
+        }
+        #navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover ,
+#navbar li a.active{
+    color: #088178;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: #088178;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .site-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        
+        /* Header */
+        #header {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        
+        /* Hero Section */
+        .about-hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .about-hero h1 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .about-hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        
+        /* About Content */
+        .about-content {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 3rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s ease;
+        }
+        
+        .about-img:hover {
+            transform: scale(1.03);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+        
+        .highlight-box {
+            background-color: var(--accent);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .highlight-box:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--secondary);
+        }
+        
+        /* Team Section */
+        .team-section {
+            padding: 100px 0;
+            background-color: var(--accent);
+            text-align: center;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .team-member {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--accent);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-member h4 {
+            margin: 15px 0 5px;
+            color: var(--primary);
+        }
+        
+        .team-member p {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .stat-item {
+            padding: 30px;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        /* App Section */
+        .app-section {
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .app-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .app-video {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+            transition: transform 0.5s ease;
+        }
+        
+        .app-video:hover {
+            transform: scale(1.02);
+        }
+        
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .download-btn {
+            display: flex;
+            align-items: center;
+            background: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-5px);
+            background: var(--secondary);
+        }
+        
+        .download-btn i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 100px 0;
+            background-color: var(--accent);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: rotate(15deg) scale(1.1);
+            background: var(--primary);
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .feature-card p {
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .about-hero p {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero {
+                height: 70vh;
+            }
+            
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .about-hero {
+                height: 60vh;
+            }
+            
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        /* Animations */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        .animate-delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .animate-delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .animate-delay-3 {
+            animation-delay: 0.6s;
+        }
+        /*Header Start */ 
+#header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* font-style: italic; */
+    padding: 20px 80px;
+    background: #E3E6F3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.site-title{
+    font-size: 5em;
+    font-weight: bold;
+    color: black;
+}
+
+.logo{
+    height: 200px;
+}
+
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.3s ease;
+}
+
+#navbar li a:hover ,
+#navbar li a.active{
+    color: #088178;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after{
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: #088178;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+#mobile{
+    display: none;
+    align-items: center;
+}
+
+#close{
+    display: none;
+}
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+
+  /* Import font at the top */
+    @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+    /* Only this class will use the font */
+    .site-title {
+      font-size: 5em;
+      font-weight: bold;
+      color: black;
+      font-family: 'Play', sans-serif;  /* Font only applied here */
+    }
+.animate__animated.animate__fadeInDown{
+    color: #E3E6F3;
+
+}
+    </style>
 </head>
 
 <body>
+    
 
     <section id="header">
-        <!-- <a href="#"><img src="img/Untitled_design__1_-removebg-preview.png" class="logo" alt=""></a> -->
-
-        <!-- <h1>STYLÉKA</h1> -->
-
+        
         <span class="site-title">STYLÉKA</span>
-
-        <div>
+          <div>
             <ul id="navbar">
 
                 <li><a  href="Index.html">Home</a></li>
                 <li><a  href="shop.html">Shop</a></li>
-                <li><a  href="blog.html">Blog</a></li>
-                <li><a class="active" href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a class="active"  href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                    <li><a href="register.html">Register</a></li>
                 <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                 <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
             </ul>
         </div>
 
         <div id="mobile">
-            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a> 
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
             <i id="bar" class="fas fa-outdent"></i>
         </div>
     </section>
 
-    <section id="page-header" class="about-header">
-        
-        <h2>#Know Us</h2>
-        
-        <p>Where Luxury Meets Simplicity</p>
-        
+    <section class="about-hero">
+        <h1 class="animate__animated animate__fadeInDown">Our Story</h1>
+        <p class="animate__animated animate__fadeInUp animate-delay-1">Where luxury fashion meets effortless style</p>
+        <a href="#about" class="scroll-down animate__animated animate__fadeIn animate-delay-2">
+            <i class="fas fa-chevron-down"></i>
+        </a>
     </section>
 
-   <section id="about-head" class="section-p1">
-    <img src="img/About/a6.jpg" alt="">
-    <div>
-        <h2>Who We Are?</h2>
-        <p>Welcome to STYLÉKA, where style luxury. Our online shopping experience is designed with you in mind:
-
-            On-Time Delivery: We guarantee prompt delivery to your doorstep, with real-time tracking for complete peace of mind.
-            Easy Returns: Hassle-free 30-day return policy with free shipping on all returns.
-            24/7 Help Centre: Our dedicated support team is always available to assist with any questions or concerns.
-            Secure Payment Options: Multiple payment methods with advanced encryption for your security.
-            Personalized Recommendations: Discover products tailored to your preferences and shopping history.
-            Premium Packaging: Every order arrives in our signature packaging, perfect for gifting or treating yourself.
-            Loyalty Rewards Program: Earn points with every purchase and unlock exclusive benefits.
+    <section id="about" class="about-content">
+        <div class="about-container">
+            <div class="section-title">
+                <h2 class="animate__animated animate__fadeIn">Redefining Fashion</h2>
+            </div>
             
-            At STYLÉKA, we're committed to making your online shopping experience exceptional from browse to unbox.</p>
+            <div class="about-grid">
+                <div class="about-img animate__animated animate__fadeInLeft">
+                    <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80" alt="STYLÉKA Fashion">
+                </div>
+                <div class="about-text animate__animated animate__fadeInRight">
+                    <h3>Who We Are</h3>
+                    <p>STYLÉKA was born from a passion for creating fashion that speaks to the modern individual. Founded in 2020, we've grown from a small boutique to a global fashion destination, all while maintaining our commitment to quality, sustainability, and innovative design.</p>
+                    <p>Our team of designers, stylists, and fashion experts work tirelessly to curate collections that blend timeless elegance with contemporary trends. We believe fashion should be accessible, enjoyable, and empowering for everyone.</p>
+                    
+                    <div class="highlight-box">
+                        <p>"Fashion is not just about what you wear, it's about how you wear it. At STYLÉKA, we create pieces that make you feel confident, comfortable, and uniquely you."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <abbr title="">STYLÉKA delivers style with luxury: on-time delivery, easy returns, 24/7 support, secure payments, 
-            personalized recommendations, premium packaging, and loyalty rewards—all designed to make your 
-            online shopping experience exceptional from browse to unbox.
-            </abbr>
+    <section class="team-section">
+        <div class="about-container">
+            <div class="section-title">
+                <h2 class="animate__animated animate__fadeIn">Meet The Team</h2>
+                <p class="animate__animated animate__fadeInUp animate-delay-1">The creative minds behind STYLÉKA</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member animate__animated animate__fadeInUp">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Sarah Johnson">
+                    <h4>Sarah Johnson</h4>
+                    <p>Creative Director</p>
+                </div>
+                
+                <div class="team-member animate__animated animate__fadeInUp animate-delay-1">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Michael Chen">
+                    <h4>Michael Chen</h4>
+                    <p>Head Designer</p>
+                </div>
+                
+                <div class="team-member animate__animated animate__fadeInUp animate-delay-2">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1961&q=80" alt="Aisha Williams">
+                    <h4>Aisha Williams</h4>
+                    <p>Marketing Director</p>
+                </div>
+                
+                <div class="team-member animate__animated animate__fadeInUp animate-delay-3">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1888&q=80" alt="David Kim">
+                    <h4>David Kim</h4>
+                    <p>Customer Experience</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <br><br>
+    <section class="stats-section">
+        <div class="about-container">
+            <div class="section-title">
+                <h2 class="animate__animated animate__fadeIn">By The Numbers</h2>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item animate__animated animate__fadeIn">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                
+                <div class="stat-item animate__animated animate__fadeIn animate-delay-1">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+                
+                <div class="stat-item animate__animated animate__fadeIn animate-delay-2">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Customer Support</div>
+                </div>
+                
+                <div class="stat-item animate__animated animate__fadeIn animate-delay-3">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Satisfaction Guarantee</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%">STYLÉKA delivers style with convenience: on-time delivery, easy returns, 24/7 support, secure payments, personalized recommendations, premium packaging, and loyalty rewards—all designed to make your online shopping experience exceptional from browse to unbox.
+    <section class="app-section">
+        <div class="app-container">
+            <div class="section-title">
+                <h2 class="animate__animated animate__fadeIn">Our Mobile App</h2>
+                <p class="animate__animated animate__fadeInUp animate-delay-1">Experience STYLÉKA on the go</p>
+            </div>
+            
+            <div class="app-video animate__animated animate__fadeInUp">
+                <video autoplay muted loop>
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-looking-through-clothes-in-a-closet-39839-large.mp4" type="video/mp4">
+                </video>
+            </div>
+            
+            <div class="download-buttons">
+                <a href="#" class="download-btn animate__animated animate__fadeInLeft">
+                    <i class="fab fa-apple"></i>
+                    <span>App Store</span>
+                </a>
+                <a href="#" class="download-btn animate__animated animate__fadeInRight">
+                    <i class="fab fa-google-play"></i>
+                    <span>Google Play</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-            </marquee>
-    </div>
-   </section>
-
-   <section id="about-app" class="section-p1">
-    <h1>Download Our <a href="#">App</a></h1>
-    <div class="video">
-        <video autoplay muted loop src="img/About/1.mp4"></video>
-    </div>
-   </section>
-
-   <section id="feature" class="section-p1">
-    <div class="fe-box">
-        <img src="img/f1.png" alt="">
-        <h6>Free Shipping</h6>
-    </div>
-    <div class="fe-box">
-        <img src="img/f2.png" alt="">
-        <h6>Online Order</h6>
-    </div>
-    <div class="fe-box">
-        <img src="img/f3.png" alt="">
-        <h6>Save Money</h6>
-    </div>
-    <div class="fe-box">
-        <img src="img/f4.png" alt="">
-        <h6>Promotions</h6>
-    </div>
-    <div class="fe-box">
-        <img src="img/f5.png" alt="">
-        <h6>Happy Sell</h6>
-    </div>
-    <div class="fe-box">
-        <img src="img/f6.png" alt="">
-        <h6>24/7 Support</h6>
-    </div>
-</section>
-
-<section id="newsletter" class="section-p1 section-m1">
-    <div class="newstext">
-        <h4>Sign Up For Newsletter</h4>
-        <p>Get E-mail updates about ourlatest shop and <span>special offers.</span></p>
-    </div>
-    <div class="form">
-        <input type="text" placeholder="Your email address">
-        <button class="normal">Sign Up</button>
-    </div>
-</section>
+    <section class="features-section">
+        <div class="about-container">
+            <div class="section-title">
+                <h2 class="animate__animated animate__fadeIn">Why Choose Us</h2>
+                <p class="animate__animated animate__fadeInUp animate-delay-1">What makes STYLÉKA special</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card animate__animated animate__fadeInUp">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Fast Shipping</h3>
+                    <p>Get your order delivered within 2-3 business days with our premium shipping options.</p>
+                </div>
+                
+                <div class="feature-card animate__animated animate__fadeInUp animate-delay-1">
+                    <div class="feature-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Easy Returns</h3>
+                    <p>Not happy with your purchase? Return it within 30 days for a full refund.</p>
+                </div>
+                
+                <div class="feature-card animate__animated animate__fadeInUp animate-delay-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Secure Payments</h3>
+                    <p>Shop with confidence using our 256-bit encrypted payment system.</p>
+                </div>
+                
+                <div class="feature-card animate__animated animate__fadeInUp animate-delay-3">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Premium Quality</h3>
+                    <p>Each piece is carefully crafted with the finest materials for lasting comfort.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="section-p1">
         <div class="col">
@@ -162,11 +799,11 @@
             <h4>Install App</h4>
             <p>From App Store or Google Play</p>
             <div class="row">
-                <img src="img/Pay/app.jpg" alt="">
-                <img src="img/Pay/play.jpg" alt="">
+                <img src="img/Pay/app.jpg" alt="App Store">
+                <img src="img/Pay/play.jpg" alt="Google Play">
             </div>
             <p>Secure Payment Gateways</p>
-            <img src="img/Pay/pay.png" alt="">
+            <img src="img/Pay/pay.png" alt="Payment Methods">
         </div>
 
         <div class="copyright">
@@ -175,6 +812,50 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate elements when they come into view
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.about-img, .about-text, .team-member, .stat-item, .feature-card');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if(elementPosition < screenPosition) {
+                        element.classList.add('animate__animated', 'animate__fadeInUp');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Run once on load
+            
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Hover effects for feature cards
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                    this.style.boxShadow = '0 15px 40px rgba(0, 0, 0, 0.1)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.05)';
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
