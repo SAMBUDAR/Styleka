@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STYLÉKA - Shop</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="dark-mode.css">
     <style>
         /* Import modern fonts */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -21,8 +22,10 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: var(--bg-primary, linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%));
+            color: var(--text-primary, #333);
             min-height: 100vh;
+            transition: all 0.3s ease;
         }
 
         .section-p1 {
@@ -39,13 +42,19 @@
             align-items: center;
             justify-content: space-between;
             padding: 20px 80px;
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--header-bg, rgba(255, 255, 255, 0.95));
             backdrop-filter: blur(20px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px var(--shadow-light, rgba(0, 0, 0, 0.1));
             position: sticky;
             top: 0;
             z-index: 999;
             transition: all 0.3s ease;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         .site-title {
@@ -71,7 +80,7 @@
             text-decoration: none;
             font-size: 16px;
             font-weight: 500;
-            color: #333;
+            color: var(--text-primary, #333);
             transition: all 0.3s ease;
             padding: 12px 24px;
             border-radius: 8px;
@@ -121,6 +130,12 @@
             overflow: hidden;
         }
 
+        /* Dark mode page header */
+        [data-theme="dark"] #page-header {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9)),
+                        url('https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+        }
+
         #page-header::before {
             content: '';
             position: absolute;
@@ -130,6 +145,10 @@
             bottom: 0;
             background: rgba(0, 0, 0, 0.3);
             z-index: 1;
+        }
+
+        [data-theme="dark"] #page-header::before {
+            background: rgba(0, 0, 0, 0.5);
         }
 
         #page-header > * {
@@ -166,10 +185,10 @@
 
         /* Enhanced Product Section */
         #product1 {
-            background: white;
+            background: var(--card-bg, white);
             border-radius: 20px;
             margin: 40px 80px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 60px var(--shadow-light, rgba(0, 0, 0, 0.1));
             position: relative;
             overflow: hidden;
         }
@@ -184,6 +203,10 @@
             background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.05), transparent);
             animation: shimmer 3s infinite;
             pointer-events: none;
+        }
+
+        [data-theme="dark"] #product1::before {
+            background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.1), transparent);
         }
 
         @keyframes shimmer {
@@ -202,12 +225,12 @@
 
         .pro {
             padding: 25px 20px;
-            border: 1px solid rgba(102, 126, 234, 0.2);
+            border: 1px solid var(--border-color, rgba(102, 126, 234, 0.2));
             border-radius: 20px;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px var(--shadow-light, rgba(0, 0, 0, 0.1));
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            background: white;
+            background: var(--card-bg, white);
             position: relative;
             overflow: hidden;
             transform-style: preserve-3d;
@@ -232,8 +255,12 @@
 
         .pro:hover {
             transform: translateY(-15px) rotateX(5deg);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 25px 60px var(--shadow-medium, rgba(0, 0, 0, 0.2));
             border-color: #667eea;
+        }
+
+        [data-theme="dark"] .pro:hover {
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
         }
 
         .pro > * {
@@ -250,9 +277,17 @@
             filter: brightness(1) saturate(1);
         }
 
+        [data-theme="dark"] .pro img {
+            filter: brightness(0.9) saturate(1.1);
+        }
+
         .pro:hover img {
             transform: scale(1.08);
             filter: brightness(1.1) saturate(1.2);
+        }
+
+        [data-theme="dark"] .pro:hover img {
+            filter: brightness(1) saturate(1.3);
         }
 
         .des {
@@ -271,11 +306,16 @@
             border-radius: 15px;
             display: inline-block;
             margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .des span {
+            background: rgba(102, 126, 234, 0.2);
         }
 
         .des h5 {
             padding: 8px 0;
-            color: #333;
+            color: var(--text-primary, #333);
             font-size: 16px;
             font-weight: 600;
             line-height: 1.4;
@@ -343,11 +383,12 @@
         /* Enhanced Pagination */
         #pagination {
             text-align: center;
-            background: white;
+            background: var(--card-bg, white);
             border-radius: 15px;
             margin: 40px 80px;
             padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px var(--shadow-light, rgba(0, 0, 0, 0.1));
+            transition: all 0.3s ease;
         }
 
         #pagination a {
@@ -456,7 +497,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+            background: var(--footer-bg, linear-gradient(135deg, #2c3e50, #34495e));
             color: white;
             padding: 40px 80px;
             border-radius: 20px 20px 0 0;
@@ -559,10 +600,62 @@
             }
         }
 
+        /* Dark Mode Specific Enhancements */
+        [data-theme="dark"] body {
+            background: var(--bg-primary);
+        }
+
+        [data-theme="dark"] .pro {
+            background: var(--card-bg);
+            border-color: var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="dark"] .pro:hover {
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        [data-theme="dark"] #pagination {
+            background: var(--card-bg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="dark"] #newsletter {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        /* Enhanced dark mode scrollbar */
+        [data-theme="dark"] ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        [data-theme="dark"] ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        [data-theme="dark"] ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+
+        [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+            background: #667eea;
+        }
+
+        /* Dark mode selection styling */
+        [data-theme="dark"] ::selection {
+            background: rgba(102, 126, 234, 0.3);
+            color: var(--text-primary);
+        }
+
         /* Responsive Design */
         @media (max-width: 799px) {
             .section-p1 {
                 padding: 40px 40px;
+            }
+
+            .header-controls {
+                gap: 10px;
             }
 
             #header {
@@ -579,8 +672,8 @@
                 right: -300px;
                 height: 100vh;
                 width: 300px;
-                background: white;
-                box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+                background: var(--navbar-mobile-bg, white);
+                box-shadow: 0 40px 60px var(--shadow-light, rgba(0, 0, 0, 0.1));
                 padding: 80px 0 0 10px;
                 transition: 0.3s;
             }
@@ -599,7 +692,7 @@
             }
 
             #mobile i {
-                color: #333;
+                color: var(--text-primary, #333);
                 font-size: 24px;
                 padding-left: 20px;
                 cursor: pointer;
@@ -729,9 +822,14 @@
             </ul>
         </div>
 
-        <div id="mobile">
-            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a> 
-            <i id="bar" class="fas fa-outdent"></i>
+        <div class="header-controls">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            <div id="mobile">
+                <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a> 
+                <i id="bar" class="fas fa-outdent"></i>
+            </div>
         </div>
     </section>
 
@@ -1063,6 +1161,7 @@
         </div>
     </footer>
 
+    <script src="theme-manager.js"></script>
     <script src="script.js"></script>
 </body>
 

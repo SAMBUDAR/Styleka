@@ -8,6 +8,7 @@
     <title>STYLÉKA</title>
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="dark-mode.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -33,9 +34,14 @@
             </ul>
         </div>
 
-        <div id="mobile">
-            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a> 
-            <i id="bar" class="fas fa-outdent"></i>
+        <div class="header-controls">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            <div id="mobile">
+                <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a> 
+                <i id="bar" class="fas fa-outdent"></i>
+            </div>
         </div>
     </section>
 
@@ -174,6 +180,7 @@
         </div>
     </footer>
 
+    <script src="theme-manager.js"></script>
     <script src="script.js"></script>
 </body>
 
