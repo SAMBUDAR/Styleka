@@ -53,3 +53,32 @@ function displayReviews() {
   const avg = (sum / reviews.length).toFixed(1);
   averageRatingDiv.innerText = `Average Rating: ${avg} / 5`;
 }
+const modal = document.getElementById('modal');
+const modalContent = document.getElementById('modal-content');
+const modalClose = document.getElementById('modal-close');
+
+document.querySelectorAll('.gallery-item').forEach(item => {
+  item.addEventListener('click', () => {
+    modal.style.display = 'block';
+    if (item.tagName === 'IMG') {
+      modalContent.innerHTML = `<img src="${item.src}" style="max-width: 100%; border-radius: 10px;" />`;
+    } else if (item.tagName === 'VIDEO') {
+      modalContent.innerHTML = `
+        <video controls autoplay style="max-width: 100%; border-radius: 10px;">
+          <source src="${item.querySelector('source').src}" type="video/mp4" />
+        </video>`;
+    }
+  });
+});
+
+modalClose.onclick = () => {
+  modal.style.display = 'none';
+  modalContent.innerHTML = '';
+};
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+    modalContent.innerHTML = '';
+  }
+};
