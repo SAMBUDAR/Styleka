@@ -845,6 +845,218 @@ footer .copyright{
     border-radius: 20px;
 }
 
+/* Enhanced About Page Styles */
+.features-list {
+    margin: 25px 0;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin: 15px 0;
+    padding: 15px;
+    background: rgba(227, 230, 243, 0.3);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    background: rgba(227, 230, 243, 0.5);
+    transform: translateX(5px);
+}
+
+.feature-item i {
+    color: rebeccapurple;
+    font-size: 20px;
+    margin-right: 15px;
+    margin-top: 2px;
+    min-width: 25px;
+}
+
+.feature-item div {
+    flex: 1;
+}
+
+.feature-item strong {
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.mission-statement {
+    margin: 30px 0;
+    padding: 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    color: white;
+}
+
+.mission-statement blockquote {
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 0;
+    position: relative;
+}
+
+.mission-statement blockquote:before {
+    content: '"';
+    font-size: 60px;
+    position: absolute;
+    left: -20px;
+    top: -10px;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* Stats Section */
+#stats-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin: 60px 0;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    min-width: 200px;
+}
+
+.stat-item:hover {
+    transform: translateY(-10px);
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: bold;
+    color: rebeccapurple;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 16px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Enhanced App Section */
+#about-app {
+    text-align: center;
+    background: rgba(227, 230, 243, 0.2);
+    border-radius: 20px;
+    margin: 40px 0;
+}
+
+#about-app h1 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#about-app p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.app-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.app-download-btn {
+    transition: transform 0.3s ease;
+}
+
+.app-download-btn:hover {
+    transform: scale(1.05);
+}
+
+.app-download-btn img {
+    height: 60px;
+    border-radius: 10px;
+}
+
+/* Responsive Design for About Page Enhancements */
+@media (max-width: 768px) {
+    .stats-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .stat-item {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .feature-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .feature-item i {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    
+    .mission-statement blockquote:before {
+        display: none;
+    }
+    
+    .app-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Enhanced Social Media Icons */
+.follow .icon a {
+    color: #222;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.follow .icon a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.follow .icon a:hover .fa-facebook {
+    color: #3b5998;
+}
+
+.follow .icon a:hover .fa-twitter {
+    color: #1da1f2;
+}
+
+.follow .icon a:hover .fa-instagram {
+    color: #e4405f;
+}
+
+.follow .icon a:hover .fa-pinterest-p {
+    color: #bd081c;
+}
+
+.follow .icon a:hover .fa-youtube {
+    color: #ff0000;
+}
+
 /* Contact */
 
 #contact-details{
@@ -1257,7 +1469,4 @@ footer .copyright{
         width: 40%;
         margin-right: 50px;
     } */
-
-
-    
 }

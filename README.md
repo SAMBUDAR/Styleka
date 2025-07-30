@@ -1,181 +1,207 @@
-# 🛍️ STYLÉKA
+<img width="1312" height="342" alt="image" src="https://github.com/user-attachments/assets/5e9fa6e9-2986-491c-8e57-6d2831948bea" />
 
-**STYLÉKA** is a stylish, modern e-commerce web platform for fashion shopping. It is designed to provide a smooth and interactive user experience with essential features like a shop, blog, cart, authentication, individual product pages, and more.
+
+---
+
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Project-STYLÉKA-black?style=for-the-badge&logo=tailwindcss&logoColor=white">
+  <img src="https://img.shields.io/github/license/RAJVEER42/STYLEKA?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Made%20with-%E2%9D%A4-red?style=for-the-badge">
+</p>
+
+<h1 align="center">🛍️ STYLÉKA</h1>
+
+<p align="center">  
+A **stylish & modern fashion e-commerce platform** — built with clean front-end technologies and ready for future backend integration.  
+</p>
+
+<p align="center">
+  <img src="Screenshots/home.png" alt="Home Screenshot" width="80%">
+</p>
 
 ---
 
 ## 📚 Table of Contents
 
-- [🎯 Introduction](#-introduction)
-- [✨ Features](#-features)
-- [📁 Directory Structure](#-directory-structure)
-- [🛠 Tech Stack](#-tech-stack)
-- [🧠 System Architecture](#-system-architecture)
-- [📸 Screenshots](#-screenshots)
-- [🚀 How to Use / Run](#-how-to-use--run)
-- [🌐 Community & Support](#-community--support)
-- [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
-- [🌟 Acknowledgment](#-acknowledgment)
+* [🎯 Introduction](#-introduction)
+* [✨ Features](#-features)
+* [📁 Directory Structure](#-directory-structure)
+* [🛠 Tech Stack](#-tech-stack)
+* [🧠 System Architecture](#-system-architecture)
+* [📸 Screenshots](#-screenshots)
+* [🚀 Getting Started](#-getting-started)
+* [🌐 Community & Support](#-community--support)
+* [🤝 Contributing](#-contributing)
+* [📄 License](#-license)
+* [📝 Reviews & Rating](#-reviews--rating)
+* [🌟 Acknowledgment](#-acknowledgment)
 
 ---
 
 ## 🎯 Introduction
 
-STYLÉKA is a front-end-based fashion e-commerce website, featuring multiple product pages, a user-friendly interface, and dynamic product listings with reviews and ratings. Though currently static, it is structured for easy future backend integration.
+> **STYLÉKA** is a front-end fashion e-commerce website that delivers a seamless and immersive user shopping experience.
+> With rich product listings, ratings, blog content, and responsive design, it's your ideal fashion storefront template — made for developers and designers alike.
 
 ---
 
 ## ✨ Features
 
-- 🛒 Product Listings with star ratings and prices
-- 🛍️ Individual product pages (15+)
-- 🧾 Cart, and Buy functionality
-- 📝 Blog section
-- 👤 Contact form & team info
-- 💬 Review & Rating display (static currently)
-- 📬 Newsletter subscription
-- 🎨 Fully responsive layout
+* 🛒 **Product Listings** with dynamic ratings, prices, and labels
+* 🛍️ **15+ Individual Product Pages** with images and descriptions
+* 🧾 **Cart Functionality** (static UI with plans for dynamic integration)
+* 📝 **Fashion Blog** to attract and retain customers
+* 📬 **Newsletter Subscription** form
+* 👥 **Team & About Section** with contact form
+* 💬 **Product Reviews UI**
+* 📱 **Fully Responsive** across mobile, tablet, and desktop
 
 ---
 
 ## 📁 Directory Structure
 
-```
+```bash
 STYLEKA/
-├── Screenshots
-├  ├── about.png
-├  ├── blog.png
-├  ├── cart.png
-├  ├── contact.png
-├  ├── home.png
-├  ├── shop.png
-├── about.html
-├── blog.html
-├── cancel.html
-├── cart.html
-├── contact.html
-├── index.html
-├── login.html
-├── register.html
-├── shop.html
-├── sproduct.html
-├── sproduct1.html to sproduct15.html
-├── success.html
-├── README.md
-├── script.js
-├── server.js ← placeholder for backend logic
-├── style.css
+├── Screenshots/            # App UI screenshots
+├── sproduct.html → .sproduct15.html  # Individual product pages
+├── about.html              # About page
+├── blog.html               # Blog section
+├── cart.html               # Cart interface
+├── contact.html            # Contact form
+├── index.html              # Landing/Home page
+├── login.html / register.html
+├── shop.html               # All products listing
+├── script.js               # Core JavaScript
+├── style.css               # Styling
+├── server.js               # (placeholder for backend)
+└── README.md
 ```
 
+---
 
 ## 🛠 Tech Stack
 
-- **HTML5** – Semantic markup
-- **CSS3** – Custom styles and layout
-- **JavaScript** – Basic interactivity
-- **(Future)**: Node.js / Express for server-side logic
+| Tech                         | Usage                           |
+| ---------------------------- | ------------------------------- |
+| **HTML5**                    | Semantic structure              |
+| **CSS3**                     | Modern layout, custom styles    |
+| **JavaScript**               | DOM interactivity               |
+| *(Future)* Node.js & Express | Backend logic & API integration |
 
 ---
 
 ## 🧠 System Architecture
 
-> Currently front-end only. Future architecture plan:
-
+```mermaid
+graph TD
+  A[User] --> B(index.html)
+  B --> C(style.css)
+  B --> D(script.js)
+  B --> E[sproduct.html]
+  B --> F[cart.html]
 ```
-  User
-   │
-   ▼
-index.html
-   │
-   ▼
-style.css
 
-```
+🧩 Currently front-end only. Backend endpoints and product databases will be integrated in future milestones.
 
 ---
+
 ## 📸 Screenshots
 
-### 🏠 Home Page
-![Home](Screenshots/home.png)
-
-### 🛍️ Shop Page
-![Shop](Screenshots/shop.png)
-
-### ✍️ Blog Page
-![Blog](Screenshots/blog.png)
-
-### 🙋 About Page
-![About](Screenshots/about.png)
-
-### 📞 Contact Page
-![Contact](Screenshots/contact.png)
-
-### 🛒 Cart Page
-![Cart](Screenshots/cart.png)
+| 📍 Page    | Preview                             |
+| ---------- | ----------------------------------- |
+| 🏠 Home    | ![Home](Screenshots/home.png)       |
+| 🛍️ Shop   | ![Shop](Screenshots/shop.png)       |
+| ✍️ Blog    | ![Blog](Screenshots/blog.png)       |
+| 🙋 About   | ![About](Screenshots/about.png)     |
+| 📞 Contact | ![Contact](Screenshots/contact.png) |
+| 🛒 Cart    | ![Cart](Screenshots/cart.png)       |
 
 ---
 
-## 🚀 How to Use / Run
+## 🚀 Getting Started
 
-🌐 Open in Browser Just open index.html in your favorite browser:
+🖥️ **Run Locally in 2 Steps** — No installations needed!
 
-start index.html # Windows
+```bash
+# Windows
+start index.html
 
-or
-open index.html # macOS ✅ No server or dependency installation is required!
+# macOS
+open index.html
+```
+
+> 💡 *Tip: Use Live Server in VS Code for better dev experience.*
 
 ---
 
 ## 🌐 Community & Support
 
-Channel	Purpose
-GitHub Issues	Bug reports, feature requests
-GitHub Discussions	Q&A, ideas, suggestions
-Discord	Real-time chat, pair programming
-GSSoC Mentors	Onboarding help, code reviews
+| Platform                                                               | Purpose                       |
+| ---------------------------------------------------------------------- | ----------------------------- |
+| [GitHub Issues](https://github.com/RAJVEER42/STYLEKA/issues)           | Report bugs, request features |
+| [GitHub Discussions](https://github.com/RAJVEER42/STYLEKA/discussions) | Q\&A, tips, suggestions       |
+| **Discord**                                                            | Live chat & collaboration     |
+| **GSSoC Mentors**                                                      | Guidance & code reviews       |
 
 ---
 
 ## 🤝 Contributing
 
+We 💖 contributions!
+Here’s how to get started:
 
-We welcome contributions of all kinds!
-Fork the repository
-Create a new branch
-Make your changes
-Create a pull request with a meaningful description
-Please read our CONTRIBUTING.md for detailed guidelines.
+```bash
+# 1. Fork the repository
+# 2. Create your branch
+git checkout -b feature/your-feature-name
+
+# 3. Make your changes and commit
+git commit -m "✨ Added new feature"
+
+# 4. Push and create a PR
+git push origin feature/your-feature-name
+```
+
+📘 Read [`CONTRIBUTING.md`](./CONTRIBUTING.md) for complete guidelines.
 
 ---
 
 ## 📄 License
-This project is open source and available under the MIT License.
+
+📝 **MIT License** — Free to use, modify, and distribute.
 
 ---
 
+## 📝 Reviews & Rating
 
+> ⭐ **User Rating**: 4.9 / 5
 
-## 📝 Reviews & Feedback
+![Rating Badge](https://img.shields.io/badge/User%20Rating-4.9★-orange?style=flat-square)
 
-We'd love to hear your thoughts!  
-⭐ Leave a GitHub star if you like the project.  
-📝 Open an issue to share feedback or suggestions.
+We love feedback!
 
-## 🌟 User Rating
-
-★★★★★ (4.9/5)
-
-![Rating Badge](https://img.shields.io/badge/Rating-4.9%20★-yellow?color=orange)
-
+* 💬 Share ideas via [Discussions](https://github.com/RAJVEER42/STYLEKA/discussions)
+* 🐞 Report bugs via [Issues](https://github.com/RAJVEER42/STYLEKA/issues)
+* ⭐ Star the repo if you enjoy the project!
 
 ---
-
 
 ## 🌟 Acknowledgment
-This project is a part of GirlScript Summer of Code (GSSoC).
-We're proud to support first-time contributors and open-source learners!
+
+> 🧡 Proud Project of **GirlScript Summer of Code (GSSoC)**
+> Supporting beginner-friendly contributions and open-source learning for all.
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Contributor%20Friendly-Yes-green?style=for-the-badge">
+</p>
 
 ---
 
-⭐ If you like this project, don’t forget to star the repo and contribute!
+<p align="center">
+  Made with 💕 by <a href="https://github.com/SAMBUDAR">SAMBUDAR</a> & contributors
+</p>
+
+---
+
+
