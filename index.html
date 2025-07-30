@@ -212,13 +212,19 @@
         }
 
         .fe-box {
-            width: 180px;
-            text-align: center;
-            padding: 25px 15px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            background: white;
-        }
+    width: 180px;
+    height: 230px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 25px 15px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    background: white;
+    box-sizing: border-box;
+}
+
 
         .fe-box:hover {
             transform: translateY(-10px);
@@ -226,11 +232,14 @@
         }
 
         .fe-box img {
-            width: 100%;
-            margin-bottom: 10px;
-            filter: hue-rotate(200deg);
-            transition: all 0.3s ease;
-        }
+    width: 100%;
+    height: 100px; /* consistent image height */
+    object-fit: contain;
+    margin-bottom: 10px;
+    filter: hue-rotate(200deg);
+    transition: all 0.3s ease;
+}
+
 
         .fe-box:hover img {
             transform: scale(1.1);
@@ -238,14 +247,20 @@
         }
 
         .fe-box h6 {
-            display: inline-block;
-            padding: 9px 8px 6px 8px;
-            line-height: 1;
-            border-radius: 10px;
-            color: #667eea;
-            font-weight: 600;
-            background: rgba(102, 126, 234, 0.1);
-        }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px; /* uniform text block height */
+    width: 100%;
+    text-align: center;
+    padding: 9px 8px;
+    line-height: 1.2;
+    border-radius: 10px;
+    color: #667eea;
+    font-weight: 600;
+    background: rgba(102, 126, 234, 0.1);
+}
+
 
         /* Enhanced Product Sections */
         #product1 {
