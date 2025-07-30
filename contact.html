@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STYLÉKA</title>
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" /> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">`r`n
+    <link rel="stylesheet" href="dark-mode.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -23,28 +24,35 @@
         <div>
             <ul id="navbar">
 
-                <li><a  href="Index.html">Home</a></li>
-                <li><a  href="shop.html">Shop</a></li>
-                <li><a  href="blog.html">Blog</a></li>
-                <li><a  href="about.html">About</a></li>
+                <li><a href="Index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a class="active" href="contact.html">Contact</a></li>
                 <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                 <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
             </ul>
         </div>
 
-        <div id="mobile">
-            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a> 
-            <i id="bar" class="fas fa-outdent"></i>
+        <div class="header-controls"> 
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode"> 
+                <i class="fas fa-moon" id="theme-icon"></i> 
+            </button> 
+            <div id="mobile">
+                <a href="cart.html">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </a>  
+                <i id="bar" class="fas fa-outdent"></i>
         </div>
+    </div>
     </section>
 
     <section id="page-header" class="about-header">
-        
+
         <h2>#Lets Talk</h2>
-        
+
         <p>LEAVE A MESSAGE , We love to hear from you!</p>
-        
+
     </section>
 
     <section id="contact-details" class="section-p1">
@@ -73,7 +81,10 @@
         </div>
 
         <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.9602808122904!2d74.82558107541074!3d31.634937874161785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39196527e76e3995%3A0xf5779932d3dab5d0!2sGuru%20Nanak%20Dev%20University!5e0!3m2!1sen!2sin!4v1743327666570!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.9602808122904!2d74.82558107541074!3d31.634937874161785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39196527e76e3995%3A0xf5779932d3dab5d0!2sGuru%20Nanak%20Dev%20University!5e0!3m2!1sen!2sin!4v1743327666570!5m2!1sen!2sin"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 
@@ -96,7 +107,8 @@
             </div>
             <div>
                 <img src="img/People/2.png" alt="">
-                <p><span>William Smith</span>Senior Marketing Manager<br>+91-5612654555<br>Email: Smithwilliam@gmail.com</p>
+                <p><span>William Smith</span>Senior Marketing Manager<br>+91-5612654555<br>Email: Smithwilliam@gmail.com
+                </p>
             </div>
             <div>
                 <img src="img/People/3.png" alt="">
@@ -106,14 +118,14 @@
     </section>
 
     <section id="newsletter" class="section-p1 section-m1">
-    <div class="newstext">
-        <h4>Sign Up For Newsletter</h4>
-        <p>Get E-mail updates about ourlatest shop and <span>special offers.</span></p>
-    </div>
-    <div class="form">
-        <input type="text" placeholder="Your email address">
-        <button class="normal">Sign Up</button>
-    </div>
+        <div class="newstext">
+            <h4>Sign Up For Newsletter</h4>
+            <p>Get E-mail updates about ourlatest shop and <span>special offers.</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
     </section>
 
     <footer class="section-p1">
@@ -169,6 +181,7 @@
         </div>
     </footer>
 
+    <script src="theme-manager.js"></script>`r`n
     <script src="script.js"></script>
 </body>
 

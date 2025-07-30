@@ -1,6 +1,35 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
 
+/* CSS Variables for Light/Dark Mode */
+:root {
+    /* Light mode colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-heading: rgb(10, 10, 10);
+    --text-accent: rebeccapurple;
+    --border-color: #cce7d0;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --card-bg: #ffffff;
+    --header-bg: #ffffff;
+}
+
+/* Dark mode colors */
+[data-theme="dark"] {
+    --bg-primary: #1e1e2e;
+    --bg-secondary: #252538;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-heading: #e0e0e0;
+    --text-accent: #c792ea;
+    --border-color: rgba(102, 126, 234, 0.3);
+    --shadow-light: rgba(0, 0, 0, 0.3);
+    --card-bg: #252538;
+    --header-bg: rgba(30, 30, 46, 0.95);
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -8,31 +37,38 @@
     font-family: "Play", serif;
 }
 
+body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
 h1 {
     font-size: 50px;
     line-height: 64px;
-    color: rgb(10, 10, 10);
+    color: var(--text-heading);
 }
 
 h2 {
     font-size: 46px;
     line-height: 54px;
-    color: black;
+    color: var(--text-heading);
 }
 
 h4 {
     font-size: 20px;
-    color: black;
+    color: var(--text-heading);
 }
 
 h6 {
     font-weight: 700;
     font-size: 12px;
+    color: var(--text-primary);
 }
 
 p{
     font-size: 16px;
-    color: rebeccapurple;
+    color: var(--text-accent);
     margin: 15px 0 20px 0;
 }
 
@@ -80,8 +116,8 @@ body{
     justify-content: space-between;
     /* font-style: italic; */
     padding: 20px 80px;
-    background: #E3E6F3;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    background: var(--header-bg);
+    box-shadow: 0 5px 15px var(--shadow-light);
     z-index: 999;
     position: sticky;
     top: 0;
@@ -91,7 +127,7 @@ body{
 .site-title{
     font-size: 5em;
     font-weight: bold;
-    color: black;
+    color: var(--text-heading);
 }
 
 .logo{
@@ -114,7 +150,7 @@ body{
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
-    color: #1a1a1a;
+    color: var(--text-primary);
     transition: 0.3s ease;
 }
 
@@ -666,6 +702,8 @@ footer .copyright{
 
 #blog{
     padding : 150px 150px 0 150px;
+    background: var(--bg-secondary, #ffffff);
+    color: var(--text-primary, #333333);
 }
 
 #blog .blog-box{
@@ -674,6 +712,10 @@ footer .copyright{
     width: 100%;
     position: relative;
     padding-bottom: 90px;
+    background: var(--card-bg, #ffffff);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px var(--shadow-light, rgba(0, 0, 0, 0.1));
 }
 
 #blog .blog-img{
@@ -685,16 +727,25 @@ footer .copyright{
     width: 100%;
     height: 400px;
     object-fit: cover;
+    border-radius: 8px;
 }
 
 #blog .blog-details{
     width: 50%;
 }
 
+#blog .blog-details h4{
+    color: var(--text-primary, #333333);
+}
+
+#blog .blog-details p{
+    color: var(--text-secondary, #666666);
+}
+
 #blog .blog-details a{
     text-decoration: none;
     font-size: 21px;
-    color: #000;
+    color: var(--text-primary, #000);
     font-weight: 700;
     position: relative;
     transition: 0.3s;
@@ -704,7 +755,7 @@ footer .copyright{
     content: "";
     width : 50px;
     height: 1px;
-    background-color: #000;
+    background-color: var(--text-primary, #000);
     position: absolute;
     top: 4px;
     right: -60px;
@@ -720,8 +771,15 @@ footer .copyright{
     left: 0;
     font-size: 70px;
     font-weight: 700;
-    color: #c9cbce;
+    color: var(--text-secondary, #c9cbce);
     z-index: -9;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+/* Hide background numbers when using enhanced cards */
+.blog-box #blog .blog-box h1 {
+    display: none;
 }
 
 /* About */
@@ -733,19 +791,46 @@ footer .copyright{
 #about-head{
     display: flex;
     align-items: center;
+    background: var(--card-bg, #ffffff);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 15px var(--shadow-light, rgba(0, 0, 0, 0.1));
+    margin: 20px 0;
 }
 
 #about-head img{
     width: 50%;
     height: auto;
+    border-radius: 8px;
 }
 
 #about-head div{
     padding-left: 40px;
 }
 
+#about-head div h2{
+    color: var(--text-primary, #333333);
+}
+
+#about-head div p{
+    color: var(--text-secondary, #666666);
+}
+
+#about-head abbr{
+    color: var(--text-primary, #333333);
+}
+
 #about-app{
     text-align: center;
+    background: var(--card-bg, #ffffff);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 15px var(--shadow-light, rgba(0, 0, 0, 0.1));
+    margin: 20px 0;
+}
+
+#about-app h1{
+    color: var(--text-primary, #333333);
 }
 
 #about-app .video{
@@ -978,6 +1063,11 @@ footer .copyright{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: var(--card-bg, #ffffff);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 15px var(--shadow-light, rgba(0, 0, 0, 0.1));
+    margin: 20px 0;
 }
 
 #contact-details .details{
@@ -987,6 +1077,7 @@ footer .copyright{
 #contact-details .details span ,
 #form-details form span{
     font-size: 12px;
+    color: var(--text-secondary, #666666);
 }
 
 #contact-details .details h2 ,
@@ -994,11 +1085,13 @@ footer .copyright{
     font-size: 40px;
     line-height: 35px;
     padding: 20px 0;
+    color: var(--text-primary, #333333);
 }
 
 #contact-details .details h3{
     font-size: 16px;
     padding-bottom: 15px;
+    color: var(--text-primary, #333333);
 }
 
 #contact-details .details li{
@@ -1010,16 +1103,20 @@ footer .copyright{
 #contact-details .details li i{
     font-size: 14px;
     padding-right: 22px;
+    color: var(--text-secondary, #666666);
 }
 
 #contact-details .details li p{
     margin: 0;
     font-size: 14px;
+    color: var(--text-secondary, #666666);
 }
 
 #contact-details .map{
     width: 55%;
     height: 400px;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 #contact-details .map iframe{
@@ -1032,7 +1129,10 @@ footer .copyright{
     justify-content: space-between;
     margin: 30px;
     padding: 80px;
-    border: 1px solid #e1e1e1;
+    border: 1px solid var(--border-color, #e1e1e1);
+    background: var(--card-bg, #ffffff);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-light, rgba(0, 0, 0, 0.1));
 }
 
 #form-details form{
@@ -1048,18 +1148,31 @@ footer .copyright{
     padding: 12px 15px;
     outline: none;
     margin-bottom: 20px;
-    border: 1px solid #e1e1e1;
+    border: 1px solid var(--border-color, #e1e1e1);
+    background: var(--input-bg, rgba(255, 255, 255, 0.2));
+    color: var(--text-primary, #333333);
+    border-radius: 5px;
+}
+
+#form-details form input::placeholder,
+#form-details form textarea::placeholder{
+    color: var(--text-secondary, #666666);
 }
 
 #form-details form button{
     background-color: #088178;
     color: #fff;
+    border-radius: 5px;
 }
 
 #form-details .people div{
     margin-bottom: 25px;
     display: flex;
     align-items: flex-start;
+    background: var(--bg-secondary, rgba(255, 255, 255, 0.5));
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px var(--shadow-light, rgba(0, 0, 0, 0.1));
 }
 
 #form-details .people div img{
@@ -1067,12 +1180,14 @@ footer .copyright{
     height: 65px;
     object-fit: cover;
     margin-right: 15px;
+    border-radius: 50%;
 }
 
 #form-details .people div p{
     margin: 0;
     font-size: 13px;
     line-height: 25px;
+    color: var(--text-secondary, #666666);
 }
 
 #form-details .people div p span{

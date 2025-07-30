@@ -7,9 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STYLÉKA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="dark-mode.css">
     <style>
         /* Import modern fonts */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        /* CSS Variables for Light/Dark Mode */
+        :root {
+            /* Light mode colors */
+            --bg-primary: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            --bg-secondary: #ffffff;
+            --bg-tertiary: rgba(255, 255, 255, 0.95);
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --text-tertiary: rgba(255, 255, 255, 0.8);
+            --border-color: rgba(102, 126, 234, 0.2);
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-medium: rgba(0, 0, 0, 0.15);
+            --shadow-heavy: rgba(0, 0, 0, 0.2);
+            --header-bg: rgba(255, 255, 255, 0.95);
+            --card-bg: #ffffff;
+            --input-bg: rgba(255, 255, 255, 0.2);
+            --footer-bg: linear-gradient(135deg, #2c3e50, #34495e);
+        }
+
+        /* Dark mode colors */
+        [data-theme="dark"] {
+            --bg-primary: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            --bg-secondary: #1e1e2e;
+            --bg-tertiary: rgba(30, 30, 46, 0.95);
+            --text-primary: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --text-tertiary: rgba(224, 224, 224, 0.8);
+            --border-color: rgba(102, 126, 234, 0.3);
+            --shadow-light: rgba(0, 0, 0, 0.3);
+            --shadow-medium: rgba(0, 0, 0, 0.4);
+            --shadow-heavy: rgba(0, 0, 0, 0.5);
+            --header-bg: rgba(30, 30, 46, 0.95);
+            --card-bg: #252538;
+            --input-bg: rgba(255, 255, 255, 0.1);
+            --footer-bg: linear-gradient(135deg, #1a1a2e, #16213e);
+        }
 
         /* Reset and base styles */
         * {
@@ -21,8 +59,10 @@
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: var(--bg-primary);
+            color: var(--text-primary);
             min-height: 100vh;
+            transition: all 0.3s ease;
         }
 
         .section-p1 {
@@ -39,12 +79,45 @@
             align-items: center;
             justify-content: space-between;
             padding: 20px 80px;
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--header-bg);
             backdrop-filter: blur(20px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px var(--shadow-light);
             position: sticky;
             top: 0;
             z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-primary);
+            box-shadow: 0 4px 15px var(--shadow-light);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--shadow-medium);
+            border-color: #667eea;
+        }
+
+        .theme-toggle i {
+            font-size: 18px;
             transition: all 0.3s ease;
         }
 
@@ -71,7 +144,7 @@
             text-decoration: none;
             font-size: 16px;
             font-weight: 500;
-            color: #333;
+            color: var(--text-primary);
             transition: all 0.3s ease;
             padding: 12px 24px;
             border-radius: 8px;
@@ -211,10 +284,10 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 20px;
-            background: white;
+            background: var(--card-bg);
             border-radius: 20px;
             margin: 40px 80px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 60px var(--shadow-light);
         }
 
         .fe-box {
@@ -223,12 +296,12 @@
             padding: 25px 15px;
             border-radius: 15px;
             transition: all 0.3s ease;
-            background: white;
+            background: var(--card-bg);
         }
 
         .fe-box:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 40px var(--shadow-medium);
         }
 
         .fe-box img {
@@ -256,16 +329,16 @@
         /* Enhanced Product Sections */
         #product1 {
             text-align: center;
-            background: white;
+            background: var(--card-bg);
             border-radius: 20px;
             margin: 40px 80px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 60px var(--shadow-light);
         }
 
         #product1 h2 {
             font-size: 3rem;
             font-weight: 700;
-            color: #333;
+            color: var(--text-primary);
             margin-bottom: 15px;
             font-family: 'Playfair Display', serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -276,7 +349,7 @@
 
         #product1 p {
             font-size: 1.2rem;
-            color: #666;
+            color: var(--text-secondary);
             margin-bottom: 40px;
         }
 
@@ -292,13 +365,13 @@
             width: 23%;
             min-width: 250px;
             padding: 20px 15px;
-            border: 1px solid rgba(102, 126, 234, 0.2);
+            border: 1px solid var(--border-color);
             border-radius: 20px;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px var(--shadow-light);
             margin: 15px 0;
             transition: all 0.3s ease;
-            background: white;
+            background: var(--card-bg);
             position: relative;
             overflow: hidden;
         }
@@ -321,7 +394,7 @@
 
         .pro:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 50px var(--shadow-medium);
         }
 
         .pro > * {
@@ -354,7 +427,7 @@
 
         .des h5 {
             padding: 7px 0;
-            color: #333;
+            color: var(--text-primary);
             font-size: 16px;
             font-weight: 600;
         }
@@ -594,13 +667,13 @@
             border: none;
             outline: none;
             border-radius: 25px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
+            background: var(--input-bg);
+            color: var(--text-tertiary);
             backdrop-filter: blur(10px);
         }
 
         .form input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-tertiary);
         }
 
         .form button {
@@ -625,7 +698,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
+            background: var(--footer-bg);
             color: white;
             padding: 40px 80px;
             border-radius: 20px 20px 0 0;
@@ -706,6 +779,19 @@
                 padding: 40px 40px;
             }
 
+            .header-controls {
+                gap: 10px;
+            }
+
+            .theme-toggle {
+                width: 40px;
+                height: 40px;
+            }
+
+            .theme-toggle i {
+                font-size: 16px;
+            }
+
             #navbar {
                 display: flex;
                 flex-direction: column;
@@ -716,8 +802,8 @@
                 right: -300px;
                 height: 100vh;
                 width: 300px;
-                background: white;
-                box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+                background: var(--card-bg);
+                box-shadow: 0 40px 60px var(--shadow-light);
                 padding: 80px 0 0 10px;
                 transition: 0.3s;
             }
@@ -736,7 +822,7 @@
             }
 
             #mobile i {
-                color: #333;
+                color: var(--text-primary);
                 font-size: 24px;
                 padding-left: 20px;
                 cursor: pointer;
@@ -747,7 +833,7 @@
                 position: absolute;
                 top: 30px;
                 left: 30px;
-                color: #333;
+                color: var(--text-primary);
                 font-size: 24px;
                 cursor: pointer;
             }
@@ -888,9 +974,14 @@
             </ul>
         </div>
 
-        <div id="mobile">
-            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a> 
-            <i id="bar" class="fas fa-outdent"></i>
+        <div class="header-controls">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+            <div id="mobile">
+                <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a> 
+                <i id="bar" class="fas fa-outdent"></i>
+            </div>
         </div>
     </section>
 
@@ -1157,6 +1248,7 @@
         </div>
     </footer>
 
+    <script src="theme-manager.js"></script>
     <script src="script.js"></script>
 </body>
 
