@@ -1,790 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STYLÉKA - Modern Fashion Store</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Import modern fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-        }
-
-        .section-p1 {
-            padding: 40px 80px;
-        }
-
-        .section-m1 {
-            margin: 40px 0;
-        }
-
-        /* Enhanced Header */
-        #header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 80px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            transition: all 0.3s ease;
-        }
-
-        .site-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 2px;
-        }
-
-        #navbar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            list-style: none;
-            gap: 30px;
-        }
-
-        #navbar li a {
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            color: #333;
-            transition: all 0.3s ease;
-            padding: 12px 24px;
-            border-radius: 8px;
-            position: relative;
-            display: block;
-        }
-
-        #navbar li a:hover,
-        #navbar li a.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        #lg-bag a {
-            font-size: 1.2rem;
-            color: #667eea;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        #lg-bag a:hover {
-            transform: scale(1.2);
-            color: #764ba2;
-        }
-
-        #mobile {
-            display: none;
-        }
-
-        #close {
-            display: none;
-        }
-
-        /* Enhanced Page Header */
-        #page-header {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)),
-                        url('https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
-            width: 100%;
-            height: 40vh;
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            flex-direction: column;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        #page-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 1;
-        }
-
-        #page-header > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        #page-header h2 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: fadeInUp 1s ease;
-        }
-
-        #page-header p {
-            font-size: 1.3rem;
-            font-weight: 400;
-            opacity: 0.9;
-            animation: fadeInUp 1s ease 0.3s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Search Bar */
-        .search-container {
-            display: flex;
-            justify-content: center;
-            margin: 30px 0;
-        }
-
-        .search-bar {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-        }
-
-        .search-bar input {
-            width: 100%;
-            padding: 15px 50px 15px 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 25px;
-            font-size: 16px;
-            outline: none;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        .search-bar input:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 15px rgba(102, 126, 234, 0.3);
-        }
-
-        .search-bar button {
-            position: absolute;
-            right: 5px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border: none;
-            border-radius: 20px;
-            color: white;
-            padding: 10px 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .search-bar button:hover {
-            transform: translateY(-50%) scale(1.05);
-        }
-
-        /* Enhanced Product Section */
-        #product1 {
-            background: white;
-            border-radius: 20px;
-            margin: 40px 80px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        #product1::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.05), transparent);
-            animation: shimmer 3s infinite;
-            pointer-events: none;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
-        .pro-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            padding: 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .pro {
-            padding: 25px 20px;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            border-radius: 20px;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            background: white;
-            position: relative;
-            overflow: hidden;
-            transform-style: preserve-3d;
-        }
-
-        .pro::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 1;
-        }
-
-        .pro:hover::before {
-            opacity: 1;
-        }
-
-        .pro:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
-            border-color: #667eea;
-        }
-
-        .pro > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        .pro img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 15px;
-            transition: all 0.4s ease;
-            filter: brightness(1) saturate(1);
-        }
-
-        .pro:hover img {
-            transform: scale(1.08);
-            filter: brightness(1.1) saturate(1.2);
-        }
-
-        .des {
-            text-align: start;
-            padding: 20px 0 5px 0;
-        }
-
-        .des span {
-            color: #667eea;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            background: rgba(102, 126, 234, 0.1);
-            padding: 4px 12px;
-            border-radius: 15px;
-            display: inline-block;
-            margin-bottom: 8px;
-        }
-
-        .des h5 {
-            padding: 8px 0;
-            color: #333;
-            font-size: 16px;
-            font-weight: 600;
-            line-height: 1.4;
-            transition: color 0.3s ease;
-        }
-
-        .pro:hover .des h5 {
-            color: #667eea;
-        }
-
-        .star {
-            color: #ffd700;
-            font-size: 14px;
-            margin: 8px 0;
-            display: flex;
-            gap: 2px;
-        }
-
-        .star i {
-            transition: all 0.2s ease;
-        }
-
-        .pro:hover .star i {
-            transform: scale(1.2);
-            color: #ffed4e;
-        }
-
-        .des h4 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #667eea;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .pro:hover .des h4 {
-            transform: scale(1.05);
-            color: #764ba2;
-        }
-
-        /* Add to cart button that appears on hover */
-        .pro::after {
-            content: 'View Product';
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 14px;
-            opacity: 0;
-            transition: all 0.3s ease;
-            pointer-events: none;
-            z-index: 3;
-        }
-
-        .pro:hover::after {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
-
-        /* Enhanced Pagination */
-        #pagination {
-            text-align: center;
-            background: white;
-            border-radius: 15px;
-            margin: 40px 80px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        #pagination a {
-            text-decoration: none;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            padding: 15px 20px;
-            border-radius: 10px;
-            color: white;
-            font-weight: 600;
-            margin: 0 10px;
-            transition: all 0.3s ease;
-            display: inline-block;
-            min-width: 50px;
-            text-align: center;
-        }
-
-        #pagination a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-            background: linear-gradient(135deg, #764ba2, #667eea);
-        }
-
-        #pagination a:first-child {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-        }
-
-        #pagination a:first-child:hover {
-            background: linear-gradient(135deg, #ee5a24, #ff6b6b);
-            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
-        }
-
-        /* Enhanced Newsletter Section */
-        #newsletter {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            align-items: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 20px;
-            margin: 40px 80px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-            padding: 40px;
-        }
-
-        .newstext h4 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .newstext p {
-            font-size: 1rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.9);
-            margin: 20px 0;
-        }
-
-        .newstext span {
-            color: #ff6b6b;
-            font-weight: 600;
-        }
-
-        .form {
-            display: flex;
-            width: 40%;
-            gap: 15px;
-        }
-
-        .form input {
-            height: 50px;
-            padding: 0 20px;
-            font-size: 16px;
-            width: 100%;
-            border: none;
-            outline: none;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            backdrop-filter: blur(10px);
-        }
-
-        .form input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .normal {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3);
-        }
-
-        .normal:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
-        }
-
-        /* Enhanced Footer */
-        footer {
-            background: #E6E6FA;
-            color: white;
-            padding: 40px 80px;
-            border-radius: 20px;
-            margin: 40px 20px 20px 20px;
-            position: relative;
-            border: none;
-            box-shadow: 0 0 30px rgba(230, 230, 250, 0.6);
-        }
-
-        .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            width: 100%;
-            background-color: white;
-            color: #0066cc;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 10px;
-            position: relative;
-            border: none;
-            box-shadow: 0 0 35px rgba(230, 230, 250, 0.6);
-        }
-
-        footer .col {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            flex: 1;
-            min-width: 250px;
-        }
-
-        footer h4 {
-            font-size: 1.3rem;
-            padding-bottom: 15px;
-            color: #007bff;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        footer p {
-            font-size: 14px;
-            margin: 5px 0 8px 0;
-            color: #0066cc;
-            line-height: 1.6;
-        }
-
-        footer a {
-            font-size: 14px;
-            text-decoration: none;
-            color: #0066cc;
-            margin-bottom: 8px;
-            transition: all 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #007bff;
-            transform: translateX(5px);
-        }
-
-        .follow {
-            margin-top: 20px;
-        }
-
-        .icon a {
-            color: #0066cc;
-            padding-right: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-            text-decoration: none;
-        }
-
-        .icon a:hover {
-            transform: scale(1.2);
-            color: #00d4ff;
-        }
-
-        .copyright {
-            width: 100%;
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(0, 123, 255, 0.3);
-            color: #0066cc;
-        }
-
-        /* Loading animation for products */
-        .pro {
-            animation: slideInUp 0.6s ease forwards;
-            opacity: 0;
-        }
-
-        .pro:nth-child(1) { animation-delay: 0.1s; }
-        .pro:nth-child(2) { animation-delay: 0.2s; }
-        .pro:nth-child(3) { animation-delay: 0.3s; }
-        .pro:nth-child(4) { animation-delay: 0.4s; }
-        .pro:nth-child(5) { animation-delay: 0.5s; }
-        .pro:nth-child(6) { animation-delay: 0.6s; }
-        .pro:nth-child(7) { animation-delay: 0.7s; }
-        .pro:nth-child(8) { animation-delay: 0.8s; }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 799px) {
-            .section-p1 {
-                padding: 40px 40px;
-            }
-
-            #header {
-                padding: 15px 40px;
-            }
-
-            #navbar {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
-                position: fixed;
-                top: 0;
-                right: -300px;
-                height: 100vh;
-                width: 300px;
-                background: white;
-                box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
-                padding: 80px 0 0 10px;
-                transition: 0.3s;
-            }
-
-            #navbar.active {
-                right: 0px;
-            }
-
-            #navbar li {
-                margin-bottom: 25px;
-            }
-
-            #mobile {
-                display: flex;
-                align-items: center;
-            }
-
-            #mobile i {
-                color: #333;
-                font-size: 24px;
-                padding-left: 20px;
-                cursor: pointer;
-            }
-
-            #close {
-                display: initial;
-                position: absolute;
-                top: 30px;
-                left: 30px;
-                color: #333;
-                font-size: 24px;
-                cursor: pointer;
-            }
-
-            #lg-bag {
-                display: none;
-            }
-
-            .site-title {
-                font-size: 2rem;
-            }
-
-            #page-header {
-                height: 30vh;
-            }
-
-            #page-header h2 {
-                font-size: 3rem;
-            }
-
-            #product1, #pagination, #newsletter {
-                margin: 20px 40px;
-            }
-
-            .form {
-                width: 100%;
-                margin-top: 20px;
-            }
-
-            footer {
-                padding: 40px 40px;
-            }
-        }
-
-        @media (max-width: 477px) {
-            .section-p1 {
-                padding: 20px;
-            }
-
-            #header {
-                padding: 10px 30px;
-            }
-
-            .site-title {
-                font-size: 1.8rem;
-            }
-
-            #page-header h2 {
-                font-size: 2.5rem;
-            }
-
-            #product1, #pagination, #newsletter {
-                margin: 20px;
-            }
-
-            .pro-container {
-                grid-template-columns: 1fr;
-                padding: 20px;
-            }
-
-            footer {
-                padding: 20px;
-            }
-        }
-    </style>
+    <title>STYLÉKA</title>
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <section id="header">
-        <div class="site-title">STYLÉKA</div>
+        <!-- <a href="#"><img src="img/Untitled_design__1_-removebg-preview.png" class="logo" alt=""></a> -->
+
+        <!-- <h1>STYLÉKA</h1> -->
+
+        <span class="site-title">STYLÉKA</span>
+
         <div>
             <ul id="navbar">
-                <li><a class="active" href="#">Home</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li id="lg-bag"><a href="#"><i class="far fa-shopping-bag"></i></a></li>
-                <a href="#" id="close"><i class="far fa-times"></i></a>
+
+                <li><a  href="index.html">Home</a></li>
+                <li><a class="active" href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li class="auth-buttons">
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </a>
+                    <a href="register.html" class="signup-btn">
+                        <i class="fas fa-user-plus"></i>
+                        Sign Up
+                    </a>
+                </li>
+                <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
             </ul>
         </div>
+
         <div id="mobile">
-            <a href="#"><i class="far fa-shopping-bag"></i></a>
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a> 
             <i id="bar" class="fas fa-outdent"></i>
         </div>
     </section>
 
     <section id="page-header">
-        <h2>Fashion Collection</h2>
-        <p>Discover premium fashion at unbeatable prices</p>
-    </section>
-
-    <section class="section-p1">
-        <div class="search-container">
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Search for products...">
-                <button onclick="searchProducts()"><i class="fas fa-search"></i></button>
-            </div>
-        </div>
+        <h2>Shop Collection</h2>
+        <p>Discover our exclusive range of premium fashion items with unbeatable prices and quality!</p>
     </section>
 
     <section id="product1" class="section-p1">
-        <div class="pro-container" id="productContainer">
-            <!-- Products will be populated by JavaScript -->
+        <div class="product-header">
+            <div class="product-title">
+                <h2>All Products</h2>
+                <p>Premium Fashion Collection</p>
+            </div>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="productSearch" placeholder="Search products..." onkeyup="searchProducts()">
+                    <button type="button" onclick="searchProducts()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="search-filters">
+                    <select id="brandFilter" onchange="filterProducts()">
+                        <option value="">All Brands</option>
+                        <option value="Adidas">Adidas</option>
+                        <option value="Zara">Zara</option>
+                        <option value="Gucci">Gucci</option>
+                        <option value="Puma">Puma</option>
+                        <option value="HnM">H&M</option>
+                        <option value="H&M">H&M</option>
+                        <option value="Lacoste">Lacoste</option>
+                        <option value="Goldstar">Goldstar</option>
+                        <option value="LV">LV</option>
+                        <option value="Kaloster">Kaloster</option>
+                    </select>
+                    <select id="priceFilter" onchange="filterProducts()">
+                        <option value="">All Prices</option>
+                        <option value="0-2000">₹0 - ₹2000</option>
+                        <option value="2000-5000">₹2000 - ₹5000</option>
+                        <option value="5000-10000">₹5000 - ₹10000</option>
+                        <option value="10000+">₹10000+</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="searchResults" class="search-results" style="display: none;">
+            <p id="resultsCount"></p>
+            <button onclick="clearSearch()" class="clear-search">
+                <i class="fas fa-times"></i>
+                Clear Search
+            </button>
+        </div>
+        
+        <div class="pro-container">
+            <div class="pro" onclick="window.location.href='sproduct1.html';">
+                <img src="https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Adidas White Tee">
+                <div class="des">
+                    <span>Adidas</span>
+                    <h5>White tee with black stripes</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹2000</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct.html';">
+                <img src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Zara Printed Shirt">
+                <div class="des">
+                    <span>Zara</span>
+                    <h5>Printed Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹5000</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct2.html';">
+                <img src="https://images.pexels.com/photos/1656684/pexels-photo-1656684.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Gucci Flower Print Shirt">
+                <div class="des">
+                    <span>Gucci</span>
+                    <h5>Flower print exclusive shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹14999</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct3.html';">
+                <img src="https://images.pexels.com/photos/1240892/pexels-photo-1240892.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Puma One8 Shoes">
+                <div class="des">
+                    <span>Puma</span>
+                    <h5>One8 Shoes By Virat</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹5999</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct7.html';">
+                <img src="https://images.pexels.com/photos/1620695/pexels-photo-1620695.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Ferrari Sports Hoodie">
+                <div class="des">
+                    <span>Puma</span>
+                    <h5>Ferrari Sports Hoodie</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹8999</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct4.html';">
+                <img src="https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Zara Dual Color Shirt">
+                <div class="des">
+                    <span>Zara</span>
+                    <h5>Dual Color Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹4000</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct5.html';">
+                <img src="https://images.pexels.com/photos/914668/pexels-photo-914668.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="H&M Women Trouser">
+                <div class="des">
+                    <span>HnM</span>
+                    <h5>Printed Women Trouser</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹1599</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct6.html';">
+                <img src="https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="H&M Purple T-shirt">
+                <div class="des">
+                    <span>HnM</span>
+                    <h5>Exclusive Purple Women t-shirts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹2999</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>    
+        
+            <div class="pro" onclick="window.location.href='sproduct8.html';">
+                <img src="https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="H&M Black Shirt">
+                <div class="des">
+                    <span>H&M</span>
+                    <h5>Plain Black Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹1500</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro"onclick="window.location.href='sproduct9.html';">
+                <img src="https://images.pexels.com/photos/2983467/pexels-photo-2983467.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="H&M Blue Shirt">
+                <div class="des">
+                    <span>H&M</span>
+                    <h5>Blue Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹2500</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct10.html';">
+                <img src="https://images.pexels.com/photos/1251861/pexels-photo-1251861.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Lacoste Checked Shirt">
+                <div class="des">
+                    <span>Lacoste</span>
+                    <h5>Checked Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹6000</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct11.html';">
+                <img src="https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Goldstar White Shirt">
+                <div class="des">
+                    <span>Goldstar</span>
+                    <h5>White Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹2000</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct12.html';">
+                <img src="https://images.pexels.com/photos/1656684/pexels-photo-1656684.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="LV Designer Shirt">
+                <div class="des">
+                    <span>LV</span>
+                    <h5>Designer Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹12000</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct13.html';">
+                <img src="https://images.pexels.com/photos/1620695/pexels-photo-1620695.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Kaloster Denim Jacket">
+                <div class="des">
+                    <span>Kaloster</span>
+                    <h5>Denim Jacket</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹3500</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct14.html';">
+                <img src="https://images.pexels.com/photos/1240892/pexels-photo-1240892.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Lacoste Shorts">
+                <div class="des">
+                    <span>Lacoste</span>
+                    <h5>Shorts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹2600</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro" onclick="window.location.href='sproduct15.html';">
+                <img src="https://images.pexels.com/photos/914668/pexels-photo-914668.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Gucci Desert Shirt">
+                <div class="des">
+                    <span>Gucci</span>
+                    <h5>Desert Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹26000</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>    
         </div>
     </section>
 
     <section id="pagination" class="section-p1">
-        <a href="#">← Previous</a>
         <a href="#">1</a>
         <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">Next →</a>
+        <a href="#"><i class="fa-solid fa-arrow-right-long"></i></a>
     </section>
 
     <section id="newsletter" class="section-p1 section-m1">
         <div class="newstext">
             <h4>Sign Up For Newsletter</h4>
-            <p>Get E-mail updates about our latest shop and <span>special offers</span>.</p>
+            <p>Get E-mail updates about ourlatest shop and <span>special offers.</span></p>
         </div>
         <div class="form">
             <input type="text" placeholder="Your email address">
@@ -793,130 +378,66 @@
     </section>
 
     <footer class="section-p1">
-        <div class="footer-container">
-            <div class="col">
-                <h4>STYLÉKA</h4>
-                <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
-                <p><strong>Phone:</strong> +01 2222 365 /(+91) 01 2345 6789</p>
-                <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
-                <div class="follow">
-                    <h4>Follow us</h4>
-                    <div class="icon">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
+        <div class="col">
+            <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                <h2 style="color: #088178; font-size: 2.5em; margin: 0;">STYLÉKA</h2>
+            </div>
+            <h4>Contact</h4>
+            <p><strong>Address :</strong> Guru Nanak Dev University , Amritsar</p>
+            <p><strong>Phone :</strong> (+91) - 8507566667</p>
+            <p><strong>Hours :</strong> 10:00 - 18:00 , Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
+                <div class="icon">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-pinterest-p"></i>
+                    <i class="fa-brands fa-youtube"></i>
                 </div>
             </div>
-            
-            <div class="col">
-                <h4>About</h4>
-                <a href="#">About us</a>
-                <a href="#">Delivery Information</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms & Conditions</a>
-                <a href="#">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Orders</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" width="120">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" width="135">
             </div>
-            
-            <div class="col">
-                <h4>My Account</h4>
-                <a href="#">Sign In</a>
-                <a href="#">View Cart</a>
-                <a href="#">My Wishlist</a>
-                <a href="#">Track My Order</a>
-                <a href="#">Help</a>
+            <p>Secure Payment Gateways</p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                <i class="fa-brands fa-cc-visa" style="font-size: 2em; color: #1a1f71;"></i>
+                <i class="fa-brands fa-cc-mastercard" style="font-size: 2em; color: #eb001b;"></i>
+                <i class="fa-brands fa-cc-paypal" style="font-size: 2em; color: #003087;"></i>
+                <i class="fa-brands fa-cc-apple-pay" style="font-size: 2em; color: #000;"></i>
             </div>
         </div>
+
         <div class="copyright">
-            <p>&copy; 2024, STYLÉKA - Premium Fashion Store</p>
+            <p>© 2025 , Powered By STYLÉKA</p>
         </div>
     </footer>
 
-    <script>
-        // Sample product data
-        const products = [
-            {
-                id: 1,
-                image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                brand: "Premium",
-                name: "Classic Cotton T-Shirt",
-                rating: 5,
-                price: "$29.99"
-            },
-            {
-                id: 2,
-                image: "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                brand: "Luxury",
-                name: "Designer Jeans",
-                rating: 4,
-                price: "$89.99"
-            },
-            {
-                id: 3,
-                image: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                brand: "Casual",
-                name: "Summer Dress",
-                rating: 5,
-                price: "$59.99"
-            },
-            {
-                id: 4,
-                image: "https://images.unsplash.com/photo-1520975954732-35dd22299614?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                brand: "Formal",
-                name: "Business Jacket",
-                rating: 4,
-                price: "$129.99"
-            },
-            {
-                id: 5,
-                image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                brand: "Sport",
-                name: "Running Sneakers",
-                rating: 5,
-                price: "$79.99"
-            },
-            {
-                id: 6,
-                image: "https://images.unsplash.com/photo-1581338834647-b0fb40704e21?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                brand: "Accessories",
-                name: "Leather Handbag",
-                rating: 4,
-                price: "$99.99"
-            },
-            {
-                id: 7,
-                image: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                brand: "Formal",
-                name: "Classic Watch",
-                rating: 5,
-                price: "$199.99"
-            },
-            {
-                id: 8,
-                image: "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-                brand: "Casual",
-                name: "Stylish Sunglasses",
-                rating: 4,
-                price: "$49.99"
-            }
-        ];
+    <script src="script.js"></script>
+</body>
 
-        let allProducts = [...products];
-        let filteredProducts = [...products];
-
-        function displayProducts(productsToShow) {
-            const container = document.getElementById('productContainer');
-            container.innerHTML = '';
-
-            productsToShow.forEach(product => {
-                const productElement = document.createElement('div');
-                productElement.className = 'pro';
-                productElement.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}">
-                    <div class="des">
-                        <span>${product.brand}</span>
-                        <h5>${product.name}</h5>
-                        <div class="star">
-                            ${generateStars(product.rating)}
+</html>

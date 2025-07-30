@@ -6,964 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STYLÉKA</title>
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        /* Import modern fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-        }
-
-        .section-p1 {
-            padding: 40px 80px;
-        }
-
-        .section-m1 {
-            margin: 40px 0;
-        }
-
-        /* Enhanced Header */
-        #header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 80px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            transition: all 0.3s ease;
-        }
-
-        .site-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: 2px;
-        }
-
-        #navbar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            list-style: none;
-            gap: 30px;
-        }
-
-        #navbar li a {
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            color: #333;
-            transition: all 0.3s ease;
-            padding: 12px 24px;
-            border-radius: 8px;
-            position: relative;
-            display: block;
-        }
-
-        #navbar li a:hover,
-        #navbar li a.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
-        }
-
-        #lg-bag a {
-            font-size: 1.2rem;
-            color: #667eea;
-            transition: all 0.3s ease;
-        }
-
-        #lg-bag a:hover {
-            transform: scale(1.2);
-            color: #764ba2;
-        }
-
-        #mobile {
-            display: none;
-        }
-
-        #close {
-            display: none;
-        }
-
-        /* Enhanced Hero Section */
-        #Hero {
-    position: relative;
-    background: 
-      linear-gradient(to bottom right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
-      url('https://images.unsplash.com/photo-1718985342149-7178154e0aee?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') 
-      center/cover no-repeat;
-    height: 100vh;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 60px 10%;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-    overflow: hidden;
-  }
-
-
-        #Hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 1;
-        }
-
-        #Hero > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        #Hero h4 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #f5d442;
-  }
-
-        #Hero h2 {
-    font-size: 2.5rem;
-    margin: 10px 0;
-  }
-
-        #Hero h1 {
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin: 10px 0;
-    color: #ffecb3;
-  }
-
-        #Hero p {
-    font-size: 1.1rem;
-    margin: 20px 0 30px;
-    max-width: 500px;
-    line-height: 1.6;
-    color: #f0f0f0;
-  }
-
-  #Hero button {
-    background-color: #f5d442;
-    color: black;
-    font-weight: bold;
-    border: none;
-    width: 200px;
-    padding: 14px 30px;
-    font-size: 1rem;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-       #Hero button:hover {
-    background-color: #fff176;
-    transform: scale(1.05);
-  }
-
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Enhanced Feature Section */
-        #feature {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-            background: white;
-            border-radius: 20px;
-            margin: 40px 80px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        .fe-box {
-            width: 180px;
-            text-align: center;
-            padding: 25px 15px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            background: white;
-        }
-
-        .fe-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .fe-box img {
-            width: 100%;
-            margin-bottom: 10px;
-            filter: hue-rotate(200deg);
-            transition: all 0.3s ease;
-        }
-
-        .fe-box:hover img {
-            transform: scale(1.1);
-            filter: hue-rotate(0deg);
-        }
-
-        .fe-box h6 {
-            display: inline-block;
-            padding: 9px 8px 6px 8px;
-            line-height: 1;
-            border-radius: 10px;
-            color: #667eea;
-            font-weight: 600;
-            background: rgba(102, 126, 234, 0.1);
-        }
-
-        /* Enhanced Product Sections */
-        #product1 {
-            text-align: center;
-            background: white;
-            border-radius: 20px;
-            margin: 40px 80px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        }
-
-        #product1 h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 15px;
-            font-family: 'Playfair Display', serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        #product1 p {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 40px;
-        }
-
-        .pro-container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 25px;
-            padding-top: 20px;
-        }
-
-        .pro {
-            width: 23%;
-            min-width: 250px;
-            padding: 20px 15px;
-            border: 1px solid rgba(102, 126, 234, 0.2);
-            border-radius: 20px;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin: 15px 0;
-            transition: all 0.3s ease;
-            background: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pro::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
-            transition: all 0.3s ease;
-            z-index: 1;
-        }
-
-        .pro:hover::before {
-            left: 0;
-        }
-
-        .pro:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .pro > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        .pro img {
-            width: 100%;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .pro:hover img {
-            transform: scale(1.05);
-        }
-
-        .des {
-            text-align: start;
-            padding: 15px 0;
-        }
-
-        .des span {
-            color: #667eea;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .des h5 {
-            padding: 7px 0;
-            color: #333;
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .star {
-            color: #ffd700;
-            font-size: 14px;
-            margin: 5px 0;
-        }
-
-        .des h4 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #667eea;
-        }
-
-        /* Enhanced Banner Sections */
-        #banner {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)),
-                        url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
-            width: 100%;
-            height: 40vh;
-            border-radius: 20px;
-            margin: 40px 80px;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        #banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        #banner > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        #banner h4 {
-            color: #fff;
-            font-size: 1.2rem;
-            font-weight: 400;
-            margin-bottom: 10px;
-        }
-
-        #banner h2 {
-            color: #fff;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        #banner span {
-            color: #ff6b6b;
-            font-weight: bold;
-        }
-
-        .normal {
-            font-size: 16px;
-            font-weight: 600;
-            padding: 12px 30px;
-            color: #333;
-            background: white;
-            border-radius: 25px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .normal:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Enhanced Small Banner Section */
-        #sm-banner {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .banner-box {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)),
-                        url('https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
-            min-width: 48%;
-            height: 50vh;
-            padding: 40px;
-            border-radius: 20px;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .banner-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-        }
-
-        .banner-box > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        .banner-box2 {
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.9), rgba(238, 90, 36, 0.9)),
-                        url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
-        }
-
-        .banner-box h4 {
-            color: #fff;
-            font-size: 1.1rem;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .banner-box h2 {
-            color: #fff;
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin: 15px 0;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .banner-box span {
-            color: #fff;
-            font-size: 1rem;
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
-        .white {
-            background: white !important;
-            color: #333 !important;
-        }
-
-        /* Enhanced Banner3 Section */
-        #banner3 {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            padding: 0 80px;
-            gap: 20px;
-        }
-
-        #banner3 .banner-box {
-            min-width: 30%;
-            height: 30vh;
-            padding: 30px;
-        }
-
-        #banner3 .banner-box3 {
-            background: linear-gradient(135deg, rgba(238, 90, 36, 0.9), rgba(255, 107, 107, 0.9)),
-                        url('https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=2064&q=80') center/cover;
-        }
-
-        #banner3 h2 {
-            color: white;
-            font-weight: 900;
-            font-size: 1.8rem;
-            font-family: 'Playfair Display', serif;
-        }
-
-        #banner3 h3 {
-            color: #ff6b6b;
-            font-weight: 800;
-            font-size: 1.1rem;
-            margin-top: 10px;
-        }
-
-        /* Enhanced Newsletter Section */
-        #newsletter {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            align-items: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 20px;
-            margin: 40px 80px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-        }
-
-        .newstext h4 {
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .newstext p {
-            font-size: 1rem;
-            font-weight: 400;
-            color: rgba(255, 255, 255, 0.9);
-            margin: 20px 0;
-        }
-
-        .newstext span {
-            color: #ff6b6b;
-            font-weight: 600;
-        }
-
-        .form {
-            display: flex;
-            width: 40%;
-            gap: 15px;
-        }
-
-        .form input {
-            height: 50px;
-            padding: 0 20px;
-            font-size: 16px;
-            width: 100%;
-            border: none;
-            outline: none;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            backdrop-filter: blur(10px);
-        }
-
-        .form input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .form button {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3);
-        }
-
-        .form button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
-        }
-
-                        /* Enhanced Footer - Dark Theme */
-        footer {
-            background: #E6E6FA; /* Changed to lilac color */
-            color: white;
-            padding: 40px 80px;
-            border-radius: 20px;
-            margin: 40px 20px 20px 20px;
-            position: relative;
-            border: none;
-            box-shadow: 0 0 30px rgba(230, 230, 250, 0.6),
-                        inset 0 0 30px rgba(230, 230, 250, 0.2);
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            background: linear-gradient(45deg, #007bff, #00d4ff, #007bff, #00d4ff);
-            border-radius: 23px;
-            z-index: -1;
-            animation: outerGlow 3s ease-in-out infinite alternate;
-        }
-
-        .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            width: 100%;
-            background-color: white;
-            color: #0066cc;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 10px;
-            position: relative;
-            border: none;
-            box-shadow: 0 0 35px rgba(230, 230, 250, 0.6), 
-                        inset 0 0 25px rgba(230, 230, 250, 0.2);
-        }
-
-        .footer-container::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: -3px;
-            right: -3px;
-            bottom: -3px;
-            background: linear-gradient(45deg, #007bff, #00d4ff, #007bff, #00d4ff);
-            border-radius: 13px;
-            z-index: -1;
-            animation: innerGlow 2.5s ease-in-out infinite alternate;
-        }
-
-
-
-        @keyframes outerGlow {
-            from {
-                box-shadow: 0 0 30px rgba(230, 230, 250, 0.6);
-            }
-            to {
-                box-shadow: 0 0 50px rgba(230, 230, 250, 0.9);
-            }
-        }
-
-        @keyframes innerGlow {
-            from {
-                box-shadow: 0 0 25px rgba(230, 230, 250, 0.6);
-            }
-            to {
-                box-shadow: 0 0 45px rgba(230, 230, 250, 0.9);
-            }
-        }
-
-        footer .col {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            flex: 1;
-            min-width: 250px;
-        }
-
-        /* Add spacing between STYLÉKA and Navigation columns */
-        footer .col:first-child {
-            margin-right: 40px;
-        }
-
-        footer h4 {
-            font-size: 1.3rem;
-            padding-bottom: 15px;
-            color: #007bff;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        footer p {
-            font-size: 14px;
-            margin: 5px 0 8px 0;
-            color: #0066cc;
-            line-height: 1.6;
-        }
-
-        footer a {
-            font-size: 14px;
-            text-decoration: none;
-            color: #0066cc;
-            margin-bottom: 8px;
-            transition: all 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #007bff;
-            transform: translateX(5px);
-        }
-
-        .follow {
-            margin-top: 20px;
-        }
-
-        .follow .icon {
-            color: #007bff;
-            padding-right: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-        }
-
-        .follow .icon:hover {
-            transform: scale(1.2);
-            color: #00d4ff;
-        }
-
-        .icon a {
-            color: #0066cc;
-            padding-right: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1.2rem;
-            text-decoration: none;
-        }
-
-        .icon a:hover {
-            transform: scale(1.2);
-            color: #00d4ff;
-        }
-
-        .install img {
-            margin: 10px 0 15px 0;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .install img:hover {
-            transform: scale(1.05);
-        }
-
-        .copyright {
-            width: 100%;
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(0, 123, 255, 0.3);
-            color: #0066cc;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 799px) {
-            .section-p1 {
-                padding: 40px 40px;
-            }
-
-            #navbar {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
-                position: fixed;
-                top: 0;
-                right: -300px;
-                height: 100vh;
-                width: 300px;
-                background: white;
-                box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
-                padding: 80px 0 0 10px;
-                transition: 0.3s;
-            }
-
-            #navbar.active {
-                right: 0px;
-            }
-
-            #navbar li {
-                margin-bottom: 25px;
-            }
-
-            #mobile {
-                display: flex;
-                align-items: center;
-            }
-
-            #mobile i {
-                color: #333;
-                font-size: 24px;
-                padding-left: 20px;
-                cursor: pointer;
-            }
-
-            #close {
-                display: initial;
-                position: absolute;
-                top: 30px;
-                left: 30px;
-                color: #333;
-                font-size: 24px;
-                cursor: pointer;
-            }
-
-            #lg-bag {
-                display: none;
-            }
-
-            #Hero {
-                padding: 0 40px;
-                height: 70vh;
-            }
-
-            #Hero h1 {
-                font-size: 3rem;
-            }
-
-            #Hero h2 {
-                font-size: 2.5rem;
-            }
-
-            #feature {
-                justify-content: center;
-                margin: 20px 40px;
-            }
-
-            #feature .fe-box {
-                margin: 15px;
-            }
-
-            #product1 {
-                margin: 20px 40px;
-            }
-
-            #product1 .pro-container {
-                justify-content: center;
-            }
-
-            #product1 .pro {
-                margin: 15px;
-            }
-
-            #banner {
-                height: 30vh;
-                margin: 20px 40px;
-            }
-
-            #sm-banner .banner-box {
-                min-width: 100%;
-                height: 30vh;
-            }
-
-            #banner3 {
-                padding: 0 40px;
-            }
-
-            #banner3 .banner-box {
-                min-width: 100%;
-            }
-
-            #newsletter {
-                flex-direction: column;
-                margin: 20px 40px;
-            }
-
-            #newsletter .form {
-                width: 100%;
-                margin-top: 20px;
-            }
-
-            footer {
-                padding: 40px 40px;
-            }
-        }
-
-        @media (max-width: 477px) {
-            .section-p1 {
-                padding: 20px;
-            }
-
-            #header {
-                padding: 10px 30px;
-            }
-
-            .site-title {
-                font-size: 2rem;
-            }
-
-            #Hero {
-                padding: 0 20px;
-            }
-
-            #Hero h1 {
-                font-size: 2.5rem;
-            }
-
-            #Hero h2 {
-                font-size: 2rem;
-            }
-
-            #product1 h2 {
-                font-size: 2rem;
-            }
-
-            #feature,
-            #product1,
-            #banner,
-            #newsletter {
-                margin: 20px;
-            }
-
-            #banner3 {
-                padding: 0 20px;
-            }
-
-            footer {
-                padding: 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
 
     <section id="header">
+        <!-- <a href="#"><img src="img/Untitled_design__1_-removebg-preview.png" class="logo" alt=""></a> -->
+
+        <!-- <h1>STYLÉKA</h1> -->
+
         <span class="site-title">STYLÉKA</span>
 
         <div>
             <ul id="navbar">
-                <li><a class="active" href="Index.html">Home</a></li>
+
+                <li><a class="active" href="index.html">Home</a></li>
                 <li><a href="shop.html">Shop</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="register.html">Register</a></li>
+                <li class="auth-buttons">
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </a>
+                    <a href="register.html" class="signup-btn">
+                        <i class="fas fa-user-plus"></i>
+                        Sign Up
+                    </a>
+                </li>
                 <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                 <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
             </ul>
@@ -976,49 +51,84 @@
     </section>
 
     <section id="Hero">
-        <div class="left">
-        <h4>Trade-in-offer</h4>
-        <h2>Super value deals</h2>
-        <h1>On all products</h1>
-        <p>Save more with coupons & upto 70% off !</p>
-        <button>Shop Now</button>
+        <div class="hero-content">
+            <h4>Trade-in-offer</h4>
+            <h2>Super value deals</h2>
+            <h1>On all products</h1>
+            <p>Save more with coupons & up to 70% off! Discover the latest fashion trends and exclusive collections from top brands worldwide.</p>
+            <button onclick="window.location.href='shop.html'">Shop Now</button>
         </div>
-        
     </section>
 
     <section id="feature" class="section-p1">
         <div class="fe-box">
-            <img src="images/f1.svg" alt="free shipping">
+            <img src="https://cdn-icons-png.flaticon.com/512/3514/3514491.png" alt="Free Shipping" width="60">
             <h6>Free Shipping</h6>
         </div>
         <div class="fe-box">
-            <img src="images/f2.svg" alt="online order">
+            <img src="https://cdn-icons-png.flaticon.com/512/3081/3081559.png" alt="Online Order" width="60">
             <h6>Online Order</h6>
         </div>
         <div class="fe-box">
-            <img src="images/f3.svg" alt="save money">
+            <img src="https://cdn-icons-png.flaticon.com/512/2936/2936719.png" alt="Save Money" width="60">
             <h6>Save Money</h6>
         </div>
         <div class="fe-box">
-            <img src="images/f4.jpg" alt="promotions">
+            <img src="https://cdn-icons-png.flaticon.com/512/3514/3514447.png" alt="Promotions" width="60">
             <h6>Promotions</h6>
         </div>
         <div class="fe-box">
-            <img src="images/f5.svg" alt="happy Sell">
+            <img src="https://cdn-icons-png.flaticon.com/512/2936/2936760.png" alt="Happy Sell" width="60">
             <h6>Happy Sell</h6>
         </div>
         <div class="fe-box">
-            <img src="images/f6.png" alt="24/7 Support">
+            <img src="https://cdn-icons-png.flaticon.com/512/2936/2936886.png" alt="24/7 Support" width="60">
             <h6>24/7 Support</h6>
         </div>
     </section>
 
     <section id="product1" class="section-p1">
-        <h2>Featured Products</h2>
-        <p>New Designs Added</p>
+        <div class="product-header">
+            <div class="product-title">
+                <h2>Featured Products</h2>
+                <p>New Designs Added</p>
+            </div>
+            <div class="search-container">
+                <div class="search-box">
+                    <input type="text" id="productSearch" placeholder="Search products..." onkeyup="searchProducts()">
+                    <button type="button" onclick="searchProducts()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="search-filters">
+                    <select id="brandFilter" onchange="filterProducts()">
+                        <option value="">All Brands</option>
+                        <option value="Adidas">Adidas</option>
+                        <option value="Zara">Zara</option>
+                        <option value="Gucci">Gucci</option>
+                        <option value="Puma">Puma</option>
+                        <option value="HnM">H&M</option>
+                    </select>
+                    <select id="priceFilter" onchange="filterProducts()">
+                        <option value="">All Prices</option>
+                        <option value="0-2000">₹0 - ₹2000</option>
+                        <option value="2000-5000">₹2000 - ₹5000</option>
+                        <option value="5000-10000">₹5000 - ₹10000</option>
+                        <option value="10000+">₹10000+</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="searchResults" class="search-results" style="display: none;">
+            <p id="resultsCount"></p>
+            <button onclick="clearSearch()" class="clear-search">
+                <i class="fas fa-times"></i>
+                Clear Search
+            </button>
+        </div>
         <div class="pro-container">
             <div class="pro">
-                <img src="img/Products/adicolor-classics-3-stripes-tee.avif" alt="">
+                <img src="https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Adidas White Tee">
                 <div class="des">
                     <span>Adidas</span>
                     <h5>White tee with black stripes</h5>
@@ -1031,9 +141,10 @@
                     </div>
                     <h4>₹2000</h4>
                 </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
-                <img src="img/Products/f1.jpg" alt="">
+                <img src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Zara Printed Shirt">
                 <div class="des">
                     <span>Zara</span>
                     <h5>Printed Shirt</h5>
@@ -1049,7 +160,7 @@
                 <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
-                <img src="img/Products/f2.jpg" alt="">
+                <img src="https://images.pexels.com/photos/1656684/pexels-photo-1656684.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Gucci Flower Print Shirt">
                 <div class="des">
                     <span>Gucci</span>
                     <h5>Flower print exclusive shirt</h5>
@@ -1065,7 +176,7 @@
                 <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
-                <img src="img/Products/1000011878477-White-White-1000011878477_01-2100.jpg" alt="">
+                <img src="https://images.pexels.com/photos/1240892/pexels-photo-1240892.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Puma One8 Shoes">
                 <div class="des">
                     <span>Puma</span>
                     <h5>One8 Shoes By Virat</h5>
@@ -1081,7 +192,7 @@
                 <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
-                <img src="img/Products/images.jpg" alt="">
+                <img src="https://images.pexels.com/photos/1620695/pexels-photo-1620695.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Ferrari Sports Hoodie">
                 <div class="des">
                     <span>Puma</span>
                     <h5>Ferrari Sports Hoodie</h5>
@@ -1097,7 +208,7 @@
                 <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
-                <img src="img/Products/f6.jpg" alt="">
+                <img src="https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Zara Dual Color Shirt">
                 <div class="des">
                     <span>Zara</span>
                     <h5>Dual Color Shirt</h5>
@@ -1113,7 +224,7 @@
                 <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
-                <img src="img/Products/f7.jpg" alt="">
+                <img src="https://images.pexels.com/photos/914668/pexels-photo-914668.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="H&M Women Trouser">
                 <div class="des">
                     <span>HnM</span>
                     <h5>Printed Women Trouser</h5>
@@ -1129,7 +240,7 @@
                 <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
-                <img src="img/Products/f8.jpg" alt="">
+                <img src="https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="H&M Purple T-shirt">
                 <div class="des">
                     <span>HnM</span>
                     <h5>Exclusive Purple Women t-shirts</h5>
@@ -1147,11 +258,180 @@
         </div>
     </section>
 
+    <section id="why-choose-us" class="section-p1">
+        <h2>Why Choose STYLÉKA?</h2>
+        <p>Experience fashion like never before with our exclusive benefits</p>
+        <div class="benefits-container">
+            <div class="benefit-box">
+                <div class="benefit-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h4>Premium Quality</h4>
+                <p>Handpicked products from top international brands ensuring highest quality standards.</p>
+            </div>
+            <div class="benefit-box">
+                <div class="benefit-icon">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+                <h4>Fast Delivery</h4>
+                <p>Lightning-fast delivery across India with real-time tracking and secure packaging.</p>
+            </div>
+            <div class="benefit-box">
+                <div class="benefit-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <h4>Best Prices</h4>
+                <p>Unbeatable prices with exclusive discounts and seasonal offers just for you.</p>
+            </div>
+            <div class="benefit-box">
+                <div class="benefit-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h4>24/7 Support</h4>
+                <p>Round-the-clock customer support to assist you with any queries or concerns.</p>
+            </div>
+        </div>
+    </section>
 
     <section id="banner" class="section-m1">
-        <h3>Repair Service</h3>
+        <h4>Repair Service</h4>
         <h2>Up to <span>70% Off</span> - All t-shirts & Accessories</h2>
         <button class="normal">Explore More</button>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <h2>New Arrivals</h2>
+        <p>Summer Collection New Modern Design</p>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="H&M Black Shirt">
+                <div class="des">
+                    <span>H&M</span>
+                    <h5>Plain Black Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹1500</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro">
+                <img src="https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="H&M Blue Shirt">
+                <div class="des">
+                    <span>H&M</span>
+                    <h5>Blue Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹2500</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro">
+                <img src="https://images.pexels.com/photos/2983467/pexels-photo-2983467.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Lacoste Checked Shirt">
+                <div class="des">
+                    <span>Lacoste</span>
+                    <h5>Checked Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹6000</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro">
+                <img src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Goldstar White Shirt">
+                <div class="des">
+                    <span>Goldstar</span>
+                    <h5>White Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹2000</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro">
+                <img src="https://images.pexels.com/photos/1656684/pexels-photo-1656684.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="LV Designer Shirt">
+                <div class="des">
+                    <span>LV</span>
+                    <h5>Designer Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹12000</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro">
+                <img src="https://images.pexels.com/photos/1620695/pexels-photo-1620695.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Kaloster Denim Jacket">
+                <div class="des">
+                    <span>Kaloster</span>
+                    <h5>Denim Jacket</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹3500</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro">
+                <img src="https://images.pexels.com/photos/1240892/pexels-photo-1240892.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Lacoste Shorts">
+                <div class="des">
+                    <span>Lacoste</span>
+                    <h5>Shorts</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹2600</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>
+            <div class="pro">
+                <img src="https://images.pexels.com/photos/914668/pexels-photo-914668.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Gucci Desert Shirt">
+                <div class="des">
+                    <span>Gucci</span>
+                    <h5>Desert Shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>₹26000</h4>
+                </div>
+                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
+            </div>    
+        </div>
     </section>
 
     <section id="sm-banner" class="section-p1">
@@ -1162,27 +442,25 @@
             <button class="white">Learn More</button>
         </div>
         <div class="banner-box banner-box2">
-            <div class="rightban">            
             <h4>summer/spring</h4>
             <h2>upcoming season</h2>
             <span>The best classic dress is on sale at styleka</span>
-            <button class="green">Collection</button>
-            </div>
+            <button class="white">Collection</button>
         </div>
     </section>
 
     <section id="banner3">
         <div class="banner-box ">
-            <h2 >SEASONAL SALE</h2>
-            <h3 class="winter">Winter Collection -50% OFF</h3>
+            <h2>SEASONAL SALE</h2>
+            <h3>Winter Collection -50% OFF</h3>
         </div>
         <div class="banner-box banner-box2">
-            <h2 class="foot">NEW FOOTWEAR COLLECTION</h2>
+            <h2>NEW FOOTWEAR COLLECTION</h2>
             <h3>Spring / Summer 2022</h3>
         </div>
         <div class="banner-box banner-box3">
-            <h2 class="tshirt">T-SHIRTS</h2>
-            <h3 class="subtshirt">New Trendy Prints</h3>
+            <h2>T-SHIRTS</h2>
+            <h3>New Trendy Prints</h3>
         </div>
     </section>
 
@@ -1198,47 +476,60 @@
     </section>
 
     <footer class="section-p1">
-        <div class="footer-container">
-            <div class="col">
-                <h4>STYLÉKA</h4>
-                <p>Where fashion meets innovation and style transcends boundaries. STYLÉKA is your premier destination for curated fashion that speaks to the modern individual. From streetwear to haute couture, we blend contemporary trends with timeless elegance, offering a shopping experience that's as unique as your personal style. Discover collections that celebrate diversity, sustainability, and the art of self-expression.</p>
+        <div class="col">
+            <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                <h2 style="color: #088178; font-size: 2.5em; margin: 0;">STYLÉKA</h2>
             </div>
-
-            <div class="col">
-                <h4>Navigation</h4>
-                <a href="index.html">Home</a>
-                <a href="shop.html">Shop</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="blog.html">Blog</a>
-            </div>
-
-            <div class="col">
-                <h4>Contact</h4>
-                <p>Address: Guru Nanak Dev University, Amritsar</p>
-                <p>Phone: (+91)-8507566667</p>
-                <p>Hours: 10:00-18:00, Mon-Sat</p>
-                <h4>Follow us</h4>
+            <h4>Contact</h4>
+            <p><strong>Address :</strong> Guru Nanak Dev University , Amritsar</p>
+            <p><strong>Phone :</strong> (+91) - 8507566667</p>
+            <p><strong>Hours :</strong> 10:00 - 18:00 , Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow Us</h4>
                 <div class="icon">
-                    <a href="https://facebook.com" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://instagram.com" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://twitter.com" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                </div>
-            </div>
-
-            <div class="col">
-                <h4>Install App</h4>
-                <div class="icon">
-                    <a href="https://play.google.com" target="_blank"><i class="fab fa-google-play"></i></a>
-                </div>
-                <h4>Secure Payment Gateways</h4>
-                <div class="icon">
-                    <a href="https://razorpay.com" target="_blank"><i class="fas fa-credit-card"></i></a>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-pinterest-p"></i>
+                    <i class="fa-brands fa-youtube"></i>
                 </div>
             </div>
         </div>
-        
+
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact us</a>
+        </div>
+
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Orders</a>
+            <a href="#">Help</a>
+        </div>
+
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store" width="120">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" width="135">
+            </div>
+            <p>Secure Payment Gateways</p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+                <i class="fa-brands fa-cc-visa" style="font-size: 2em; color: #1a1f71;"></i>
+                <i class="fa-brands fa-cc-mastercard" style="font-size: 2em; color: #eb001b;"></i>
+                <i class="fa-brands fa-cc-paypal" style="font-size: 2em; color: #003087;"></i>
+                <i class="fa-brands fa-cc-apple-pay" style="font-size: 2em; color: #000;"></i>
+            </div>
+        </div>
+
         <div class="copyright">
             <p>© 2025 , Powered By STYLÉKA</p>
         </div>
