@@ -622,82 +622,446 @@
 
         /* Enhanced Footer */
         footer {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: white;
-            padding: 40px 80px;
-            border-radius: 20px 20px 0 0;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #ffffff;
+            padding: 0;
             margin-top: 40px;
+            position: relative;
+            overflow: hidden;
         }
 
-        footer .col {
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 1;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            padding: 60px 80px 40px;
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-col {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            margin-bottom: 20px;
         }
 
-        footer h4 {
-            font-size: 1.2rem;
-            padding-bottom: 20px;
-            color: #fff;
+        .footer-col h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 25px;
+            position: relative;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .footer-col h5 {
+            font-size: 1.1rem;
             font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
         }
 
-        footer p {
-            font-size: 14px;
-            margin: 5px 0 8px 0;
-            color: rgba(255, 255, 255, 0.8);
+        /* Company Info Section */
+        .company-info .site-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            display: block;
         }
 
-        footer a {
-            font-size: 14px;
+        .footer-tagline {
+            font-size: 1rem;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .company-description {
+            font-size: 0.95rem;
+            color: #d0d0d0;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: #d0d0d0;
+        }
+
+        .contact-item i {
+            color: #667eea;
+            width: 16px;
+            text-align: center;
+        }
+
+        /* Footer Links */
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #d0d0d0;
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 10px;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
+            padding: 5px 0;
         }
 
-        footer a:hover {
+        .footer-links a i {
+            color: #667eea;
+            width: 16px;
+            text-align: center;
+        }
+
+        .footer-links a:hover {
             color: #667eea;
             transform: translateX(5px);
         }
 
-        .follow {
-            margin-top: 20px;
+        /* Newsletter Section */
+        .newsletter-col p {
+            font-size: 0.95rem;
+            color: #d0d0d0;
+            line-height: 1.5;
+            margin-bottom: 20px;
         }
 
-        .follow .icon {
-            color: #667eea;
-            padding-right: 15px;
+        .newsletter-form {
+            display: flex;
+            margin-bottom: 30px;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .newsletter-input::placeholder {
+            color: #b0b0b0;
+        }
+
+        .newsletter-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 20px;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 1rem;
         }
 
-        .follow .icon:hover {
-            transform: scale(1.2);
-            color: #ff6b6b;
-        }
-
-        .install img {
-            margin: 10px 0 15px 0;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .install img:hover {
+        .newsletter-btn:hover {
+            background: linear-gradient(135deg, #764ba2, #667eea);
             transform: scale(1.05);
         }
 
-        .copyright {
-            width: 100%;
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            color: rgba(255, 255, 255, 0.6);
+        /* Social Media */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            transform: scale(0);
+        }
+
+        .social-icon:hover::before {
+            transform: scale(1);
+        }
+
+        .social-icon.facebook { background: linear-gradient(135deg, #3b5998, #4267B2); }
+        .social-icon.twitter { background: linear-gradient(135deg, #1da1f2, #0e71c8); }
+        .social-icon.instagram { background: linear-gradient(135deg, #e4405f, #833ab4); }
+        .social-icon.linkedin { background: linear-gradient(135deg, #0077b5, #005885); }
+        .social-icon.youtube { background: linear-gradient(135deg, #ff0000, #cc0000); }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Footer Bottom Section */
+        .footer-bottom {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px 80px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .payment-download {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .app-download h5,
+        .payment-methods h5 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .app-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .app-btn img {
+            height: 40px;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .app-btn:hover img {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        .payment-icons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .payment-icons i {
+            font-size: 2rem;
+            color: #d0d0d0;
+            transition: all 0.3s ease;
+        }
+
+        .payment-icons i:hover {
+            color: #667eea;
+            transform: scale(1.1);
+        }
+
+        /* Footer Copyright */
+        .footer-copyright {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px 80px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .copyright-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .copyright-content p {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .copyright-content .fas.fa-heart {
+            color: #ff6b6b;
+            animation: heartbeat 2s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .footer-legal a {
+            color: #d0d0d0;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: #667eea;
+        }
+
+        .footer-legal span {
+            color: #666;
+        }
+
+        /* Responsive Design for Footer */
+        @media (max-width: 1200px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 30px;
+                padding: 50px 60px 30px;
+            }
+
+            .newsletter-col {
+                grid-column: span 3;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 799px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 40px 40px 20px;
+            }
+
+            .company-info {
+                text-align: center;
+            }
+
+            .contact-info {
+                align-items: center;
+            }
+
+            .footer-bottom {
+                padding: 20px 40px;
+            }
+
+            .payment-download {
+                flex-direction: column;
+                gap: 25px;
+                text-align: center;
+            }
+
+            .app-buttons {
+                justify-content: center;
+            }
+
+            .payment-icons {
+                justify-content: center;
+            }
+
+            .footer-copyright {
+                padding: 15px 40px;
+            }
+
+            .copyright-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 477px) {
+            .footer-container {
+                padding: 30px 20px 15px;
+            }
+
+            .footer-bottom {
+                padding: 15px 20px;
+            }
+
+            .footer-copyright {
+                padding: 10px 20px;
+            }
+
+            .company-info .site-title {
+                font-size: 2rem;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+            .app-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .payment-icons {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
         }
 
         /* Responsive Design */
@@ -818,8 +1182,17 @@
                 margin-top: 20px;
             }
 
-            footer {
-                padding: 40px 40px;
+            footer .footer-container {
+                grid-template-columns: 1fr;
+                padding: 40px 40px 20px;
+            }
+
+            .footer-bottom {
+                padding: 20px 40px;
+            }
+
+            .footer-copyright {
+                padding: 15px 40px;
             }
         }
 
@@ -863,8 +1236,16 @@
                 padding: 0 20px;
             }
 
-            footer {
+            footer .footer-container {
                 padding: 20px;
+            }
+
+            .footer-bottom {
+                padding: 15px 20px;
+            }
+
+            .footer-copyright {
+                padding: 10px 20px;
             }
         }
     </style>
@@ -1105,55 +1486,146 @@
     </section>
 
     <footer class="section-p1">
-        <div class="col">
-            <img src="img/WhatsApp_Image_2025-02-25_at_5.08.58_PM-removebg-preview.png" alt="" width="200px">
-            <h4>Contact</h4>
-            <p><strong>Address :</strong> Guru Nanak Dev University , Amritsar</p>
-            <p><strong>Phone :</strong> (+91) - 8507566667</p>
-            <p><strong>Hours :</strong> 10:00 - 18:00 , Mon - Sat</p>
-            <div class="follow">
-                <h4>Follow Us</h4>
-                <div class="icon">
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-twitter"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-pinterest-p"></i>
-                    <i class="fa-brands fa-youtube"></i>
+        <div class="footer-container">
+            <!-- Company Info Column -->
+            <div class="footer-col company-info">
+                <div class="footer-logo">
+                    <span class="site-title">STYLÉKA</span>
+                    <p class="footer-tagline">Your Style, Our Passion</p>
+                </div>
+                <p class="company-description">
+                    Discover the latest fashion trends and timeless classics at STYLÉKA. 
+                    We bring you premium quality clothing and accessories that reflect your unique style.
+                </p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Guru Nanak Dev University, Amritsar, Punjab</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 8507566667</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>support@styleka.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Mon - Sat: 10:00 AM - 6:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Links Column -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="shop.html"><i class="fas fa-shopping-bag"></i> Shop</a></li>
+                    <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                    <li><a href="contact.html"><i class="fas fa-phone"></i> Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Customer Service Column -->
+            <div class="footer-col">
+                <h4>Customer Service</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-truck"></i> Shipping Info</a></li>
+                    <li><a href="#"><i class="fas fa-undo"></i> Returns & Exchanges</a></li>
+                    <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                    <li><a href="#"><i class="fas fa-file-contract"></i> Terms & Conditions</a></li>
+                    <li><a href="#"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                </ul>
+            </div>
+
+            <!-- My Account Column -->
+            <div class="footer-col">
+                <h4>My Account</h4>
+                <ul class="footer-links">
+                    <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
+                    <li><a href="register.html"><i class="fas fa-user-plus"></i> Register</a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> View Cart</a></li>
+                    <li><a href="#"><i class="fas fa-heart"></i> My Wishlist</a></li>
+                    <li><a href="#"><i class="fas fa-box"></i> Track Orders</a></li>
+                </ul>
+            </div>
+
+            <!-- Newsletter & Social Column -->
+            <div class="footer-col newsletter-col">
+                <h4>Stay Connected</h4>
+                <p>Subscribe to get updates on new arrivals and special offers!</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input">
+                    <button type="submit" class="newsletter-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="social-media">
+                    <h5>Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon facebook" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon twitter" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon instagram" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon linkedin" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon youtube" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="col">
-            <h4>About</h4>
-            <a href="#">About us</a>
-            <a href="#">Delivery Information</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Contact us</a>
-        </div>
-
-        <div class="col">
-            <h4>My Account</h4>
-            <a href="#">Sign In</a>
-            <a href="#">View Cart</a>
-            <a href="#">My Wishlist</a>
-            <a href="#">Track My Orders</a>
-            <a href="#">Help</a>
-        </div>
-
-        <div class="col install">
-            <h4>Install App</h4>
-            <p>From App Store or Google Play</p>
-            <div class="row">
-                <img src="img/Pay/app.jpg" alt="">
-                <img src="img/Pay/play.jpg" alt="">
+        <!-- Payment & Download Section -->
+        <div class="footer-bottom">
+            <div class="payment-download">
+                <div class="app-download">
+                    <h5>Download Our App</h5>
+                    <div class="app-buttons">
+                        <a href="#" class="app-btn">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" />
+                        </a>
+                        <a href="#" class="app-btn">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="Download on the App Store" />
+                        </a>
+                    </div>
+                </div>
+                <div class="payment-methods">
+                    <h5>We Accept</h5>
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-google-pay"></i>
+                        <i class="fab fa-cc-apple-pay"></i>
+                        <i class="fas fa-university"></i>
+                    </div>
+                </div>
             </div>
-            <p>Secure Payment Gateways</p>
-            <img src="img/Pay/pay.png" alt="">
         </div>
 
-        <div class="copyright">
-            <p>© 2025 , Powered By STYLÉKA</p>
+        <!-- Copyright Section -->
+        <div class="footer-copyright">
+            <div class="copyright-content">
+                <p>&copy; 2025 STYLÉKA. All rights reserved. | Designed with <i class="fas fa-heart"></i> for fashion lovers</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <span>|</span>
+                    <a href="#">Terms of Service</a>
+                    <span>|</span>
+                    <a href="#">Cookies Policy</a>
+                </div>
+            </div>
         </div>
     </footer>
 
