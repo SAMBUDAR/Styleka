@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STYLÉKA - Modern Fashion Store</title>
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+          document.documentElement.classList.add("dark-mode");
+        }
+      </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* Import modern fonts */
@@ -744,6 +749,7 @@
                 <li><a href="#">About</a></li>
                 <li><a href="#">Contact</a></li>
                 <li id="lg-bag"><a href="#"><i class="far fa-shopping-bag"></i></a></li>
+                <li> <button id="theme-toggle" style="border:none; background:none; font-size: 20px; cursor:pointer;">🌙</button></li>
                 <a href="#" id="close"><i class="far fa-times"></i></a>
             </ul>
         </div>
@@ -833,7 +839,7 @@
             <p>&copy; 2024, STYLÉKA - Premium Fashion Store</p>
         </div>
     </footer>
-
+    <script src="themescript.js"></script>      
     <script>
         // Sample product data
         const products = [
@@ -907,16 +913,22 @@
         let filteredProducts = [...products];
 
         function displayProducts(productsToShow) {
-            const container = document.getElementById('productContainer');
-            container.innerHTML = '';
+    const container = document.getElementById('productContainer');
+    container.innerHTML = '';
 
-            productsToShow.forEach(product => {
-                const productElement = document.createElement('div');
-                productElement.className = 'pro';
-                productElement.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}">
-                    <div class="des">
-                        <span>${product.brand}</span>
-                        <h5>${product.name}</h5>
-                        <div class="star">
-                            ${generateStars(product.rating)}
+    productsToShow.forEach(product => {
+        const productElement = document.createElement('div');
+        productElement.className = 'pro';
+        productElement.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <div class="des">
+                <span>${product.brand}</span>
+                <h5>${product.name}</h5>
+                <div class="star">
+                    ${generateStars(product.rating)}
+                </div>
+            </div>
+        `;
+        container.appendChild(productElement);
+    });
+}

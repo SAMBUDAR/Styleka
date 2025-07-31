@@ -1,6 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -8,6 +7,147 @@
     font-family: "Play", serif;
 }
 
+/* Dark Mode Styles */
+html.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+html.dark-mode body {
+    background: #121212;
+    color: #e0e0e0;
+}
+
+html.dark-mode #header {
+    background: #1a1a1a;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+html.dark-mode .site-title {
+    color: #e0e0e0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+html.dark-mode #navbar li a {
+    color: #e0e0e0;
+}
+
+html.dark-mode #navbar li a:hover,
+html.dark-mode #navbar li a.active {
+    color: #fefefe;
+}
+
+html.dark-mode #navbar li a.active::after,
+html.dark-mode #navbar li a:hover::after {
+    background: #f9fafc;
+}
+
+html.dark-mode h1, 
+html.dark-mode h2, 
+html.dark-mode h4 {
+    color: #e0e0e0;
+}
+
+html.dark-mode p {
+    color: #b0b0b0;
+}
+
+html.dark-mode #feature .fe-box,
+html.dark-mode #product1,
+html.dark-mode .pro {
+    background: #1e1e1e;
+    border-color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+html.dark-mode .des h5,
+html.dark-mode .des span {
+    color: #b0b0b0;
+}
+
+html.dark-mode #product1 p {
+    color: #b0b0b0;
+}
+
+html.dark-mode .star {
+    color: #ffd700;
+}
+
+html.dark-mode .des h4 {
+    color: #667eea;
+}
+
+html.dark-mode button.normal {
+    background-color: #667eea;
+    color: white;
+}
+
+html.dark-mode button.white {
+    color: #e0e0e0;
+    border-color: #e0e0e0;
+}
+
+html.dark-mode button.green {
+    background: #667eea;
+    border-color: #667eea;
+}
+
+html.dark-mode footer {
+    background: #1a1a2e;
+    color: #e0e0e0;
+}
+
+html.dark-mode .footer-container {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+html.dark-mode footer h4,
+html.dark-mode footer p,
+html.dark-mode footer a,
+html.dark-mode .copyright {
+    color: #e0e0e0;
+}
+
+html.dark-mode .follow i,
+html.dark-mode .icon a {
+    color: #e0e0e0;
+}
+
+html.dark-mode .follow i:hover,
+html.dark-mode .icon a:hover {
+    color: #667eea;
+}
+
+html.dark-mode .install .row img {
+    border-color: #667eea;
+}
+
+html.dark-mode #newsletter {
+    background-color: #1a1a2e;
+}
+
+html.dark-mode #newsletter h4 {
+    color: #e0e0e0;
+}
+
+html.dark-mode #newsletter p {
+    color: #b0b0b0;
+}
+
+html.dark-mode #newsletter input {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-color: #333;
+}
+
+/* Add smooth transitions */
+html, body, #header, #feature, #product1, .pro, .fe-box, footer, .footer-container,
+#navbar li a, h1, h2, h4, p, button {
+    transition: background-color 0.5s ease, color 0.3s ease, border-color 0.3s ease;
+}
 h1 {
     font-size: 50px;
     line-height: 64px;
@@ -86,66 +226,80 @@ body{
 }
 
 /*Header Start */ 
-#header{
+#header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* font-style: italic; */
     padding: 20px 80px;
-    background: #E3E6F3;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    z-index: 999;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    left: 0;
+    z-index: 999;
+    transition: all 0.3s ease;
 }
 
-.site-title{
-    font-size: 5em;
-    font-weight: bold;
-    color: black;
+.site-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
 }
-
 .logo{
     height: 200px;
-}
-
-#navbar{
+}#navbar {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-#navbar li{
     list-style: none;
-    padding: 0 20px;
-    position: relative;
+    gap: 30px;
 }
 
-#navbar li a{
+#navbar li a {
     text-decoration: none;
     font-size: 16px;
-    font-weight: 600;
-    color: #1a1a1a;
-    transition: 0.3s ease;
+    font-weight: 500;
+    color: #333;
+    transition: all 0.3s ease;
+    padding: 12px 24px;
+    border-radius: 8px;
+    position: relative;
+    display: block;
 }
 
-#navbar li a:hover ,
-#navbar li a.active{
-    color: #088178;
+#navbar li a:hover,
+#navbar li a.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
-#navbar li a.active::after,
-#navbar li a:hover::after{
-    content: "";
-    width: 30%;
-    height: 2px;
-    background: #088178;
-    position: absolute;
-    bottom: -4px;
-    left: 20px;
+#lg-bag a {
+    font-size: 1.2rem;
+    color: #667eea;
+    transition: all 0.3s ease;
 }
 
+#lg-bag a:hover {
+    transform: scale(1.2);
+    color: #764ba2;
+}
+
+#mobile {
+    display: none;
+}
+
+#close {
+    display: none;
+}
+
+/* Enhanced Hero Section */
 #mobile{
     display: none;
     align-items: center;
@@ -212,7 +366,7 @@ body{
 }
 
 #Hero button{
-    //background-image: url(img/button.png);
+    /*background-image: url(img/button.png);*/
     background-color: #088178;
     color: #fff;
     border: 0;
@@ -233,6 +387,7 @@ body{
     margin-top:0;
     padding-top:0;
 }
+
 
 #feature .fe-box{
     width: 200px;
