@@ -1,10 +1,15 @@
-document.addEventListener("DOMContentLoaded", () => {
+window.initChatbot = function () {
   const chatbotToggler = document.querySelector(".chatbot-toggler");
   const closeBtn = document.querySelector(".chatbot .close-btn");
   const chatbox = document.getElementById("chat-window");
   const chatInput = document.getElementById("chat-input");
   const sendChatBtn = document.querySelector("#send-btn");
   const chatForm = document.getElementById("chat-form");
+
+  if (!chatbotToggler || !closeBtn || !chatbox || !chatInput || !sendChatBtn || !chatForm) {
+    console.warn("Chatbot elements not found. Skipping initialization.");
+    return;
+  }
 
   chatInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -256,4 +261,4 @@ if (showAllButtons) {
 // 🔥 Make it globally accessible
 window.switchTab = switchTab;
 
-});
+};

@@ -180,6 +180,19 @@
             <p>© 2025 , Powered By STYLÉKA</p>
         </div>
     </footer>
+    <div id="chatbot-container"></div>
+
+    <script>
+    fetch('/public/chatbot.html')
+        .then(res => res.text())
+        .then(html => {
+        document.getElementById('chatbot-container').innerHTML = html;
+        if (typeof initChatbot === 'function') initChatbot();
+        });
+    </script>
+
+    <script src="/public/chatbot.js"></script>
+
 
     <script src="script.js"></script>
 </body>

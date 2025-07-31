@@ -1,0 +1,36 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+<link rel="stylesheet" href="/public/chatbot.css">
+
+<button class="chatbot-toggler">
+  <span class="material-symbols-rounded">mode_comment</span>
+  <span class="material-symbols-outlined">close</span>
+</button>
+
+<div class="chatbot show-chatbot">
+  <header>
+    <h2>Styleka Assistant 🤖</h2>
+    <span class="close-btn material-symbols-outlined">close</span>
+  </header>
+
+<div class="chatbox" id="chat-window">
+    <ul>
+      <li class="chat incoming">
+        <span class="material-symbols-outlined">smart_toy</span>
+        <div class="bot-message-content">
+          <p>Hi there 👋<br>Looking for style advice or help? I'm here to assist!</p>
+        </div>
+      </li>
+    </ul>
+</div>
+    <form id="chat-form" class="chat-input">
+      <textarea id="chat-input" placeholder="Ask me anything about fashion..." spellcheck="false" required></textarea>
+      <!-- Removed image upload button -->
+      <button type="submit" id="send-btn" class="material-symbols-rounded">send</button>
+  </form>
+</div>
+
+
+
+  

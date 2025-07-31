@@ -7,9 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STYLÉKA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
-    <link rel="stylesheet" href="chatbot.css">
     <style>
         /* Import modern fonts */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -1255,37 +1252,18 @@
         </div>
     </footer>
 
-<!-- Chatbot Component -->
-<button class="chatbot-toggler">
-  <span class="material-symbols-rounded">mode_comment</span>
-  <span class="material-symbols-outlined">close</span>
-</button>
+<div id="chatbot-container"></div>
 
-<div class="chatbot show-chatbot">
-  <header>
-    <h2>Styleka Assistant 🤖</h2>
-    <span class="close-btn material-symbols-outlined">close</span>
-  </header>
+<script>
+  fetch('/public/chatbot.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('chatbot-container').innerHTML = html;
+      if (typeof initChatbot === 'function') initChatbot(); // ✅ call after load
+    });
+</script>
 
-<div class="chatbox" id="chat-window">
-    <ul>
-      <li class="chat incoming">
-        <span class="material-symbols-outlined">smart_toy</span>
-        <div class="bot-message-content">
-          <p>Hi there 👋<br>Looking for style advice or help? I'm here to assist!</p>
-        </div>
-      </li>
-    </ul>
-</div>
-    <form id="chat-form" class="chat-input">
-      <textarea id="chat-input" placeholder="Ask me anything about fashion..." spellcheck="false" required></textarea>
-      <!-- Removed image upload button -->
-      <button type="submit" id="send-btn" class="material-symbols-rounded">send</button>
-  </form>
-</div>
-
-
-    <script src="chatbot.js"></script>
+    <script src="/public/chatbot.js"></script>
     <script src="script.js"></script>
 </body>
 
