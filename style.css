@@ -212,7 +212,7 @@ body{
 }
 
 #Hero button{
-    //background-image: url(img/button.png);
+    background-image: url(img/button.png);
     background-color: #088178;
     color: #fff;
     border: 0;
@@ -802,7 +802,7 @@ footer .copyright{
 
 /* Shop Page */
 #page-header{
-    background-image: url("img/Banner/b1.jpg");
+    background-image: url("images/b4.jpg");
     width: 100%;
     height: 40vh;
     background-size: cover;
@@ -815,7 +815,7 @@ footer .copyright{
 
 #page-header h2,
 #page-header p{
-    color: #fff;
+    color: black;
 }
 
 #pagination{
@@ -901,68 +901,109 @@ footer .copyright{
 /* blog */
 
 #page-header.blog-header{
-    background-image: url("img/Banner/b19.jpg");
+    background-image: url("images/b4.jpg");
 }
 
-#blog{
-    padding : 150px 150px 0 150px;
-}
-
-#blog .blog-box{
+.blog-container {
     display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding: 5rem 10%;
     align-items: center;
-    width: 100%;
-    position: relative;
-    padding-bottom: 90px;
+    justify-content: center;
+}
+.blog-box {
+    flex: 1 1 45%;
+    min-width: 300px;
 }
 
-#blog .blog-img{
-    width: 35%;
-    margin-right: 40px;
+.blog-detail {
+    display: none;
+    animation: fade 0.4s ease-in-out;
 }
 
-#blog img{
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
+.blog-detail.active{
+    display: block;
 }
 
-#blog .blog-details{
-    width: 50%;
+.blog-box h4{
+    font-size: 2rem;
+    color: #222;
+    margin-bottom: 1rem;
 }
 
-#blog .blog-details a{
+.blog-box p{
+    color: #555;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.blog-detail a {
     text-decoration: none;
-    font-size: 21px;
-    color: #000;
-    font-weight: 700;
-    position: relative;
+    color: #088178;
+    font-weight: bold;
+    font-size: 1.1rem;
     transition: 0.3s;
 }
 
-#blog .blog-details a ::after{
-    content: "";
-    width : 50px;
-    height: 1px;
-    background-color: #000;
-    position: absolute;
-    top: 4px;
-    right: -60px;
+.blog-detail a:hover {
+    text-decoration: underline;
 }
 
-#blog .blog-details a:hover{
-    color: #088178;
+.blog-carousel {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
 }
 
-#blog .blog-box h1{
-    position: absolute;
-    top: -50px;
-    left: 0;
-    font-size: 70px;
-    font-weight: 700;
-    color: #c9cbce;
-    z-index: -9;
+.img-slide {
+    display: flex;
+    width: 100% ;
+    transition: transform 0.5s ease;
 }
+
+.img-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.img-item img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 10px;
+}
+
+.navigation {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.navigation button {
+    background-color: #088178;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    margin: 0 8px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.navigation button:hover {
+    background-color: #065e5c;
+}
+
+.blog-box .navigation button.disabled{
+    opacity: 0.5;
+    pointer-events: none;
+    background-color: #6ca3a1;
+}
+
 
 /* About */
 
