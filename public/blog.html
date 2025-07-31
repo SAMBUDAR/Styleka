@@ -9,6 +9,9 @@
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+    <link rel="stylesheet" href="/chatbot.css">
 </head>
 
 <body>
@@ -182,16 +185,19 @@
     </footer>
     <div id="chatbot-container"></div>
 
-    <script>
-    fetch('/public/chatbot.html')
-        .then(res => res.text())
-        .then(html => {
-        document.getElementById('chatbot-container').innerHTML = html;
-        if (typeof initChatbot === 'function') initChatbot();
-        });
-    </script>
+<script>
+  fetch('/chatbot.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('chatbot-container').innerHTML = html;
 
-    <script src="/public/chatbot.js"></script>
+      // Inject chatbot.js dynamically
+      const script = document.createElement('script');
+      script.src = '/chatbot.js';
+      document.body.appendChild(script);
+    });
+</script>
+
 
 
     <script src="script.js"></script>
