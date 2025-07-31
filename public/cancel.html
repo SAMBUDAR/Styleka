@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .cancel-container {
+            text-align: center;
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            animation: fadeInDown 0.5s ease-out forwards;
+        }
+
+        .error-icon {
+            width: 100px;
+            height: 100px;
+            background-color: #dc3545;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: pulse 2s infinite;
+        }
+
+        .error-symbol {
+            color: white;
+            font-size: 60px;
+            font-weight: bold;
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 32px;
+            color: #dc3545;
+            animation: fadeIn 0.5s ease-out forwards 0.3s;
+            opacity: 0;
+        }
+
+        p {
+            margin: 20px 0;
+            font-size: 18px;
+            line-height: 1.6;
+            animation: fadeIn 0.5s ease-out forwards 0.5s;
+            opacity: 0;
+        }
+
+        .error-details {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: left;
+            animation: fadeIn 0.5s ease-out forwards 0.7s;
+            opacity: 0;
+        }
+
+        .error-details p {
+            margin: 10px 0;
+            animation: none;
+            opacity: 1;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards 0.9s;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 105, 217, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #dc3545;
+            border: 2px solid #dc3545;
+        }
+
+        .btn-outline:hover {
+            background-color: #fff0f0;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.1);
+        }
+        
+        /* Visual error elements */
+        .glitch-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            overflow: hidden;
+            opacity: 0.7;
+        }
+        
+        .glitch-line {
+            position: absolute;
+            height: 3px;
+            background-color: rgba(220, 53, 69, 0.5);
+            width: 100%;
+            animation: horizontalGlitch 3s infinite;
+        }
+        
+        /* Animations */
+        @keyframes fadeInDown {
+            0% { transform: translateY(-30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(220, 53, 69, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+        }
+        
+        @keyframes horizontalGlitch {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="cancel-container">
+        <div class="glitch-container">
+            <div class="glitch-line" style="top: 3px;"></div>
+        </div>
+        
+        <div class="error-icon">
+            <span class="error-symbol">×</span>
+        </div>
+        
+        <h1>Payment Not Completed</h1>
+        
+        <p>Oops! Something went wrong with your order. The payment process was not completed or was canceled.</p>
+        
+        <div class="error-details">
+            <p><strong>Possible reasons:</strong></p>
+            <p>• Payment was canceled</p>
+            <p>• You navigated away from the payment page</p>
+            <p>• There was an issue with the payment gateway</p>
+            <p>• Your session timed out</p>
+        </div>
+        
+        <p>Don't worry, no payment has been processed and your cart items are still saved. You can try again or contact our support team if you need assistance.</p>
+        
+        <div class="buttons">
+            <a href="cart.html" class="btn btn-primary">Return to Cart</a>
+            <a href="support.html" class="btn btn-outline">Contact Support</a>
+        </div>
+    </div>
+
+    <script>
+        // Create additional glitch effects
+        window.onload = function() {
+            // Create multiple glitch lines with random positions and animations
+            const glitchContainer = document.querySelector('.glitch-container');
+            
+            for (let i = 0; i < 5; i++) {
+                const glitchLine = document.createElement('div');
+                glitchLine.className = 'glitch-line';
+                
+                // Random position
+                const top = Math.random() * 100;
+                glitchLine.style.top = `${top}%`;
+                
+                // Random animation delay
+                const delay = Math.random() * 5;
+                glitchLine.style.animationDelay = `${delay}s`;
+                
+                // Random speed
+                const duration = 2 + Math.random() * 3;
+                glitchLine.style.animationDuration = `${duration}s`;
+                
+                // Random opacity
+                const opacity = 0.3 + Math.random() * 0.4;
+                glitchLine.style.opacity = opacity;
+                
+                glitchContainer.appendChild(glitchLine);
+            }
+            
+            // Simulate error code display
+            const errorDetails = document.querySelector('.error-details');
+            
+            // Add error code after a delay
+            setTimeout(() => {
+                const errorCode = document.createElement('p');
+                errorCode.innerHTML = `<strong>Error Code:</strong> <span id="errorCode">PAYMENT_CANCELED_${Math.floor(Math.random() * 10000)}</span>`;
+                errorDetails.appendChild(errorCode);
+                
+                // Make the error code flash briefly
+                const codeElement = document.getElementById('errorCode');
+                setInterval(() => {
+                    codeElement.style.color = '#dc3545';
+                    setTimeout(() => {
+                        codeElement.style.color = '#333';
+                    }, 50);
+                }, 3000);
+            }, 1000);
+        };
+    </script>
+</body>
+</html>

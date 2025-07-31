@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 20px;
+    }
+
+    #cart-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px auto;
+      max-width: 800px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    #cart-list li {
+      display: flex;
+      align-items: center;
+      padding: 15px 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    #cart-list li:last-child {
+      border-bottom: none;
+    }
+
+    .product-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      margin-right: 15px;
+      object-fit: cover;
+    }
+
+    .product-details {
+      flex: 1;
+    }
+
+    .product-title {
+      font-weight: bold;
+      color: #555;
+      margin-bottom: 5px;
+    }
+
+    .product-size {
+      font-size: 14px;
+      color: #888;
+    }
+
+    .product-price {
+      font-weight: bold;
+      color: #444;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .quantity-controls button {
+      padding: 5px 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .quantity-controls button:hover {
+      background-color: #e0e0e0;
+    }
+
+    .quantity-controls input {
+      width: 40px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #total {
+      text-align: center;
+      font-size: 20px;
+      color: #444;
+      margin: 20px 0;
+    }
+
+    #payBtn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #28a745;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #payBtn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    #payBtn:hover:not(:disabled) {
+      background-color: #218838;
+    }
+
+    .empty-cart {
+      text-align: center;
+      color: #888;
+      font-size: 18px;
+      margin-top: 50px;
+    }
+
+    #coupon-section {
+      max-width: 800px;
+      margin: 20px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #coupon-section input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+
+    #coupon-section button {
+      padding: 10px 20px;
+      background-color: #088178;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #coupon-section button:hover {
+      background-color: #066d5f;
+    }
+
+    .coupon-message {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+      color: #088178;
+    }
+
+    .coupon-message.error {
+      color: #d9534f;
+    }
+  </style>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+  <h1>My Cart</h1>
+  <ul id="cart-list"></ul>
+  <h3 id="total">Total: ₹0</h3>
+
+  <div id="coupon-section">
+    <input type="text" id="coupon-code" placeholder="Enter coupon code">
+    <button onclick="applyCoupon()">Apply Coupon</button>
+  </div>
+  <p id="coupon-message" class="coupon-message"></p>
+
+  <button id="payBtn" disabled>Pay Now</button>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCidoh3aUKsFzamLCetZkNlvbw-q_icLTY",
+      authDomain: "aniket-f99f3.firebaseapp.com",
+      projectId: "aniket-f99f3",
+      storageBucket: "aniket-f99f3.appspot.com",
+      messagingSenderId: "640193454368",
+      appId: "1:640193454368:web:336be90f18f5278a16f745",
+      databaseURL: "https://aniket-f99f3-default-rtdb.firebaseio.com"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    const cartList = document.getElementById('cart-list');
+    const totalDisplay = document.getElementById('total');
+    const payBtn = document.getElementById('payBtn');
+    const couponMessage = document.getElementById('coupon-message');
+    let totalAmount = 0;
+    let discount = 0;
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        const userId = user.uid;
+        const cartRef = firebase.database().ref('cart/' + userId);
+
+        cartRef.on('value', snapshot => {
+          cartList.innerHTML = '';
+          totalAmount = 0;
+
+          if (!snapshot.exists()) {
+            cartList.innerHTML = '<p class="empty-cart">Your cart is empty.</p>';
+            totalDisplay.textContent = 'Total: ₹0';
+            payBtn.disabled = true;
+            return;
+          }
+
+          snapshot.forEach(child => {
+            const item = child.val();
+            const price = parseInt(item.price.replace('₹', '').replace(',', '')) || 0;
+            const quantity = parseInt(item.quantity) || 1;
+            totalAmount += price * quantity;
+
+            const li = document.createElement('li');
+
+            li.innerHTML = `
+              <img src="${item.image}" alt="${item.title}" class="product-image">
+              <div class="product-details">
+                <div class="product-title">${item.title}</div>
+                <div class="product-size">Size: ${item.size}</div>
+                <div class="product-price">₹${price * quantity}</div>
+                <div class="quantity-controls">
+                  <button onclick="updateQuantity('${child.key}', ${quantity - 1})">-</button>
+                  <input type="number" value="${quantity}" min="1" readonly>
+                  <button onclick="updateQuantity('${child.key}', ${quantity + 1})">+</button>
+                </div>
+              </div>
+            `;
+
+            cartList.appendChild(li);
+          });
+
+          updateTotal();
+          payBtn.disabled = false;
+        });
+      } else {
+        alert("User not logged in. Please log in.");
+      }
+    });
+
+    function updateQuantity(itemKey, newQuantity) {
+      if (newQuantity < 1) return;
+
+      const user = firebase.auth().currentUser;
+      if (user) {
+        const userId = user.uid;
+        const itemRef = firebase.database().ref(`cart/${userId}/${itemKey}`);
+        itemRef.update({ quantity: newQuantity });
+      }
+    }
+
+    function applyCoupon() {
+      const couponCode = document.getElementById('coupon-code').value.trim();
+      couponMessage.textContent = '';
+      couponMessage.classList.remove('error');
+
+      if (couponCode === 'DISCOUNT10') {
+        discount = 0.1; // 10% discount
+        couponMessage.textContent = 'Coupon applied! You get 10% off.';
+      } else if (couponCode === 'Aniket18') {
+        discount = 0.3; // 30% discount
+        couponMessage.textContent = 'Coupon applied! You get 30% off.';
+      } else {
+        discount = 0;
+        couponMessage.textContent = 'Invalid coupon code.';
+        couponMessage.classList.add('error');
+      }
+
+      updateTotal();
+    }
+
+    function updateTotal() {
+      const discountedTotal = totalAmount - totalAmount * discount;
+      totalDisplay.textContent = `Total: ₹${discountedTotal.toFixed(2)}`;
+    }
+
+    payBtn.addEventListener('click', async () => {
+      try {
+        const user = firebase.auth().currentUser;
+        if (!user) return alert("Please log in first.");
+
+        const cartRef = firebase.database().ref('cart/' + user.uid);
+        const snapshot = await cartRef.once('value');
+
+        const items = [];
+        snapshot.forEach(child => {
+          const item = child.val();
+          const price = parseInt(item.price.replace('₹', '').replace(',', '')) || 0;
+          const quantity = parseInt(item.quantity) || 1;
+
+          // Apply discount to each item's price
+          const discountedPrice = price - price * discount;
+
+          items.push({
+            title: item.title,
+            price: discountedPrice.toFixed(2), // Send discounted price
+            quantity: quantity
+          });
+        });
+
+        const response = await fetch('http://localhost:4242/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items }) // Send discounted items
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          console.error("Error response from server:", data);
+          alert("Something went wrong: " + data.error);
+        }
+
+        if (data.id) {
+          const stripe = Stripe("pk_test_51REOhFECJtYsBmLByllvEwttdOUt4mUF8PDMEivSWcEyS4yji8WecBezyZGBLc1mXywdqjE48Y1bwGpb3FXIW7FK00mG2XzHXK");
+          stripe.redirectToCheckout({
+            sessionId: data.id
+          }).then(result => {
+            if (result.error) {
+              alert("Payment failed: " + result.error.message);
+            } else {
+              emptyCart(user.uid); // Empty the cart after successful payment
+              window.location.href = "success.html"; // Redirect to success page
+            }
+          });
+        } else {
+          alert("No session id returned from server.");
+        }
+      } catch (err) {
+        console.error("Error during payment:", err);
+        alert("Payment failed: " + err.message);
+      }
+    });
+
+    function emptyCart(userId) {
+      const cartRef = firebase.database().ref('cart/' + userId);
+      cartRef.remove();
+    }
+  </script>
+</body>
+</html>
