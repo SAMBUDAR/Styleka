@@ -1255,20 +1255,34 @@
         </div>
     </footer>
 
-<div id="chatbot-container"></div>
+<button class="chatbot-toggler">
+  <span class="material-symbols-rounded">mode_comment</span>
+  <span class="material-symbols-outlined">close</span>
+</button>
 
-<script>
-  fetch('/chatbot.html')
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('chatbot-container').innerHTML = html;
+<div class="chatbot show-chatbot">
+  <header>
+    <h2>Styleka Assistant 🤖</h2>
+    <span class="close-btn material-symbols-outlined">close</span>
+  </header>
 
-      // Inject chatbot.js dynamically
-      const script = document.createElement('script');
-      script.src = '/chatbot.js';
-      document.body.appendChild(script);
-    });
-</script>
+<div class="chatbox" id="chat-window">
+    <ul>
+      <li class="chat incoming">
+        <span class="material-symbols-outlined">smart_toy</span>
+        <div class="bot-message-content">
+          <p>Hi there 👋<br>Looking for style advice or help? I'm here to assist!</p>
+        </div>
+      </li>
+    </ul>
+</div>
+    <form id="chat-form" class="chat-input">
+      <textarea id="chat-input" placeholder="Ask me anything about fashion..." spellcheck="false" required></textarea>
+      <!-- Removed image upload button -->
+      <button type="submit" id="send-btn" class="material-symbols-rounded">send</button>
+  </form>
+</div>
+    <script src="chatbot.js"></script>
     <script src="script.js"></script>
 </body>
 
