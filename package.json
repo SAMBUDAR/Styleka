@@ -1,0 +1,11 @@
+{
+  "name": "styleka",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node api/chatbot.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1"
+  }
+}

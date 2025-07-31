@@ -24,10 +24,41 @@ document.addEventListener("DOMContentLoaded", () => {
   {
     role: "system",
     content: `
-    You are Styleka Assistant, a friendly and knowledgeable fashion and shopping expert for an e-commerce site.
+    You are STYLÉKA’s intelligent shopping assistant built into a front-end fashion e-commerce site. You know everything about the STYLÉKA website structure, product pages, blog content, UI design, and available features.
 
-    When a user asks about clothes, footwear, accessories, styling tips, or order help, provide smart, helpful replies like a real fashion stylist and shopping assistant.
+Website Overview:
+- STYLÉKA is a fashion storefront with product listings, 15+ individual product pages, a static cart, a fashion blog, a contact form, newsletter, and team info.
+- The app includes the following HTML pages: index.html (home), shop.html, sproduct1.html to sproduct15.html, cart.html, contact.html, blog.html, about.html, login.html, register.html.
 
+Main Features:
+-  Browse product listings with prices, discounts, and dynamic ratings.
+-  View 15+ individual product detail pages with descriptions and images.
+-  Static Cart interface that shows added products.
+-  Read and explore the Fashion Blog.
+-  Fill out the Newsletter form to stay updated.
+-  Post and read product reviews (UI only).
+-  View Team section and contact support via a form.
+-  Fully responsive experience across all screen sizes.
+
+Instructions:
+- Answer any user questions intelligently based on this structure.
+- If a user asks about products, mention that they can explore 15+ items.
+- If they want to view or go to any section, respond with a link (relative HTML file).
+- Keep your replies helpful, concise, and friendly. Avoid vague or generic replies.
+- Always act as if you're guiding the user through the STYLÉKA website. Mention features, suggest pages, offer help.
+- Never claim functionality not present (like payment, dynamic cart, real-time updates).
+- Always prefer linking to exact HTML files when users ask to visit or explore something.
+- You can use emojis to keep the conversation human and engaging.
+
+Examples of what you should handle:
+- "Show me shoes under ₹1500"
+- "What's on the blog right now?"
+- "Where can I view my cart?"
+- "How do I contact you?"
+- "Do you have jackets?"
+- "Tell me more about STYLÉKA"
+
+You are always aware of the full structure and capabilities of the STYLÉKA frontend.
     You can:
     - Recommend outfits based on occasions (e.g., "What should I wear to a wedding?")
     - Help find specific items (e.g., "Show me black boots under ₹3000")
@@ -41,11 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
 ];
 
 const tabMap = {
-  "new arrivals": "new-arrivals",
-  "best sellers": "best-sellers",
-  "offers": "offers",
-  "my orders": "orders",
-  "return policy": "returns"
+  "new arrivals": "shop.html",
+  "best sellers": "shop.html",
+  "offers": "shop.html",
+  "my orders": "cart.html", // fallback to cart since orders are not dynamic
+  "return policy": "contact.html"
 };
 
   chatForm.addEventListener("submit", e => {
@@ -88,6 +119,8 @@ const tabMap = {
     chatbox.appendChild(createChatLi("Thinking...", "incoming"));
     chatbox.scrollTop = chatbox.scrollHeight;
 
+
+
     chatHistory.push({ role: "user", content: userMessage });
 
     chatInput.disabled = true;
@@ -102,10 +135,19 @@ const tabMap = {
 
 
       const data = await response.json();
+      function parseMarkdownBold(text) {
+        return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
+      }
+
       const botReply = data.reply || "Sorry, no reply.";
+      const formattedReply = parseMarkdownBold(botReply);
+
       chatHistory.push({ role: "assistant", content: botReply });
-      chatbox.lastChild.querySelector("p").textContent = botReply;
+      chatbox.lastChild.querySelector("p").innerHTML = formattedReply;
+
       chatbox.scrollTop = chatbox.scrollHeight;
+
+
 
       // After updating bot reply text in chat window:
       const previewContainer = document.createElement('div');
@@ -115,6 +157,37 @@ const lowerUserMessage = userMessage.toLowerCase();
 const showAllButtons = lowerUserMessage.includes("list of functionalities") 
                     || lowerUserMessage.includes("features") 
                     || lowerUserMessage.includes("what can you do");
+const exploreIntent = lowerUserMessage.includes("explore new") || lowerUserMessage.includes("explore feature");
+
+
+const showStaticLinks = lowerUserMessage.includes("about") ||
+                        lowerUserMessage.includes("contact") ||
+                        lowerUserMessage.includes("cart") ||
+                        lowerUserMessage.includes("blog") ||
+                        showAllButtons;
+
+if (showStaticLinks) {
+  const staticLinks = [
+    { label: "🛒 Cart", href: "cart.html" },
+    { label: "📬 Contact Us", href: "contact.html" },
+    { label: "📰 Blog", href: "blog.html" },
+    { label: "ℹ️ About Us", href: "about.html" }
+  ];
+
+  const linksContainer = document.createElement('div');
+  linksContainer.className = 'static-link-container';
+
+  staticLinks.forEach(link => {
+    const a = document.createElement('a');
+    a.href = link.href;
+    a.textContent = link.label;
+    a.className = 'chatbot-link';
+    linksContainer.appendChild(a);
+  });
+
+  chatbox.lastChild.querySelector('.bot-message-content').appendChild(linksContainer);
+}
+
 
 if (showAllButtons) {
   for (const [keyword, tabId] of Object.entries(tabMap)) {
@@ -155,6 +228,7 @@ if (showAllButtons) {
 
       chatbox.scrollTop = chatbox.scrollHeight;
 
+
     } catch (error) {
       chatbox.lastChild.querySelector("p").textContent =
         "Oops, something went wrong.";
@@ -166,11 +240,18 @@ if (showAllButtons) {
     }
   };
   function switchTab(tabId) {
-  const tab = document.getElementById(tabId);
-  if (tab) {
-    tab.scrollIntoView({ behavior: 'smooth' });
+  // If tabId is a page, navigate
+  if (tabId.endsWith(".html")) {
+    window.location.href = tabId; // open in same page
+  } else {
+    // else scroll to section if it exists
+    const tab = document.getElementById(tabId);
+    if (tab) {
+      tab.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }
+
 
 // 🔥 Make it globally accessible
 window.switchTab = switchTab;

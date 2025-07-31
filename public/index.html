@@ -1260,14 +1260,15 @@
   <span class="material-symbols-rounded">mode_comment</span>
   <span class="material-symbols-outlined">close</span>
 </button>
-<div class="chatbot">
+
+<div class="chatbot show-chatbot">
   <header>
     <h2>Styleka Assistant 🤖</h2>
     <span class="close-btn material-symbols-outlined">close</span>
   </header>
 
-  <form id="chat-form">
-    <ul class="chatbox" id="chat-window">
+<div class="chatbox" id="chat-window">
+    <ul>
       <li class="chat incoming">
         <span class="material-symbols-outlined">smart_toy</span>
         <div class="bot-message-content">
@@ -1275,12 +1276,11 @@
         </div>
       </li>
     </ul>
-
-    <div class="chat-input">
+</div>
+    <form id="chat-form" class="chat-input">
       <textarea id="chat-input" placeholder="Ask me anything about fashion..." spellcheck="false" required></textarea>
       <!-- Removed image upload button -->
       <button type="submit" id="send-btn" class="material-symbols-rounded">send</button>
-    </div>
   </form>
 </div>
 
