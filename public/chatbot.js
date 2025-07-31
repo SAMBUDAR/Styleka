@@ -138,12 +138,17 @@ const tabMap = {
       function parseMarkdownBold(text) {
         return text.replace(/\*\*(.*?)\*\*/g, '<b>$1</b>');
       }
+      function parseMarkdownLinks(text) {
+        return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+      }
 
       const botReply = data.reply || "Sorry, no reply.";
       const formattedReply = parseMarkdownBold(botReply);
+      const linkedReply = parseMarkdownLinks(formattedReply);
 
       chatHistory.push({ role: "assistant", content: botReply });
-      chatbox.lastChild.querySelector("p").innerHTML = formattedReply;
+      chatbox.lastChild.querySelector("p").innerHTML = linkedReply;
+
 
       chatbox.scrollTop = chatbox.scrollHeight;
 
