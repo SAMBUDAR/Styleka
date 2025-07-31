@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STYLÉKA</title>
+    <script>
+        if (localStorage.getItem("theme") === "dark") {
+          document.documentElement.classList.add("dark-mode");
+        }
+      </script>
+      
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         /* Import modern fonts */
@@ -17,7 +23,85 @@
             padding: 0;
             box-sizing: border-box;
         }
+                /* Dark Mode Styles (move this outside any media queries) */
+           /* Dark Mode Styles */
+        html.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
 
+        html.dark-mode body {
+            background: #121212;
+            color: #e0e0e0;
+        }
+
+        html.dark-mode #header {
+            background: rgba(30, 30, 30, 0.95);
+            color: #e0e0e0;
+        }
+
+        html.dark-mode #navbar li a {
+            color: #e0e0e0;
+        }
+
+        html.dark-mode #navbar li a:hover,
+        html.dark-mode #navbar li a.active {
+            color: white;
+        }
+
+        html.dark-mode #feature,
+        html.dark-mode #product1,
+        html.dark-mode .pro,
+        html.dark-mode .fe-box {
+            background: #1e1e1e;
+            color: #e0e0e0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        html.dark-mode .des h5,
+        html.dark-mode #product1 p {
+            color: #e0e0e0;
+        }
+
+        html.dark-mode footer {
+            background: #1a1a2e;
+            color: #e0e0e0;
+        }
+
+        html.dark-mode .footer-container {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        html.dark-mode footer h4,
+        html.dark-mode footer p,
+        html.dark-mode footer a {
+            color: #e0e0e0;
+        }
+
+        html.dark-mode .copyright {
+            color: #e0e0e0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+                    /* Style the theme toggle button */
+                    #theme-toggle {
+                        border: none;
+                        background: none;
+                        font-size: 20px;
+                        cursor: pointer;
+                        border-radius: 50%;
+                        width: 40px;
+                        height: 40px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        transition: all 0.3s ease;
+                    }
+
+                    #theme-toggle:hover {
+                        background: rgba(0,0,0,0.1);
+                    }
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
@@ -108,20 +192,20 @@
 
         /* Enhanced Hero Section */
         #Hero {
-    position: relative;
-    background: 
-      linear-gradient(to bottom right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
-      url('https://images.unsplash.com/photo-1718985342149-7178154e0aee?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') 
-      center/cover no-repeat;
-    height: 100vh;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 60px 10%;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-    overflow: hidden;
-  }
+        position: relative;
+        background: 
+        linear-gradient(to bottom right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
+        url('https://images.unsplash.com/photo-1718985342149-7178154e0aee?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') 
+        center/cover no-repeat;
+        height: 100vh;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 60px 10%;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        overflow: hidden;
+    }
 
 
         #Hero::before {
@@ -947,6 +1031,8 @@
             footer {
                 padding: 20px;
             }
+            /* DARK MODE STYLES */
+           
         }
     </style>
 </head>
@@ -958,13 +1044,14 @@
 
         <div>
             <ul id="navbar">
-                <li><a class="active" href="Index.html">Home</a></li>
+                <li><a class="active" href="index.html">Home</a></li>
                 <li><a href="shop.html">Shop</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="register.html">Register</a></li>
                 <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
+                <li> <button id="theme-toggle" style="border:none; background:none; font-size: 20px; cursor:pointer;">🌙</button></li>
                 <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
             </ul>
         </div>
@@ -1243,8 +1330,9 @@
             <p>© 2025 , Powered By STYLÉKA</p>
         </div>
     </footer>
-
-    <script src="script.js"></script>
+      
+    <script src="script.js" type="module"></script>
+    <script src="themescript.js"></script>      
 </body>
 
 </html>

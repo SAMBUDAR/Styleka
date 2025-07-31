@@ -1,4 +1,4 @@
-import { app } from "./firebase-Config";
+import { app } from "./firebase-Config.js";
 console.log("Firebase Initialized:", app);
 
 const bar = document.getElementById('bar');
@@ -10,6 +10,7 @@ if(bar){
         nav.classList.add('active');
     })
 }
+
 
 if(close){
     close.addEventListener('click' , () => {
