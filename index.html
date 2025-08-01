@@ -333,6 +333,47 @@
             transform: scale(1.05);
         }
 
+        .wishlist-wrapper {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+
+.heart-icon {
+  width: 20px;
+  height: 20px;
+  background: url('data:image/svg+xml;utf8,<svg fill="gray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6 4 4 6.5 4c1.74 0 3.41 1.1 4.13 2.75h.74C13.09 5.1 14.76 4 16.5 4 19 4 21 6 21 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+  background-size: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.wishlist-toggle:checked + .heart-icon {
+  filter: hue-rotate(-40deg) saturate(5);
+  transform: scale(1.4);
+  display : none;
+}
+
+.wishlist-msg {
+  display: none;
+  margin-top: 5px;
+  font-size: 12px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 3px 6px;
+  color: green;
+}
+
+.wishlist-toggle:checked ~ .wishlist-msg {
+  display: block;
+
+}
+
+
         .des {
             text-align: start;
             padding: 15px 0;
@@ -1018,6 +1059,11 @@
         <p>New Designs Added</p>
         <div class="pro-container">
             <div class="pro">
+                <label class="wishlist-wrapper">
+                <input type="checkbox" class="wishlist-toggle" hidden />
+                <span class="heart-icon"></span>
+                <span class="wishlist-msg">Product added to wishlist ❤️</span>
+                </label>
                 <img src="img/Products/adicolor-classics-3-stripes-tee.avif" alt="">
                 <div class="des">
                     <span>Adidas</span>
@@ -1033,6 +1079,11 @@
                 </div>
             </div>
             <div class="pro">
+                <label class="wishlist-wrapper">
+                <input type="checkbox" class="wishlist-toggle" hidden />
+                <span class="heart-icon"></span>
+                <span class="wishlist-msg">Product added to wishlist ❤️</span>
+                </label>
                 <img src="img/Products/f1.jpg" alt="">
                 <div class="des">
                     <span>Zara</span>
@@ -1049,6 +1100,11 @@
                 <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
+                <label class="wishlist-wrapper">
+                <input type="checkbox" class="wishlist-toggle" hidden />
+                <span class="heart-icon"></span>
+                <span class="wishlist-msg">Product added to wishlist ❤️</span>
+                </label>
                 <img src="img/Products/f2.jpg" alt="">
                 <div class="des">
                     <span>Gucci</span>
@@ -1065,6 +1121,11 @@
                 <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
+                <label class="wishlist-wrapper">
+                <input type="checkbox" class="wishlist-toggle" hidden />
+                <span class="heart-icon"></span>
+                <span class="wishlist-msg">Product added to wishlist ❤️</span>
+                </label>
                 <img src="img/Products/1000011878477-White-White-1000011878477_01-2100.jpg" alt="">
                 <div class="des">
                     <span>Puma</span>
@@ -1081,6 +1142,11 @@
                 <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
+                <label class="wishlist-wrapper">
+                <input type="checkbox" class="wishlist-toggle" hidden />
+                <span class="heart-icon"></span>
+                <span class="wishlist-msg">Product added to wishlist ❤️</span>
+                </label>
                 <img src="img/Products/images.jpg" alt="">
                 <div class="des">
                     <span>Puma</span>
@@ -1097,6 +1163,11 @@
                 <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
+                <label class="wishlist-wrapper">
+                <input type="checkbox" class="wishlist-toggle" hidden />
+                <span class="heart-icon"></span>
+                <span class="wishlist-msg">Product added to wishlist ❤️</span>
+                </label>
                 <img src="img/Products/f6.jpg" alt="">
                 <div class="des">
                     <span>Zara</span>
@@ -1113,6 +1184,11 @@
                 <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
+                <label class="wishlist-wrapper">
+                <input type="checkbox" class="wishlist-toggle" hidden />
+                <span class="heart-icon"></span>
+                <span class="wishlist-msg">Product added to wishlist ❤️</span>
+                </label>
                 <img src="img/Products/f7.jpg" alt="">
                 <div class="des">
                     <span>HnM</span>
@@ -1129,6 +1205,11 @@
                 <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
+                <label class="wishlist-wrapper">
+                <input type="checkbox" class="wishlist-toggle" hidden />
+                <span class="heart-icon"></span>
+                <span class="wishlist-msg">Product added to wishlist ❤️</span>
+                </label>
                 <img src="img/Products/f8.jpg" alt="">
                 <div class="des">
                     <span>HnM</span>
