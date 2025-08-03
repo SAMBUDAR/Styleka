@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,16 +27,31 @@
             z-index: 10;
         }
         
-        input {
-            display: block;
+        .input-container {
+            position: relative;
             margin: 10px auto;
-            padding: 10px;
             width: 80%;
             max-width: 300px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            box-sizing: border-box;
+            padding-right: 40px; /* Space for the icon */
         }
         
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #888;
+        }
+
         button {
             margin: 10px;
             padding: 10px 20px;
@@ -156,6 +172,16 @@
         .signup-link a:hover {
             text-decoration: underline;
         }
+
+        #resendVerificationBtn {
+            display: none;
+            margin-top: 10px;
+            background-color: #ffc107;
+            color: #212529;
+        }
+        #resendVerificationBtn:hover {
+            background-color: #e0a800;
+        }
     </style>
 </head>
 <body>
@@ -163,18 +189,24 @@
     
     <div class="container">
         <h2>Login to Your Account</h2>
-        <input type="email" id="email" placeholder="Email"><br>
-        <input type="password" id="password" placeholder="Password"><br>
+        <div class="input-container">
+            <input type="email" id="email" placeholder="Email">
+        </div>
+        <div class="input-container">
+            <input type="password" id="password" placeholder="Password">
+            <span class="toggle-password" onclick="togglePasswordVisibility()"><i class="fas fa-eye-slash" id="toggleIcon"></i></span>
+        </div>
         <button onclick="loginUser()">Login</button>
         <button onclick="resetPassword()">Forgot Password</button>
         <p id="message"></p>
+        <button id="resendVerificationBtn" onclick="resendVerification()">Resend Verification Email</button>
         <p class="signup-link">Don't have an account? <a href="register.html">Sign up here</a></p>
     </div>
 
     <script type="module">
         // Import Firebase SDK
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-        import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+        import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail, sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 
         // Firebase configuration
         const firebaseConfig = {
@@ -197,7 +229,7 @@
             const justRegistered = urlParams.get('registered');
             
             if (justRegistered === 'true') {
-                document.getElementById("message").innerText = "Registration successful! Please log in.";
+                document.getElementById("message").innerText = "Registration successful! Please check your email to verify your account and log in.";
                 document.getElementById("message").className = "success-message";
             }
         };
@@ -210,6 +242,7 @@
             if (!email || !password) {
                 document.getElementById("message").innerText = "Please enter both email and password";
                 document.getElementById("message").className = "";
+                document.getElementById("resendVerificationBtn").style.display = "none";
                 return;
             }
             
@@ -219,20 +252,21 @@
                     if (user.emailVerified) {
                         document.getElementById("message").innerText = "Logged in successfully!";
                         document.getElementById("message").className = "success-message";
-                        console.log("User logged in:", user);
+                        document.getElementById("resendVerificationBtn").style.display = "none";
                         
-                        // Redirect to dashboard or home page after successful login
                         setTimeout(() => {
-                            window.location.href = "Index.html";  // Create this page separately
+                            window.location.href = "Index.html";
                         }, 1500);
                     } else {
-                        document.getElementById("message").innerText = "Please verify your email before logging in.";
+                        document.getElementById("message").innerText = "Please verify your email before logging in. If you haven't received it, you can resend it below.";
                         document.getElementById("message").className = "";
+                        document.getElementById("resendVerificationBtn").style.display = "block";
                     }
                 })
                 .catch(error => {
                     document.getElementById("message").innerText = error.message;
                     document.getElementById("message").className = "";
+                    document.getElementById("resendVerificationBtn").style.display = "none";
                 });
         };
 
@@ -243,6 +277,7 @@
             if (!email) {
                 document.getElementById("message").innerText = "Please enter your email";
                 document.getElementById("message").className = "";
+                document.getElementById("resendVerificationBtn").style.display = "none";
                 return;
             }
             
@@ -256,9 +291,44 @@
                     document.getElementById("message").className = "";
                 });
         };
+
+        // Resend Verification Email function
+        window.resendVerification = () => {
+            const user = auth.currentUser;
+            if (user) {
+                sendEmailVerification(user)
+                    .then(() => {
+                        document.getElementById("message").innerText = "Verification email resent! Please check your inbox.";
+                        document.getElementById("message").className = "success-message";
+                        document.getElementById("resendVerificationBtn").style.display = "none";
+                    })
+                    .catch(error => {
+                        document.getElementById("message").innerText = error.message;
+                        document.getElementById("message").className = "";
+                    });
+            } else {
+                document.getElementById("message").innerText = "No user is currently logged in.";
+                document.getElementById("message").className = "";
+            }
+        };
     </script>
 
     <script>
+        // Toggle password visibility function
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById("password");
+            const toggleIcon = document.getElementById("toggleIcon");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleIcon.classList.remove("fa-eye-slash");
+                toggleIcon.classList.add("fa-eye");
+            } else {
+                passwordInput.type = "password";
+                toggleIcon.classList.remove("fa-eye");
+                toggleIcon.classList.add("fa-eye-slash");
+            }
+        }
+        
         // Create clothing animation
         function createClothingAnimation() {
             const animationContainer = document.getElementById('clothesAnimation');
