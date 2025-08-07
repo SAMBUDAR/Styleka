@@ -204,7 +204,7 @@ Visit: `http://localhost:8000`
 ## 👤 Author
 
 **Channpreet Kaur**  
-GitHub: [@Channpreetk](https://github.com/Channpreetk)
+GitHub:[@Channpreetk](https://github.com/Channpreetk)
 
 ## 💬 Contact
 
