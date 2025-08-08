@@ -1,0 +1,611 @@
+[33mcommit db1691f9359b3da43c4977cad8a742b16d12dcd9[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 125c9ca 528231f
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Aug 6 17:52:53 2025 +0530
+
+    Merge pull request #66 from Channpreetk/fix/issue-24
+    
+    Improve Website Asthetics
+
+[33mcommit 528231f757a92e52add0ebe10df0df58c0a31a27[m
+Merge: 95b64d0 125c9ca
+Author: Channpreet kaur <154740952+Channpreetk@users.noreply.github.com>
+Date:   Thu Jul 31 01:48:30 2025 +0530
+
+    Merge branch 'main' into fix/issue-24
+
+[33mcommit 95b64d0710ec90591087da374355978e2a8b2d1a[m
+Author: Channpreet kaur <154740952+Channpreetk@users.noreply.github.com>
+Date:   Thu Jul 31 01:33:19 2025 +0530
+
+    Fix: Removed submodule and added files from Styleka
+
+[33mcommit 125c9cab204be9e2553c403004cfe20a0c8692ae[m
+Merge: 09dc77e 3b62f89
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Jul 30 22:39:51 2025 +0530
+
+    Merge pull request #25 from ankita-mohantyy/loginPrompt-Cart
+    
+    Added login prompt and styles for unauthenticated users in cart
+
+[33mcommit 09dc77e1b5f028cf7048e63576979806ce69c8e7[m
+Merge: 4844b44 1db646f
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Jul 30 22:30:21 2025 +0530
+
+    Merge pull request #57 from angela479/hero-section
+    
+    Edited Hero-section
+
+[33mcommit 1db646fe3d2ad02a799171597fd1b52088b80133[m
+Author: angela479 <angelaa.bera@gmail.com>
+Date:   Wed Jul 30 22:18:30 2025 +0530
+
+    Edited Hero-section
+
+[33mcommit 4844b4413ec4576fa99fa215f3480c3df8702926[m
+Merge: e5a38f2 a08a68a
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Jul 30 22:11:23 2025 +0530
+
+    Merge pull request #28 from Khwaaish/search-feature
+    
+    Added Search button feature
+
+[33mcommit a08a68a5c8794ff4b5d5c13df1748a0c43ad433f[m
+Merge: d543df2 e5a38f2
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Jul 30 22:07:15 2025 +0530
+
+    Merge branch 'main' into search-feature
+
+[33mcommit e5a38f289b70a45cf196671566874c971fea5f65[m
+Merge: c424484 2209550
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Jul 30 21:57:33 2025 +0530
+
+    Merge pull request #37 from Niyati1206/homepage-update
+    
+    Enhanced the  home page
+
+[33mcommit c424484ccbb71ce71602003eb33f70e356e36d02[m
+Merge: 1b6ea87 1fb6bf9
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Jul 30 21:25:06 2025 +0530
+
+    Merge pull request #50 from DebosmitaPal/footer
+    
+    footer enhancement done
+
+[33mcommit 1b6ea87ace4927891e0f7d7fa64d6eb2eb61a19b[m
+Merge: b885317 dbc262d
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Jul 30 21:16:57 2025 +0530
+
+    Merge pull request #51 from MridulMalvi/added
+    
+    Added MIT LICENSE  to the repo.
+
+[33mcommit dbc262d701ae7dde9faad743be132f6c13c275e2[m
+Author: Mridul Malvi <mridulmalvi669@gmail.com>
+Date:   Wed Jul 30 20:29:36 2025 +0530
+
+    Create LICENSE
+
+[33mcommit 8ef279039dc76494ff0bb8f24f37f2c2441439d9[m
+Author: Mridul Malvi <mridulmalvi669@gmail.com>
+Date:   Wed Jul 30 20:28:19 2025 +0530
+
+    Delete LICENSE
+
+[33mcommit 541ac2a3aa51d47a64ecbc862415c1ff38b48f42[m
+Author: Mridul Malvi <mridulmalvi669@gmail.com>
+Date:   Wed Jul 30 20:27:25 2025 +0530
+
+    Create LICENSE
+
+[33mcommit 1fb6bf9658a2ddd66afbaf730367e89e6dc82c4a[m
+Merge: 2e1fe38 b885317
+Author: Debosmita Pal <debosmitapal429@gmail.com>
+Date:   Wed Jul 30 19:13:27 2025 +0530
+
+    Merge branch 'main' of https://github.com/DebosmitaPal/Styleka into footer
+
+[33mcommit 2e1fe38c2a3ad12c2bce4b49a9e6eaa7510716e2[m
+Author: Debosmita Pal <debosmitapal429@gmail.com>
+Date:   Wed Jul 30 19:05:52 2025 +0530
+
+    footer enhancement done
+
+[33mcommit 90a61c745d7be5e89f993ea4d7d3685a3e6ca818[m
+Author: Channpreet kaur <154740952+Channpreetk@users.noreply.github.com>
+Date:   Wed Jul 30 19:04:07 2025 +0530
+
+    Added Dark Mode
+
+[33mcommit b885317edb804d1cec8bd1b1ac3275da6b35f2fd[m
+Merge: ba8c5d1 1ee4d43
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Jul 30 07:54:27 2025 +0530
+
+    Merge pull request #41 from RAJVEER42/main
+    
+    docs: revamped and beautified README.md
+
+[33mcommit ba8c5d1a5dcdf4c692ef3bf6a00e6c450f98e0e8[m
+Merge: 313fd20 e670b38
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Jul 30 07:52:11 2025 +0530
+
+    Merge pull request #42 from RahulKeshri1/main
+    
+    Updated about.html #29
+
+[33mcommit e670b38819e49d7802b19c7d795fc075baa069d3[m
+Author: RahulKeshri1 <rahulkumarkeshri475@gmail.com>
+Date:   Wed Jul 30 06:26:39 2025 +0530
+
+    Updated about.html
+
+[33mcommit 1ee4d435f1e394b29dd200adafc1287cb96eb38a[m
+Author: Rajveer Bishnoi <rajveer.24bcs10404@sst.scaler.com>
+Date:   Wed Jul 30 03:09:14 2025 +0530
+
+    Update README.md
+
+[33mcommit 220955005642dfdd74c26dc885f049e41c9529f2[m
+Merge: 778030a 313fd20
+Author: Niyati Sawant <115885145+Niyati1206@users.noreply.github.com>
+Date:   Tue Jul 29 23:03:33 2025 +0530
+
+    Merge branch 'main' into homepage-update
+
+[33mcommit 313fd20c092016f59008dfcab4549011467441ab[m
+Merge: aa698f0 eed0ce0
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Tue Jul 29 22:39:16 2025 +0530
+
+    Merge pull request #18 from Channpreetk/feature/my-changes
+    
+    Added Search button feature
+
+[33mcommit 778030ad73f906fc9951fc4f4f088e52c77fe789[m
+Author: Niyati1206 <niyatisawant2017@gmail.com>
+Date:   Tue Jul 29 22:24:18 2025 +0530
+
+    Made changes to home page
+
+[33mcommit aa698f06a459ce7681334665ef082085d3d9f946[m
+Merge: 7ad4aad 433e611
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Tue Jul 29 21:49:29 2025 +0530
+
+    Merge pull request #32 from Heena-Patil719/Update-Read_Me
+    
+    Readme file updated
+
+[33mcommit 7ad4aad28a9969932b4f0b5d642e0564fc2c1ca4[m
+Merge: 6c1cb38 f23d2d2
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Tue Jul 29 21:44:33 2025 +0530
+
+    Merge pull request #4 from KanishaSharma11/main
+    
+    Improved the interface of two pages.
+
+[33mcommit 433e611542dccaec063e5c7d2389f942097b24b0[m
+Author: Snow-Developer1 <patil.heena19@gmail.com>
+Date:   Tue Jul 29 19:39:08 2025 +0530
+
+    Readme file updated
+
+[33mcommit d543df28476b06786fbfd1a54b7f7745ca6e8a0c[m
+Author: Khwaaish <khwaaishdiwan@gmail.com>
+Date:   Tue Jul 29 13:01:34 2025 +0530
+
+    Added Search button feature
+
+[33mcommit 3b62f8969917e2d0b64d606a2ab7e78656eb6c2e[m
+Author: Ankita Mohanty <ankitamohanty1919191@gmail.com>
+Date:   Tue Jul 29 11:34:51 2025 +0530
+
+    Added login prompt and styles for unauthenticated users in cart
+
+[33mcommit f23d2d28ee88e3271ec1c0cd75f7f6e797a3e438[m
+Author: Kanisha Ravindra Sharma <sharmakan11052005@gmail.com>
+Date:   Tue Jul 29 01:15:42 2025 +0530
+
+    Update index.html
+
+[33mcommit eed0ce0395dec4581497a14ffe6cb151db9db0be[m
+Author: Channpreet kaur <154740952+Channpreetk@users.noreply.github.com>
+Date:   Tue Jul 29 00:19:34 2025 +0530
+
+    Added feature
+
+[33mcommit d436697f87a0457cde44aa2476d6229c554e0b46[m
+Author: Kanisha Ravindra Sharma <sharmakan11052005@gmail.com>
+Date:   Mon Jul 28 10:44:28 2025 +0530
+
+    Improved the interface of two pages.
+    
+    I enhanced the index.html and shop.html interfaces, creating a significantly more intuitive and user-friendly experience for smoother Browse and shopping.
+
+[33mcommit 6c1cb386ba6d59c5179ef7fc587a42f1a15f253b[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed May 7 12:46:24 2025 +0530
+
+    Update sproduct9.html
+
+[33mcommit cb3b66052fa1def4a864b7de6e2c2c5357f38f43[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed May 7 12:45:58 2025 +0530
+
+    Update sproduct8.html
+
+[33mcommit 28cd10a9ae0267dfbb4dd8387625530f9a683e34[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed May 7 12:45:32 2025 +0530
+
+    Update sproduct7.html
+
+[33mcommit 74c247be0e0c32633e93b085fce61ccf84e2cb00[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed May 7 12:44:59 2025 +0530
+
+    Update sproduct6.html
+
+[33mcommit 2b3f686a69a8bbcfe95f350443a0db8102a65e94[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed May 7 12:44:32 2025 +0530
+
+    Update sproduct5.html
+
+[33mcommit 9cf86ffe7256871f118fb90b7e9d768650066a1e[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed May 7 12:44:09 2025 +0530
+
+    Update sproduct4.html
+
+[33mcommit eca3b0c4c920df4369b8c0ae97b48f05269f0ade[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed May 7 12:43:44 2025 +0530
+
+    Update sproduct3.html
+
+[33mcommit b25e0297dcd1bfb248b857a89ccb082b61682fb0[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed May 7 12:43:20 2025 +0530
+
+    Update sproduct2.html
+
+[33mcommit 4810ba132ed3405a08b59f1bf00913207da09b53[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed May 7 12:42:53 2025 +0530
+
+    Update sproduct15.html
+
+[33mcommit 9d1b6d3cf04c97919763bb2807e4d352846151f7[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed May 7 12:42:24 2025 +0530
+
+    Update sproduct14.html
+
+[33mcommit 41815fea48c4f5461779c6ec3ba5d9f08f4af7a0[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed May 7 12:41:55 2025 +0530
+
+    Update sproduct13.html
+
+[33mcommit 1c53ec75343b2cbcc82e40472056311762cb22b8[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed May 7 12:41:30 2025 +0530
+
+    Update sproduct12.html
+
+[33mcommit bb4f8f35f8fd89fbe5f0d5400561be61b11abfd9[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed May 7 12:41:02 2025 +0530
+
+    Update sproduct11.html
+
+[33mcommit b3531dc2d52d1330328b102fd7ca9b2536dae657[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed May 7 12:40:30 2025 +0530
+
+    Update sproduct10.html
+
+[33mcommit 2a2b462f85c67c8293c0dc29bf64f15bb8a666f8[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed May 7 12:39:57 2025 +0530
+
+    Update sproduct1.html
+
+[33mcommit 8d57a5b6a4cd80da5e61606b4a31287db4bf7c57[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed May 7 12:39:32 2025 +0530
+
+    Update sproduct.html
+
+[33mcommit 6c23ffecccfded0b3e6cb881194b05695c0e1c92[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 30 11:51:50 2025 +0530
+
+    Update and rename Index.html to index.html
+
+[33mcommit a2372efc3b156e63fe73ede760fc2121b8bdeb51[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Thu Apr 17 13:56:23 2025 +0530
+
+    Update cart.html
+
+[33mcommit 4b850f9203e8fb348c23832af7aa7f7214ff9810[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 20:13:35 2025 +0530
+
+    Create success.html
+
+[33mcommit ca3463ae7380ca6b1603c914ceafc9320854f248[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 20:12:59 2025 +0530
+
+    Create cancel.html
+
+[33mcommit b9eb767bc3d494adc5bb78cc6dd0a3239c565797[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 20:12:29 2025 +0530
+
+    Update Index.html
+
+[33mcommit fe4ee799b933a69c0d1b84cced5a8dd40011a92a[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 20:12:13 2025 +0530
+
+    Create server.js
+
+[33mcommit 6993aa5a81a184df75efbb5c7bfe3090fa626a14[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:45:59 2025 +0530
+
+    Update cart.html
+
+[33mcommit 61d05c9213b85e50afa4347decf863384836b590[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:45:08 2025 +0530
+
+    Create sproduct15.html
+
+[33mcommit e09efdb212dee9446cd399413e784d80cfa20e66[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:44:43 2025 +0530
+
+    Create sproduct14.html
+
+[33mcommit 8086ec926865eb37d1acb8ec0fc81160d36339f5[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:44:00 2025 +0530
+
+    Create sproduct13.html
+
+[33mcommit 94269506ecdd97435d6f0e0983d34db9ac3c6123[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:43:30 2025 +0530
+
+    Create sproduct12.html
+
+[33mcommit 48643f9fc47a509d5e618fc6cc7e21b122ef2f5f[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:43:04 2025 +0530
+
+    Create sproduct11.html
+
+[33mcommit 71a2aaf09e964c9e6790bc1c362f29916c4e4514[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:42:32 2025 +0530
+
+    Create sproduct10.html
+
+[33mcommit 5f808644296652cfdf0b3a64d1fa4fcd1daec356[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:42:02 2025 +0530
+
+    Create sproduct9.html
+
+[33mcommit 774049035afcb37977da43a67c43ed79ed740ecd[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:41:36 2025 +0530
+
+    Create sproduct8.html
+
+[33mcommit 593f37512108ff215674a6da94fa0997935f1e62[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:41:07 2025 +0530
+
+    Create sproduct7.html
+
+[33mcommit d75f6ed43dd0ee84d187e48a0e2c12fbe8e77bd0[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:40:42 2025 +0530
+
+    Create sproduct6.html
+
+[33mcommit dc8213af2901500de42d34507edfb62e5e81b461[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:40:17 2025 +0530
+
+    Create sproduct5.html
+
+[33mcommit a6de95fddbd5c1ec4dae3f02308a7a2c740aabf1[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:39:53 2025 +0530
+
+    Create sproduct4.html
+
+[33mcommit 74ea55c376aa84c9d64c4f7a97b102da37f8b2ff[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:39:15 2025 +0530
+
+    Create sproduct3.html
+
+[33mcommit 20ee298d95225cf17397dba485fe4380bd2ee089[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:38:50 2025 +0530
+
+    Create sproduct2.html
+
+[33mcommit 5b784903f8605d075e0f279b859b74054fced23b[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:38:25 2025 +0530
+
+    Create sproduct1.html
+
+[33mcommit b7616ae82030cc9f58e1bfc9e1c8ff647a807462[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:37:52 2025 +0530
+
+    Update shop.html
+
+[33mcommit d3dab0bea70a88f75f62ade3f674b133a0090d18[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 19:37:19 2025 +0530
+
+    Update sproduct.html
+
+[33mcommit 96c90c96a6bbc7bb210aeb7fe6578b095d1c7429[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Apr 16 11:27:42 2025 +0530
+
+    Update register.html
+
+[33mcommit d9dc545be68630f422e8464602aa9e2a61f5cb2f[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Tue Apr 15 12:42:47 2025 +0530
+
+    Create cart.html
+
+[33mcommit 691950ae9409b8fb81a826b55877b46080cb3a98[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Tue Apr 1 20:52:03 2025 +0530
+
+    Create login.html
+
+[33mcommit 6271a611cbbf193ed09b5c26d90e07ce7d6ba723[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Tue Apr 1 20:50:57 2025 +0530
+
+    Update register.html
+
+[33mcommit 585cbfb25defd739c04992df6e170d1d06c21e6a[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Tue Apr 1 20:17:43 2025 +0530
+
+    Update register.html
+
+[33mcommit fbe75630b73c2136a92bd0746fb26b07432ff279[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Tue Apr 1 13:17:07 2025 +0530
+
+    Update script.js
+
+[33mcommit 58599ef5c8039b1707e09da2fcb98d0694cb7d78[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Tue Apr 1 13:16:42 2025 +0530
+
+    Update Index.html
+
+[33mcommit 77b51cd776c72463b9389938a373b1605e7e8b79[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Tue Apr 1 13:15:33 2025 +0530
+
+    Update register.html
+
+[33mcommit 12fd56671fdfef13014ec263c7694e24ae5a812f[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Sun Mar 30 17:26:40 2025 +0530
+
+    Create contact.html
+
+[33mcommit 62c438f5cc90965693b9f72a31a59117af27008e[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Sun Mar 30 17:26:01 2025 +0530
+
+    Create about.html
+
+[33mcommit 504338f9191e517dfe7ae0396a46e96920bb7143[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Sun Mar 30 17:25:13 2025 +0530
+
+    Create blog.html
+
+[33mcommit 8c4f56273112c44d2bde7b7cce440542fbc541b3[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Sun Mar 30 17:23:42 2025 +0530
+
+    Create register.html
+
+[33mcommit bf0bed55da5344636a09d5063641902b3cdebde5[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Sun Mar 30 17:21:59 2025 +0530
+
+    Update style.css
+
+[33mcommit dd8dc27ac2c53e3e492eb9f43b76bbe3e76a19a7[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Sun Mar 30 17:21:04 2025 +0530
+
+    Update Index.html
+
+[33mcommit 4be96a66d62dc107a5dccecff81a42210c3c84d7[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Mar 19 10:36:15 2025 +0530
+
+    sproduct.html
+
+[33mcommit 60b5d82afa766798d396f7d070de6359a5d83b29[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Mar 19 10:35:05 2025 +0530
+
+    shop.html
+
+[33mcommit dcaec6c3ea0aec798c355a62e1ff7666b21bd96a[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Wed Mar 19 10:33:30 2025 +0530
+
+    Update style.css
+
+[33mcommit 5a7b275afa9b261a2f381b42d082b8d31bd74bab[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Fri Mar 7 17:45:18 2025 +0530
+
+    script.js
+
+[33mcommit 97629f82fc2b34c1f2bb324821f1ba15f326fd7a[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Fri Mar 7 17:44:00 2025 +0530
+
+    Update style.css
+
+[33mcommit 8b0dfe666487c2f00449165e578fa21d4aa53ab3[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Fri Mar 7 17:41:20 2025 +0530
+
+    Update Index.html
+
+[33mcommit eb47fed94b9f697f54b881e07739d79080d3288a[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Tue Feb 11 12:45:06 2025 +0530
+
+    Update Index.html
+
+[33mcommit f8c2a51b45d351a396df247e16e93c9dce3d0ec9[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Tue Feb 11 12:42:35 2025 +0530
+
+    Add files via upload
+
+[33mcommit 3189d68fb2079d02dcdfd48b0c7b648a11126f18[m
+Author: SAMBUDAR <159267732+SAMBUDAR@users.noreply.github.com>
+Date:   Tue Feb 11 12:40:30 2025 +0530
+
+    Initial commit
