@@ -577,7 +577,7 @@ body{
     width: 23%;
     min-width: 250px;
     max-width: 300px;
-    height: 420px;
+    height: 490px;
     padding: 15px;
     border : 1px solid #cce7d0;
     border-radius: 25px;
@@ -658,6 +658,21 @@ body{
     font-size: 15px;
     font-weight: 700;
     color: #088178;
+}
+
+#product1 .pro .des .btn{
+   height:30px;
+   border:1px solid aliceblue;
+   padding:2px;
+   font-size: 1em;
+   border-radius: 15px;
+}
+
+#product1 .pro .des .btn:hover{
+    cursor: pointer;
+    background-color:#818ea0;
+    color:white;
+    
 }
 
 #product1 .pro .cart{
