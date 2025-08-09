@@ -42,6 +42,7 @@ p{
 
 .section-m1{
     margin: 40px 0;
+    
 }
 
 button.normal{
@@ -781,11 +782,12 @@ body{
     align-items: center;
     text-align: center;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    width: 100%;
+    width: 95%;
     height: 40vh;
     background-size: cover;
     background-position: center;
     margin: 40px 0;
+    margin: auto;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
@@ -914,6 +916,7 @@ body{
 }
 
 #newsletter{
+    width:97%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -924,6 +927,7 @@ body{
     border-radius: 20px;
     padding: 40px;
     margin: 40px 0;
+    margin: auto;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
