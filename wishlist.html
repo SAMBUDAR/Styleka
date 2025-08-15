@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wishlist • STYLÉKA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        referrerpolicy="no-referrer" />
+  <style>
+    .wl-container { max-width: 1100px; margin: 40px auto; padding: 0 16px; }
+    .wl-header { display:flex; justify-content: space-between; align-items:center; gap:16px; }
+    .wl-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 20px; margin-top:20px; }
+    .wl-card { border:1px solid #eee; border-radius:14px; overflow:hidden; background:#fff; box-shadow:0 6px 20px rgba(0,0,0,0.06); }
+    .wl-card img { width:100%; height: 200px; object-fit: cover; }
+    .wl-card .body { padding:12px 14px; }
+    .wl-title { font-weight:600; margin:6px 0 4px; }
+    .wl-price { color:#088178; font-weight:700; }
+    .wl-actions { display:flex; gap:8px; margin-top:10px; }
+    .btn {
+      border:0; padding:8px 12px; border-radius:10px; cursor:pointer;
+      background:#088178; color:#fff; font-weight:600;
+    }
+    .btn.secondary { background:#e63946; }
+    .btn.ghost { background:#f3f5f7; color:#222; }
+    .empty { text-align:center; padding:40px 0; color:#666; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="wishlist.html">Wishlist (<span id="wl-count">0</span>)</a>
+    <a href="cart.html">Cart</a>
+  </nav>
+
+  <main class="wl-container">
+    <div class="wl-header">
+      <h1>Your Wishlist</h1>
+      <div>
+        <button id="wl-clear" class="btn ghost">Clear wishlist</button>
+      </div>
+    </div>
+
+    <div id="wl-grid" class="wl-grid"></div>
+    <div id="wl-empty" class="empty" style="display:none;">
+      <p>No items yet. Browse the <a href="shop.html">Shop</a> and tap the ♥ to save products.</p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Fallback: Add to Cart local (if no global addToCart exists)
+    function addToCartLocal(item) {
+      const KEY = "styl_cart";
+      let cart = [];
+      try { cart = JSON.parse(localStorage.getItem(KEY)) || []; } catch {}
+      const existing = cart.find(p => p.id === item.id);
+      if (existing) { existing.qty = (existing.qty || 1) + 1; }
+      else { cart.push({ ...item, qty: 1 }); }
+      localStorage.setItem(KEY, JSON.stringify(cart));
+      alert("Added to cart!");
+    }
+
+    function wl_render() {
+      const grid = document.getElementById("wl-grid");
+      const empty = document.getElementById("wl-empty");
+      const items = (function(){ try { return JSON.parse(localStorage.getItem("styl_wishlist")) || []; } catch { return []; } })();
+
+      grid.innerHTML = "";
+      if (!items.length) {
+        empty.style.display = "block";
+        return;
+      }
+      empty.style.display = "none";
+
+      for (const it of items) {
+        const card = document.createElement("div");
+        card.className = "wl-card";
+        card.innerHTML = `
+          <a href="${it.url}"><img src="${it.img}" alt="${it.name}"></a>
+          <div class="body">
+            <div class="wl-title">${it.name}</div>
+            <div class="wl-price">₹${Number(it.price || 0).toLocaleString("en-IN")}</div>
+            <div class="wl-actions">
+              <button class="btn" data-act="cart" data-id="${it.id}"><i class="fa-solid fa-cart-plus"></i>&nbsp;Move to cart</button>
+              <button class="btn secondary" data-act="remove" data-id="${it.id}"><i class="fa-solid fa-trash"></i>&nbsp;Remove</button>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      }
+    }
+
+    // Handle actions
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-act]");
+      if (!btn) return;
+      const id = btn.dataset.id;
+      // Load current item for cart action
+      const items = (function(){ try { return JSON.parse(localStorage.getItem("styl_wishlist")) || []; } catch { return []; } })();
+      const item = items.find(p => p.id === id);
+
+      if (btn.dataset.act === "remove") {
+        // Use global wl_remove if loaded from script.js
+        if (typeof wl_remove === "function") wl_remove(id);
+        else {
+          const next = items.filter(p => p.id !== id);
+          localStorage.setItem("styl_wishlist", JSON.stringify(next));
+        }
+        wl_render();
+      }
+
+      if (btn.dataset.act === "cart" && item) {
+        // If project already defines addToCart(item), use it. Otherwise fallback.
+        if (typeof addToCart === "function") addToCart(item);
+        else addToCartLocal(item);
+
+        // Optional: remove from wishlist after moving
+        if (typeof wl_remove === "function") wl_remove(id);
+        else {
+          const next = items.filter(p => p.id !== id);
+          localStorage.setItem("styl_wishlist", JSON.stringify(next));
+        }
+        wl_render();
+      }
+    });
+
+    // Clear wishlist
+    document.getElementById("wl-clear").addEventListener("click", () => {
+      if (!confirm("Clear all items from your wishlist?")) return;
+      localStorage.setItem("styl_wishlist", JSON.stringify([]));
+      wl_render();
+      // Update navbar counter from script.js util if available
+      if (typeof wl_updateCounter === "function") wl_updateCounter();
+    });
+
+    // Initial render
+    document.addEventListener("DOMContentLoaded", () => {
+      wl_render();
+      // Counter from shared util
+      if (typeof wl_updateCounter === "function") wl_updateCounter();
+    });
+  </script>
+</body>
+</html>

@@ -227,3 +227,190 @@ document.addEventListener('DOMContentLoaded', function() {
 window.searchProducts = searchProducts;
 window.filterProducts = filterProducts;
 window.clearSearch = clearSearch;
+
+wl_load();
+  try {
+    return JSON.parse(localStorage.getItem(WL_STORAGE_KEY)) || [];
+  } catch {
+    return [];
+  }
+
+
+function wl_save(arr) {
+  localStorage.setItem(WL_STORAGE_KEY, JSON.stringify(arr));
+}
+
+function wl_isIn(id) {
+  const wl = wl_load();
+  return wl.some(p => p.id === id);
+}
+
+function wl_add(item) {
+  const wl = wl_load();
+  if (!wl.some(p => p.id === item.id)) {
+    wl.push(item);
+    wl_save(wl);
+  }
+  wl_updateCounter();
+}
+
+function wl_remove(id) {
+  const wl = wl_load().filter(p => p.id !== id);
+  wl_save(wl);
+  wl_updateCounter();
+}
+
+function wl_toggleFromButton(btn) {
+  const id = btn.dataset.productId;
+  const inList = wl_isIn(id);
+
+  if (inList) {
+    wl_remove(id);
+    btn.classList.remove("active");
+    btn.setAttribute("aria-pressed", "false");
+    btn.querySelector("i").classList.remove("fa-solid");
+    btn.querySelector("i").classList.add("fa-regular");
+  } else {
+    // Build item from data-attrs (fallback parse from DOM if needed)
+    const item = {
+      id,
+      name: btn.dataset.productName || btn.closest(".product")?.querySelector(".product-title")?.textContent?.trim() || "Product",
+      price: parseInt(btn.dataset.productPrice || btn.closest(".product")?.querySelector(".product-price")?.dataset?.price || "0", 10),
+      img: btn.dataset.productImg || btn.closest(".product")?.querySelector("img")?.getAttribute("src") || "",
+      url: btn.dataset.productUrl || "#"
+    };
+    wl_add(item);
+    btn.classList.add("active");
+    btn.setAttribute("aria-pressed", "true");
+    btn.querySelector("i").classList.remove("fa-regular");
+    btn.querySelector("i").classList.add("fa-solid");
+  }
+}
+
+function wl_updateCounter() {
+  const el = document.getElementById("wl-count");
+  if (el) el.textContent = String(wl_load().length);
+}
+
+function wl_syncButtonsState() {
+  document.querySelectorAll(".wishlist-btn").forEach(btn => {
+    const id = btn.dataset.productId;
+    const active = wl_isIn(id);
+    btn.classList.toggle("active", active);
+    btn.setAttribute("aria-pressed", active ? "true" : "false");
+    const icon = btn.querySelector("i");
+    if (icon) {
+      icon.classList.toggle("fa-solid", active);
+      icon.classList.toggle("fa-regular", !active);
+    }
+  });
+}
+
+// Event delegation: toggle on click
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".wishlist-btn");
+  if (!btn) return;
+  wl_toggleFromButton(btn);
+});
+
+// Init on page load
+document.addEventListener("DOMContentLoaded", () => {
+  wl_updateCounter();
+  wl_syncButtonsState();
+});
+
+/* -------------------------------
+   STYLÉKA Wishlist (localStorage)
+----------------------------------*/
+const WL_STORAGE_KEY = "styl_wishlist"; // localStorage key
+
+function wl_load() {
+  try {
+    return JSON.parse(localStorage.getItem(WL_STORAGE_KEY)) || [];
+  } catch {
+    return [];
+  }
+}
+
+function wl_save(arr) {
+  localStorage.setItem(WL_STORAGE_KEY, JSON.stringify(arr));
+}
+
+function wl_isIn(id) {
+  const wl = wl_load();
+  return wl.some(p => p.id === id);
+}
+
+function wl_add(item) {
+  const wl = wl_load();
+  if (!wl.some(p => p.id === item.id)) {
+    wl.push(item);
+    wl_save(wl);
+  }
+  wl_updateCounter();
+}
+
+function wl_remove(id) {
+  const wl = wl_load().filter(p => p.id !== id);
+  wl_save(wl);
+  wl_updateCounter();
+}
+
+function wl_toggleFromButton(btn) {
+  const id = btn.dataset.productId;
+  const inList = wl_isIn(id);
+
+  if (inList) {
+    wl_remove(id);
+    btn.classList.remove("active");
+    btn.setAttribute("aria-pressed", "false");
+    btn.querySelector("i").classList.remove("fa-solid");
+    btn.querySelector("i").classList.add("fa-regular");
+  } else {
+    // Build item from data-attrs (fallback parse from DOM if needed)
+    const item = {
+      id,
+      name: btn.dataset.productName || btn.closest(".product")?.querySelector(".product-title")?.textContent?.trim() || "Product",
+      price: parseInt(btn.dataset.productPrice || btn.closest(".product")?.querySelector(".product-price")?.dataset?.price || "0", 10),
+      img: btn.dataset.productImg || btn.closest(".product")?.querySelector("img")?.getAttribute("src") || "",
+      url: btn.dataset.productUrl || "#"
+    };
+    wl_add(item);
+    btn.classList.add("active");
+    btn.setAttribute("aria-pressed", "true");
+    btn.querySelector("i").classList.remove("fa-regular");
+    btn.querySelector("i").classList.add("fa-solid");
+  }
+}
+
+function wl_updateCounter() {
+  const el = document.getElementById("wl-count");
+  if (el) el.textContent = String(wl_load().length);
+}
+
+function wl_syncButtonsState() {
+  document.querySelectorAll(".wishlist-btn").forEach(btn => {
+    const id = btn.dataset.productId;
+    const active = wl_isIn(id);
+    btn.classList.toggle("active", active);
+    btn.setAttribute("aria-pressed", active ? "true" : "false");
+    const icon = btn.querySelector("i");
+    if (icon) {
+      icon.classList.toggle("fa-solid", active);
+      icon.classList.toggle("fa-regular", !active);
+    }
+  });
+}
+
+// Event delegation: toggle on click
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".wishlist-btn");
+  if (!btn) return;
+  wl_toggleFromButton(btn);
+});
+
+// Init on page load
+document.addEventListener("DOMContentLoaded", () => {
+  wl_updateCounter();
+  wl_syncButtonsState();
+});
