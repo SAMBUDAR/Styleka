@@ -1,33 +1,651 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STYLÉKA</title>
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" /> -->
+    <title>About | STYLÉKA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Import modern fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .section-p1 {
+            padding: 40px 80px;
+        }
+
+        .section-m1 {
+            margin: 40px 0;
+        }
+
+        /* Enhanced Header */
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 80px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        .site-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        #navbar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            list-style: none;
+            gap: 30px;
+        }
+
+        #navbar li a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            transition: all 0.3s ease;
+            padding: 12px 24px;
+            border-radius: 8px;
+            position: relative;
+            display: block;
+        }
+
+        #navbar li a:hover,
+        #navbar li a.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        #lg-bag a {
+            font-size: 1.2rem;
+            color: #667eea;
+            transition: all 0.3s ease;
+        }
+
+        #lg-bag a:hover {
+            transform: scale(1.2);
+            color: #764ba2;
+        }
+
+        #mobile {
+            display: none;
+        }
+
+        #close {
+            display: none;
+        }
+
+        /* About Hero Section */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)),
+                        url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .about-hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .about-hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* About Content Sections */
+        .about-section {
+            background: white;
+            border-radius: 20px;
+            margin: 40px 80px;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .about-section:hover::before {
+            left: 0;
+        }
+
+        .about-section > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+
+        .about-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .value-card {
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+
+        .value-card:nth-child(2) {
+            border-left-color: #764ba2;
+        }
+
+        .value-card:nth-child(3) {
+            border-left-color: #ff6b6b;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .value-card:nth-child(2) .value-icon {
+            color: #764ba2;
+        }
+
+        .value-card:nth-child(3) .value-icon {
+            color: #ff6b6b;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .value-card p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team-section {
+            text-align: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .team-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: 700;
+        }
+
+        .team-card h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .team-card .role {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .team-card p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Enhanced Footer - Keep your existing footer styles */
+        footer {
+            background: #E6E6FA;
+            color: white;
+            padding: 40px 80px;
+            border-radius: 20px;
+            margin: 40px 20px 20px 20px;
+            position: relative;
+            border: none;
+            box-shadow: 0 0 30px rgba(230, 230, 250, 0.6),
+                        inset 0 0 30px rgba(230, 230, 250, 0.2);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #007bff, #00d4ff, #007bff, #00d4ff);
+            border-radius: 23px;
+            z-index: -1;
+            animation: outerGlow 3s ease-in-out infinite alternate;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 100%;
+            background-color: white;
+            color: #0066cc;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 10px;
+            position: relative;
+            border: none;
+            box-shadow: 0 0 35px rgba(230, 230, 250, 0.6), 
+                        inset 0 0 25px rgba(230, 230, 250, 0.2);
+        }
+
+        .footer-container::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #007bff, #00d4ff, #007bff, #00d4ff);
+            border-radius: 13px;
+            z-index: -1;
+            animation: innerGlow 2.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes outerGlow {
+            from {
+                box-shadow: 0 0 30px rgba(230, 230, 250, 0.6);
+            }
+            to {
+                box-shadow: 0 0 50px rgba(230, 230, 250, 0.9);
+            }
+        }
+
+        @keyframes innerGlow {
+            from {
+                box-shadow: 0 0 25px rgba(230, 230, 250, 0.6);
+            }
+            to {
+                box-shadow: 0 0 45px rgba(230, 230, 250, 0.9);
+            }
+        }
+
+        footer .col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        footer .col:first-child {
+            margin-right: 40px;
+        }
+
+        footer h4 {
+            font-size: 1.3rem;
+            padding-bottom: 15px;
+            color: #007bff;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            font-size: 14px;
+            margin: 5px 0 8px 0;
+            color: #0066cc;
+            line-height: 1.6;
+        }
+
+        footer a {
+            font-size: 14px;
+            text-decoration: none;
+            color: #0066cc;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #007bff;
+            transform: translateX(5px);
+        }
+
+        .follow {
+            margin-top: 20px;
+        }
+
+        .follow .icon {
+            color: #007bff;
+            padding-right: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .follow .icon:hover {
+            transform: scale(1.2);
+            color: #00d4ff;
+        }
+
+        .icon a {
+            color: #0066cc;
+            padding-right: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .icon a:hover {
+            transform: scale(1.2);
+            color: #00d4ff;
+        }
+
+        .install img {
+            margin: 10px 0 15px 0;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .install img:hover {
+            transform: scale(1.05);
+        }
+
+        .copyright {
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 123, 255, 0.3);
+            color: #0066cc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 799px) {
+            .section-p1, .about-section {
+                padding: 40px 40px;
+                margin: 20px 40px;
+            }
+
+            #navbar {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                position: fixed;
+                top: 0;
+                right: -300px;
+                height: 100vh;
+                width: 300px;
+                background: white;
+                box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+                padding: 80px 0 0 10px;
+                transition: 0.3s;
+            }
+
+            #navbar.active {
+                right: 0px;
+            }
+
+            #navbar li {
+                margin-bottom: 25px;
+            }
+
+            #mobile {
+                display: flex;
+                align-items: center;
+            }
+
+            #mobile i {
+                color: #333;
+                font-size: 24px;
+                padding-left: 20px;
+                cursor: pointer;
+            }
+
+            #close {
+                display: initial;
+                position: absolute;
+                top: 30px;
+                left: 30px;
+                color: #333;
+                font-size: 24px;
+                cursor: pointer;
+            }
+
+            #lg-bag {
+                display: none;
+            }
+
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-section h2 {
+                font-size: 2rem;
+            }
+
+            footer {
+                padding: 40px 40px;
+            }
+        }
+
+        @media (max-width: 477px) {
+            .section-p1, .about-section {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            #header {
+                padding: 10px 30px;
+            }
+
+            .site-title {
+                font-size: 2rem;
+            }
+
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-section h2 {
+                font-size: 1.8rem;
+            }
+
+            footer {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
     <section id="header">
-        <!-- <a href="#"><img src="img/Untitled_design__1_-removebg-preview.png" class="logo" alt=""></a> -->
-
-        <!-- <h1>STYLÉKA</h1> -->
-
         <span class="site-title">STYLÉKA</span>
 
         <div>
             <ul id="navbar">
-
-                <li><a  href="index.html">Home</a></li>
-                <li><a  href="shop.html">Shop</a></li>
-                <li><a  href="blog.html">Blog</a></li>
+                <li><a href="Index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
                 <li><a class="active" href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="register.html">Register</a></li>
                 <li id="lg-bag"><a href="cart.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                 <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
             </ul>
@@ -39,6 +657,60 @@
         </div>
     </section>
 
+ main
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1>About STYLÉKA</h1>
+            <p>Where fashion meets innovation and style transcends boundaries</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="about-section">
+        <h2>Our Story</h2>
+        <p>Born from a passion for fashion and a vision to redefine style, STYLÉKA emerged as more than just a fashion destination – we're a movement that celebrates individuality, creativity, and the art of self-expression through clothing.</p>
+        <p>Founded with the belief that everyone deserves to feel confident and stylish, we've curated a collection that speaks to the modern individual who values both quality and aesthetic appeal. From the bustling streets to elegant evenings, STYLÉKA ensures you make a statement wherever you go.</p>
+        <p>Our journey began with a simple yet powerful idea: fashion should be accessible, sustainable, and authentically you. Today, we stand as your premier destination for curated fashion that bridges the gap between contemporary trends and timeless elegance.</p>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="about-section">
+        <h2>Our Impact</h2>
+        <div class="stats-section">
+            <div class="stat-box">
+                <span class="stat-number">50K+</span>
+                <span class="stat-label">Happy Customers</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Fashion Products</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">Brand Partners</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Customer Support</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="about-section">
+        <h2>What We Stand For</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Quality First</h3>
+                <p>Every piece in our collection is carefully selected for its exceptional quality, ensuring you get garments that last and maintain their elegance through time.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-leaf"></i>
     <section id="page-header" class="about-header">
         <div class="hero-content">
             <h2>Our Story & Values</h2>
@@ -108,15 +780,64 @@
                         <h4>Secure Shopping</h4>
                         <p>Advanced encryption and multiple payment options</p>
                     </div>
+main
                 </div>
+                <h3>Sustainability</h3>
+                <p>We're committed to sustainable fashion practices, working with eco-conscious brands and promoting responsible consumption for a better tomorrow.</p>
             </div>
+ main
+            <div class="value-card">
+                <div class="value-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Inclusivity</h3>
+                <p>Fashion is for everyone. We celebrate diversity and ensure our collections cater to all styles, sizes, and preferences, making fashion truly inclusive.</p>
+            </div>
+
         </div>
 
         <div class="brand-promise">
             <p><em>"At STYLÉKA, we're committed to making your online shopping experience exceptional from browse to unbox - delivering style with convenience, quality with affordability, and service with a smile."</em></p>
+ main
         </div>
     </div>
    </section>
+
+ main
+    <!-- Team Section -->
+    <section class="about-section team-section">
+        <h2>Meet Our Team</h2>
+        <p style="text-align: center; margin-bottom: 40px; font-size: 1.1rem; color: #666;">The passionate individuals behind STYLÉKA's success</p>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">S</div>
+                <h4>Sophia Anderson</h4>
+                <div class="role">Founder & Creative Director</div>
+                <p>Visionary behind STYLÉKA's aesthetic philosophy, bringing years of fashion industry experience to create unforgettable style experiences.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">M</div>
+                <h4>Marcus Chen</h4>
+                <div class="role">Head of Merchandising</div>
+                <p>Master curator who ensures every product meets our high standards of quality and style, connecting global trends with local preferences.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">A</div>
+                <h4>Aria Patel</h4>
+                <div class="role">Customer Experience Lead</div>
+                <p>Dedicated to making every customer interaction exceptional, ensuring that your STYLÉKA journey is seamless and memorable.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="about-section">
+        <h2>Our Vision</h2>
+        <p>At STYLÉKA, we envision a world where fashion serves as a universal language of self-expression, where style knows no boundaries, and where every individual can confidently showcase their unique personality through thoughtfully curated pieces.</p>
+        <p>We're not just selling clothes – we're crafting experiences, building confidence, and empowering individuals to write their own style stories. Our commitment extends beyond fashion; we're building a community of style enthusiasts who value authenticity, quality, and conscious consumption.</p>
+        <p>Looking ahead, we continue to innovate, explore new frontiers in sustainable fashion, and remain dedicated to being your trusted companion in every style journey you embark upon.</p>
+    </section>
+
 
    <section id="about-app" class="section-p1">
     <div class="app-content">
@@ -198,6 +919,7 @@
     </div>
 </section>
 
+ main
     <footer class="section-p1">
         <div class="col">
             <img src="https://images.pexels.com/photos/5632371/pexels-photo-5632371.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" alt="STYLÉKA Logo" width="200px">
@@ -253,5 +975,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
