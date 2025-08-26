@@ -8,11 +8,47 @@
       font-family: Arial, sans-serif;
       padding: 20px;
       background: #fdfdfd;
+      margin: 0;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #111;
+      color: #fff;
+    }
+
+    .navbar .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .navbar ul li a:hover {
+      text-decoration: underline;
     }
 
     .container {
       max-width: 500px;
-      margin: 0 auto;
+      margin: 40px auto; 
       text-align: center;
     }
 
@@ -133,6 +169,20 @@
 </head>
 <body>
 
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="index.html" class="logo">Styleka</a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="cart.html">Cart</a></li>
+  </ul>
+</nav>
+<!-- ✅ End Navbar -->
+
 <div class="container">
   <div class="product-img">
     <img src="img/Products/f1.jpg" alt="Product" id="productImage">
@@ -184,24 +234,22 @@
   </div>
 </div>
 
-<!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-database-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth-compat.js"></script>
 
 <script>
-  // Firebase Config (replace with your actual config)
+  // Firebase Config
   const firebaseConfig = {
     apiKey: "AIzaSyCidoh3aUKsFzamLCetZkNlvbw-q_icLTY",
-      authDomain: "aniket-f99f3.firebaseapp.com",
-      projectId: "aniket-f99f3",
-      storageBucket: "aniket-f99f3.appspot.com",
-      messagingSenderId: "640193454368",
-      appId: "1:640193454368:web:336be90f18f5278a16f745",
-      databaseURL: "https://aniket-f99f3-default-rtdb.firebaseio.com"
+    authDomain: "aniket-f99f3.firebaseapp.com",
+    projectId: "aniket-f99f3",
+    storageBucket: "aniket-f99f3.appspot.com",
+    messagingSenderId: "640193454368",
+    appId: "1:640193454368:web:336be90f18f5278a16f745",
+    databaseURL: "https://aniket-f99f3-default-rtdb.firebaseio.com"
   };
 
-  // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
 
@@ -248,7 +296,6 @@
     }
   }
 
-  // Optional: Temporary login for testing (anonymous login)
   firebase.auth().onAuthStateChanged((user) => {
     if (!user) {
       firebase.auth().signInAnonymously();
