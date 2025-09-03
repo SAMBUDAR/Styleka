@@ -6,24 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STYLÉKA</title>
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" /> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     
+    <style>
+        /* Smooth scrolling for modern browsers */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* For browsers that don't support smooth scrolling */
+        @media (prefers-reduced-motion: no-preference) {
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
     <section id="header">
-        <!-- <a href="#"><img src="img/Untitled_design__1_-removebg-preview.png" class="logo" alt=""></a> -->
-
-        <!-- <h1>STYLÉKA</h1> -->
-
         <span class="site-title">STYLÉKA</span>
 
         <div>
             <ul id="navbar">
-
                 <li><a class="active" href="index.html">Home</a></li>
                 <li><a href="shop.html">Shop</a></li>
                 <li><a href="blog.html">Blog</a></li>
@@ -87,6 +94,20 @@
         </div>
     </section>
 
+    <!-- About Us Section with ID -->
+    <section id="about-us" class="section-p1">
+        <div class="product-header">
+            <div class="product-title">
+                <h2>About STYLÉKA</h2>
+                <p>Your Fashion Destination</p>
+            </div>
+        </div>
+        <div class="about-content">
+            <p>STYLÉKA is a premier fashion destination offering the latest trends in clothing, footwear, and accessories. We bring you curated collections from top brands worldwide, ensuring you always stay ahead in the fashion game.</p>
+            <p>Our mission is to make high-quality fashion accessible to everyone without compromising on style or breaking the bank. With regular new arrivals and exclusive deals, we're committed to providing an exceptional shopping experience.</p>
+        </div>
+    </section>
+
     <section id="product1" class="section-p1">
         <div class="product-header">
             <div class="product-title">
@@ -141,7 +162,6 @@
                     </div>
                     <h4>₹2000</h4>
                 </div>
-                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
                 <img src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Zara Printed Shirt">
@@ -157,7 +177,6 @@
                     </div>
                     <h4>₹5000</h4>
                 </div>
-                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
                 <img src="https://images.pexels.com/photos/1656684/pexels-photo-1656684.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Gucci Flower Print Shirt">
@@ -173,7 +192,6 @@
                     </div>
                     <h4>₹14999</h4>
                 </div>
-                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
                 <img src="https://images.pexels.com/photos/1240892/pexels-photo-1240892.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Puma One8 Shoes">
@@ -189,7 +207,6 @@
                     </div>
                     <h4>₹5999</h4>
                 </div>
-                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
                 <img src="https://images.pexels.com/photos/1620695/pexels-photo-1620695.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Ferrari Sports Hoodie">
@@ -205,7 +222,6 @@
                     </div>
                     <h4>₹8999</h4>
                 </div>
-                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
                 <img src="https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Zara Dual Color Shirt">
@@ -221,7 +237,6 @@
                     </div>
                     <h4>₹4000</h4>
                 </div>
-                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
                 <img src="https://images.pexels.com/photos/914668/pexels-photo-914668.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="H&M Women Trouser">
@@ -237,7 +252,6 @@
                     </div>
                     <h4>₹1599</h4>
                 </div>
-                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
                 <img src="https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="H&M Purple T-shirt">
@@ -253,7 +267,6 @@
                     </div>
                     <h4>₹2999</h4>
                 </div>
-                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>    
         </div>
     </section>
@@ -293,10 +306,40 @@
         </div>
     </section>
 
+    <!-- Privacy Policy Section with ID -->
+    <section id="privacy-policy" class="section-p1">
+        <div class="product-header">
+            <div class="product-title">
+                <h2>Privacy Policy</h2>
+                <p>Your Data is Secure With Us</p>
+            </div>
+        </div>
+        <div class="policy-content">
+            <p>At STYLÉKA, we take your privacy seriously. This Privacy Policy describes how we collect, use, and protect your personal information when you use our website and services.</p>
+            <p>We collect information that you provide directly to us, such as when you create an account, make a purchase, or contact us for support. We use this information to process your orders, communicate with you, and improve our services.</p>
+            <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+        </div>
+    </section>
+
     <section id="banner" class="section-m1">
         <h4>Repair Service</h4>
         <h2>Up to <span>70% Off</span> - All t-shirts & Accessories</h2>
         <button class="normal">Explore More</button>
+    </section>
+
+    <!-- Terms & Conditions Section with ID -->
+    <section id="terms-conditions" class="section-p1">
+        <div class="product-header">
+            <div class="product-title">
+                <h2>Terms & Conditions</h2>
+                <p>Please Read Carefully</p>
+            </div>
+        </div>
+        <div class="terms-content">
+            <p>By accessing and using STYLÉKA's website, you accept and agree to be bound by the terms and conditions set forth in this agreement.</p>
+            <p>All products are subject to availability. We reserve the right to limit quantities and refuse service to anyone at our discretion. Prices are subject to change without notice.</p>
+            <p>We are not responsible for any delays in delivery due to unforeseen circumstances or events beyond our control. Returns and exchanges are subject to our return policy.</p>
+        </div>
     </section>
 
     <section id="product1" class="section-p1">
@@ -317,7 +360,6 @@
                     </div>
                     <h4>₹1500</h4>
                 </div>
-                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
                 <img src="https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="H&M Blue Shirt">
@@ -333,7 +375,6 @@
                     </div>
                     <h4>₹2500</h4>
                 </div>
-                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
                 <img src="https://images.pexels.com/photos/2983467/pexels-photo-2983467.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Lacoste Checked Shirt">
@@ -349,7 +390,6 @@
                     </div>
                     <h4>₹6000</h4>
                 </div>
-                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
                 <img src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Goldstar White Shirt">
@@ -365,7 +405,6 @@
                     </div>
                     <h4>₹2000</h4>
                 </div>
-                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
                 <img src="https://images.pexels.com/photos/1656684/pexels-photo-1656684.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="LV Designer Shirt">
@@ -381,7 +420,6 @@
                     </div>
                     <h4>₹12000</h4>
                 </div>
-                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
                 <img src="https://images.pexels.com/photos/1620695/pexels-photo-1620695.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Kaloster Denim Jacket">
@@ -397,7 +435,6 @@
                     </div>
                     <h4>₹3500</h4>
                 </div>
-                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
                 <img src="https://images.pexels.com/photos/1240892/pexels-photo-1240892.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Lacoste Shorts">
@@ -413,7 +450,6 @@
                     </div>
                     <h4>₹2600</h4>
                 </div>
-                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>
             <div class="pro">
                 <img src="https://images.pexels.com/photos/914668/pexels-photo-914668.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop" alt="Gucci Desert Shirt">
@@ -429,8 +465,22 @@
                     </div>
                     <h4>₹26000</h4>
                 </div>
-                <!-- <a href="#"><i class="fas fa-shopping-cart cart"></i></a> -->
             </div>    
+        </div>
+    </section>
+
+    <!-- Contact Us Section with ID -->
+    <section id="contact-us" class="section-p1">
+        <div class="product-header">
+            <div class="product-title">
+                <h2>Contact Us</h2>
+                <p>We'd Love to Hear From You</p>
+            </div>
+        </div>
+        <div class="contact-content">
+            <p>Have questions about our products, need assistance with an order, or want to provide feedback? Our customer service team is here to help you.</p>
+            <p>Reach out to us via email at support@styleka.com or call us at (+91) - 8507566667 during our business hours (10:00 - 18:00, Mon - Sat).</p>
+            <p>You can also visit our physical store at Guru Nanak Dev University, Amritsar. We're always happy to assist you in person!</p>
         </div>
     </section>
 
@@ -498,11 +548,12 @@
 
         <div class="col">
             <h4>About</h4>
-            <a href="#">About us</a>
+            <!-- Updated footer links with correct href values -->
+            <a href="#about-us">About us</a>
             <a href="#">Delivery Information</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-            <a href="#">Contact us</a>
+            <a href="#privacy-policy">Privacy Policy</a>
+            <a href="#terms-conditions">Terms & Conditions</a>
+            <a href="#contact-us">Contact us</a>
         </div>
 
         <div class="col">
@@ -536,6 +587,44 @@
     </footer>
 
     <script src="script.js"></script>
+    
+    <!-- Smooth scrolling for older browsers -->
+    <script>
+        // Add smooth scrolling for browsers that don't support CSS scroll-behavior
+        if (!('scrollBehavior' in document.documentElement.style)) {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+        
+        // Handle page navigation when coming from other pages
+        window.addEventListener('load', function() {
+            if (window.location.hash) {
+                const targetElement = document.querySelector(window.location.hash);
+                if (targetElement) {
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }, 100);
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
